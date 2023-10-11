@@ -2742,11 +2742,11 @@
         "type": "file in",
         "z": "28ee04db56f2a03d",
         "name": "",
-        "filename": "{{msg.payload}}",
-        "filenameType": "str",
+        "filename": "payload",
+        "filenameType": "msg",
         "format": "",
         "allProps": false,
-        "x": 540,
+        "x": 520,
         "y": 480,
         "wires": [
             [
