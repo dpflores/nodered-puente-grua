@@ -2746,7 +2746,7 @@
         "filenameType": "msg",
         "format": "",
         "allProps": false,
-        "x": 520,
+        "x": 800,
         "y": 480,
         "wires": [
             [
@@ -3227,7 +3227,7 @@
         "y": 480,
         "wires": [
             [
-                "2fb1c354.d04e3c"
+                "86fec22b22ebe4d7"
             ]
         ]
     },
@@ -3257,6 +3257,26 @@
         "wires": [
             [
                 "1eeac06e7934a176"
+            ]
+        ]
+    },
+    {
+        "id": "86fec22b22ebe4d7",
+        "type": "function",
+        "z": "28ee04db56f2a03d",
+        "name": "plotly",
+        "func": "msg.payload = msg.payload + \"plotly.js\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 480,
+        "wires": [
+            [
+                "2fb1c354.d04e3c"
             ]
         ]
     },
