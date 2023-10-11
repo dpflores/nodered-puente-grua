@@ -2819,7 +2819,7 @@
         "order": 0,
         "width": 0,
         "height": 0,
-        "format": "<script src=\"http://127.0.0.1:1880/plotly\"></script>\n<script src=\"http://127.0.0.1:1880/hc0\"></script>\n<script src=\"http://127.0.0.1:1880/hc1\"></script>\n<script src=\"http://127.0.0.1:1880/hc2\"></script>\n<script src=\"http://127.0.0.1:1880/hc3\"></script>\n<script src=\"http://127.0.0.1:1880/hc4\"></script>\n<script src=\"http://127.0.0.1:1880/hc5\"></script>",
+        "format": "<script src=\"http://127.0.0.1:1880/plotly\"></script>\n<!-- <script src=\"http://127.0.0.1:1880/hc0\"></script> -->\n<script src=\"http://127.0.0.1:1880/hc1\"></script>\n<script src=\"http://127.0.0.1:1880/hc2\"></script>\n<script src=\"http://127.0.0.1:1880/hc3\"></script>\n<script src=\"http://127.0.0.1:1880/hc4\"></script>\n<script src=\"http://127.0.0.1:1880/hc5\"></script>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
