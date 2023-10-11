@@ -18,7 +18,7 @@
     {
         "id": "28ee04db56f2a03d",
         "type": "tab",
-        "label": "DASHBOARD",
+        "label": "DASHBOARD HEAD",
         "disabled": false,
         "info": "",
         "env": []
@@ -2459,7 +2459,28 @@
         "templateScope": "global",
         "className": "",
         "x": 240,
-        "y": 40,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "37c8c1e9c34acf79",
+        "type": "ui_template",
+        "z": "28ee04db56f2a03d",
+        "group": "0359ad7573d63126",
+        "name": "Highcharts headers",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "format": "<script src=\"https://code.highcharts.com/highcharts.js\"></script>\n<script src=\"https://code.highcharts.com/modules/series-label.js\"></script>\n<script src=\"https://code.highcharts.com/modules/exporting.js\"></script>\n<script src=\"https://code.highcharts.com/modules/export-data.js\"></script>\n<script src=\"https://code.highcharts.com/modules/accessibility.js\"></script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "global",
+        "className": "",
+        "x": 490,
+        "y": 120,
         "wires": [
             []
         ]
