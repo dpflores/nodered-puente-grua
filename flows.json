@@ -2714,8 +2714,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1490,
-        "y": 480,
+        "x": 1070,
+        "y": 620,
         "wires": [
             [
                 "88974243.7768c"
@@ -2729,8 +2729,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 1690,
-        "y": 480,
+        "x": 1270,
+        "y": 620,
         "wires": []
     },
     {
@@ -2751,51 +2751,6 @@
         ]
     },
     {
-        "id": "7135ebdde24d6083",
-        "type": "change",
-        "z": "28ee04db56f2a03d",
-        "name": "Set Headers",
-        "rules": [
-            {
-                "t": "set",
-                "p": "headers",
-                "pt": "msg",
-                "to": "{}",
-                "tot": "json"
-            },
-            {
-                "t": "set",
-                "p": "headers.content-type",
-                "pt": "msg",
-                "to": "text/html",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1510,
-        "y": 540,
-        "wires": [
-            [
-                "f6ef77c2a5ac306b"
-            ]
-        ]
-    },
-    {
-        "id": "f6ef77c2a5ac306b",
-        "type": "http response",
-        "z": "28ee04db56f2a03d",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 1690,
-        "y": 540,
-        "wires": []
-    },
-    {
         "id": "3d95be7c37dfb89d",
         "type": "http in",
         "z": "28ee04db56f2a03d",
@@ -2811,51 +2766,6 @@
                 "1eeac06e7934a176"
             ]
         ]
-    },
-    {
-        "id": "cc6539d1ea13faa2",
-        "type": "change",
-        "z": "28ee04db56f2a03d",
-        "name": "Set Headers",
-        "rules": [
-            {
-                "t": "set",
-                "p": "headers",
-                "pt": "msg",
-                "to": "{}",
-                "tot": "json"
-            },
-            {
-                "t": "set",
-                "p": "headers.content-type",
-                "pt": "msg",
-                "to": "text/html",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1510,
-        "y": 600,
-        "wires": [
-            [
-                "a44e57c93c71752f"
-            ]
-        ]
-    },
-    {
-        "id": "a44e57c93c71752f",
-        "type": "http response",
-        "z": "28ee04db56f2a03d",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 1690,
-        "y": 600,
-        "wires": []
     },
     {
         "id": "e42f84d58ca71cc6",
@@ -2875,51 +2785,6 @@
         ]
     },
     {
-        "id": "9e2337c4d3f7b764",
-        "type": "change",
-        "z": "28ee04db56f2a03d",
-        "name": "Set Headers",
-        "rules": [
-            {
-                "t": "set",
-                "p": "headers",
-                "pt": "msg",
-                "to": "{}",
-                "tot": "json"
-            },
-            {
-                "t": "set",
-                "p": "headers.content-type",
-                "pt": "msg",
-                "to": "text/html",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1510,
-        "y": 660,
-        "wires": [
-            [
-                "dc9594ada31886be"
-            ]
-        ]
-    },
-    {
-        "id": "dc9594ada31886be",
-        "type": "http response",
-        "z": "28ee04db56f2a03d",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 1690,
-        "y": 660,
-        "wires": []
-    },
-    {
         "id": "386b1dfabdf0be61",
         "type": "http in",
         "z": "28ee04db56f2a03d",
@@ -2937,51 +2802,6 @@
         ]
     },
     {
-        "id": "f342c29e33f43e83",
-        "type": "change",
-        "z": "28ee04db56f2a03d",
-        "name": "Set Headers",
-        "rules": [
-            {
-                "t": "set",
-                "p": "headers",
-                "pt": "msg",
-                "to": "{}",
-                "tot": "json"
-            },
-            {
-                "t": "set",
-                "p": "headers.content-type",
-                "pt": "msg",
-                "to": "text/html",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1510,
-        "y": 720,
-        "wires": [
-            [
-                "05b8e23f6e10be09"
-            ]
-        ]
-    },
-    {
-        "id": "05b8e23f6e10be09",
-        "type": "http response",
-        "z": "28ee04db56f2a03d",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 1690,
-        "y": 720,
-        "wires": []
-    },
-    {
         "id": "7e15ab9b648cb744",
         "type": "http in",
         "z": "28ee04db56f2a03d",
@@ -2997,51 +2817,6 @@
                 "1eeac06e7934a176"
             ]
         ]
-    },
-    {
-        "id": "fb5a3d7a3d5def18",
-        "type": "change",
-        "z": "28ee04db56f2a03d",
-        "name": "Set Headers",
-        "rules": [
-            {
-                "t": "set",
-                "p": "headers",
-                "pt": "msg",
-                "to": "{}",
-                "tot": "json"
-            },
-            {
-                "t": "set",
-                "p": "headers.content-type",
-                "pt": "msg",
-                "to": "text/html",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1510,
-        "y": 780,
-        "wires": [
-            [
-                "7f4077943920d915"
-            ]
-        ]
-    },
-    {
-        "id": "7f4077943920d915",
-        "type": "http response",
-        "z": "28ee04db56f2a03d",
-        "name": "",
-        "statusCode": "",
-        "headers": {},
-        "x": 1690,
-        "y": 780,
-        "wires": []
     },
     {
         "id": "2a74adc81742c746",
