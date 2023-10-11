@@ -2715,7 +2715,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 180,
-        "y": 540,
+        "y": 620,
         "wires": [
             [
                 "1eeac06e7934a176"
@@ -2732,7 +2732,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 180,
-        "y": 600,
+        "y": 660,
         "wires": [
             [
                 "1eeac06e7934a176"
@@ -2749,7 +2749,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 180,
-        "y": 660,
+        "y": 720,
         "wires": [
             [
                 "1eeac06e7934a176"
@@ -2766,7 +2766,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 180,
-        "y": 720,
+        "y": 780,
         "wires": [
             [
                 "1eeac06e7934a176"
@@ -2783,7 +2783,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 180,
-        "y": 780,
+        "y": 840,
         "wires": [
             [
                 "1eeac06e7934a176"
@@ -2811,7 +2811,8 @@
                 "042e52694c124d06",
                 "5645a0aa3b6a48ac",
                 "eb033cb4c01b9e0b",
-                "0f77eeeb6e2c639e"
+                "0f77eeeb6e2c639e",
+                "4a800663715b5b56"
             ]
         ]
     },
@@ -2828,7 +2829,7 @@
         "finalize": "",
         "libs": [],
         "x": 620,
-        "y": 480,
+        "y": 440,
         "wires": [
             [
                 "2fb1c354.d04e3c"
@@ -2844,7 +2845,7 @@
         "order": 0,
         "width": 0,
         "height": 0,
-        "format": "<script src=\"http://161.132.39.167:12081/plotly\"></script>\n<script src=\"http://161.132.39.167:12081/hc1\"></script>\n<script src=\"http://161.132.39.167:12081/hc2\"></script>\n<script src=\"http://161.132.39.167:12081/hc3\"></script>\n<script src=\"http://161.132.39.167:12081/hc4\"></script>\n<script src=\"http://161.132.39.167:12081/hc5\"></script>",
+        "format": "<script src=\"http://161.132.39.167:12081/plotly\"></script>\n<script src=\"http://161.132.39.167:12081/hc0\"></script>\n<script src=\"http://161.132.39.167:12081/hc1\"></script>\n<script src=\"http://161.132.39.167:12081/hc2\"></script>\n<script src=\"http://161.132.39.167:12081/hc3\"></script>\n<script src=\"http://161.132.39.167:12081/hc4\"></script>\n<script src=\"http://161.132.39.167:12081/hc5\"></script>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
@@ -2971,6 +2972,43 @@
         "libs": [],
         "x": 620,
         "y": 800,
+        "wires": [
+            [
+                "2fb1c354.d04e3c"
+            ]
+        ]
+    },
+    {
+        "id": "a548e0b76ef90c1e",
+        "type": "http in",
+        "z": "28ee04db56f2a03d",
+        "name": "",
+        "url": "/hc0",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 560,
+        "wires": [
+            [
+                "1eeac06e7934a176"
+            ]
+        ]
+    },
+    {
+        "id": "4a800663715b5b56",
+        "type": "function",
+        "z": "28ee04db56f2a03d",
+        "name": "hc.js",
+        "func": "msg.payload = msg.payload + \"hc.js\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 500,
         "wires": [
             [
                 "2fb1c354.d04e3c"
