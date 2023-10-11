@@ -5416,8 +5416,8 @@
         "id": "a896dc5f84367780",
         "type": "ui_template",
         "z": "e7bb50b21f9817d9",
-        "group": "0359ad7573d63126",
-        "name": "Logo and clock",
+        "group": "25bec14118d50672",
+        "name": "CHART",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -5425,9 +5425,9 @@
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
-        "templateScope": "global",
+        "templateScope": "local",
         "className": "",
-        "x": 420,
+        "x": 400,
         "y": 140,
         "wires": [
             []
