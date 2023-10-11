@@ -2447,7 +2447,7 @@
         "type": "ui_template",
         "z": "28ee04db56f2a03d",
         "group": "0359ad7573d63126",
-        "name": "",
+        "name": "Logo and clock",
         "order": 0,
         "width": 0,
         "height": 0,
@@ -2457,7 +2457,7 @@
         "resendOnRefresh": true,
         "templateScope": "global",
         "className": "",
-        "x": 220,
+        "x": 240,
         "y": 40,
         "wires": [
             []
