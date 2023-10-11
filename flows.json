@@ -5432,5 +5432,26 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "9609aa2ac806ae1b",
+        "type": "ui_template",
+        "z": "e7bb50b21f9817d9",
+        "group": "25bec14118d50672",
+        "name": "CHART2",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "format": "<div id=\"ejemplo\"></div>\n\n<style>\n    #ejemplo {\n        width: 650px;\n        height: 430px;\n    }\n</style>\n\n<script>\n    // Para obtener el nombre del mes en lugar del número, puedes usar un array de nombres de meses\nvar nombresMeses = [\n\"Enero\",\n\"Febrero\",\n\"Marzo\",\n\"Abril\",\n\"Mayo\",\n\"Junio\",\n\"Julio\",\n\"Agosto\",\n\"Septiembre\",\n\"Octubre\",\n\"Noviembre\",\n\"Diciembre\"\n];\n\nfunction generateTrace(hours, month, fInit, fEnd, state, sw){\n\n  if (state == \"init\"){ var colorT = 'rgba(216,217,219,0.8)'; var colorB='rgba(98,106,106,1)'}\n  if (state == \"positivo\"){ var colorT = 'rgba(14,18,113,0.8)'; var colorB = 'rgba(14,18,113,1)';}\n  if (state == \"negativo\"){ var colorT = 'rgba(0,148,206,0.8)'; var colorB = 'rgba(0,148,206,1)';}\n  //if (state =='Mantenimiento'){ var colorT = 'rgba(255,20,51,0.8)'; var colorB = 'rgba(255,20,51,1)';}\n\n  var trace = {\n    x: [hours],\n    y: [month],\n    name: state,\n    orientation: 'h',\n    marker:{\n    color: colorT,\n    width: 1,\n    line: {\n    color: colorB,\n    width: 2\n    }\n    },\n    type: 'bar',\n    showlegend: sw,\n    text: ['<br><b>Inicio</b>:'+fInit + '<br><b>Fin</b>:' +fEnd],\n    hovertemplate: '<b>'+state +'</b>'+'<br>'+'<br>'+ '<b>Horas</b>: %{x:.2f}' +\n    '<br>%{text}' +'<extra></extra>'\n  }\n\n  return trace;\n}\n\n\nfunction convertISOToReadableDateTime(isoDate) {\nconst date = new Date(isoDate);\nconst options = {\nmonth: 'long',\nday: 'numeric',\nhour: 'numeric',\nminute: 'numeric'\n};\nconst formatter = new Intl.DateTimeFormat('es-ES', options);\nconst formattedDateTime = formatter.format(date);\n\nreturn formattedDateTime;\n}\n\n\n// Update data & layout\n(function(scope) {\n  scope.$watch('msg', function(msg) {\n    if (msg) {\n\n      //Initialize chart\n      const fecha = new Date();\n      const mesActual = 9 //fecha.getMonth() + 1;\n      var mes_init = nombresMeses[mesActual];\n      //traceInitM = generateTrace(0.0001, mes_init, '000/00/00 00:00', '0000/00/00 00:00', 'Mantenimiento',true)//'2022/11/24 10:50:16'\n      traceInitUE = generateTrace(0.0001, mes_init, '000/00/00 00:00', '0000/00/00 00:00', 'positivo', true)\n      traceInitNU = generateTrace(0.0001, mes_init, '000/00/00 00:00', '0000/00/00 00:00', 'negativo', true)\n      traceInitUC = generateTrace(0.0001, mes_init, '000/00/00 00:00', '0000/00/00 00:00', 'init', true)\n      var data = [traceInitUE, traceInitUC, traceInitNU];//,traceInitM];\n      var layout = {\n      //title:'Prueba Komatsu. Esperando data ...',\n      xaxis: {\n        title: {\n        text: 'Horas (h)',\n        }\n      },\n      showlegend: true,\n      legend: {orientation: 'v'}\n      };\n      \n      Plotly.newPlot('ejemplo', data, layout);\n\n    var data_final =msg.payload;\n    \n    for(i=0;i<data_final.length;i++){\n\n\n      traceAdd = generateTrace(data_final[i].horas,data_final[i].mes, convertISOToReadableDateTime(data_final[i][\"fecha_inicio\"]), convertISOToReadableDateTime(data_final[i][\"fecha_fin\"]), data_final[i].estado,false);\n      data.push(traceAdd);\n    }\n    \n    \n    var layout = {\n    //title: 'FRECUENCIA DE USO MENSUAL',\n    barmode: 'stack',\n    xaxis: {\n      title: {\n        text: 'Horas (h)',\n      }\n    },\n    showlegend:true,\n    legend: {orientation: \"v\"},\n    hovermode: \"closest\",\n    hoverlabel: {\n      align: \"left\",\n      bordercolor: \"#000\",\n      font:{\n        color: \"#000\",\n        family: \"Times New Roman\",\n        size:15\n      }\n    },\n    config: {responsive: true}\n    //hoverlabel: { bgcolor: \"#FFF\" }\n    };\n\n    Plotly.newPlot('ejemplo', data, layout, { displayModeBar: false }, { staticPlot: true }, { displaylogo: false },)\n    }\n  });\n})(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 380,
+        "y": 200,
+        "wires": [
+            []
+        ]
     }
 ]
