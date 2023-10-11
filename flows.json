@@ -2455,10 +2455,10 @@
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
-        "templateScope": "local",
+        "templateScope": "global",
         "className": "",
-        "x": 120,
-        "y": 300,
+        "x": 220,
+        "y": 40,
         "wires": [
             []
         ]
