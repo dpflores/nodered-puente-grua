@@ -2488,7 +2488,7 @@
         "templateScope": "global",
         "className": "",
         "x": 570,
-        "y": 160,
+        "y": 140,
         "wires": [
             []
         ]
@@ -2497,7 +2497,6 @@
         "id": "f8248c544656c01b",
         "type": "ui_template",
         "z": "28ee04db56f2a03d",
-        "d": true,
         "group": "0359ad7573d63126",
         "name": "Plotly headers",
         "order": 0,
@@ -2509,8 +2508,8 @@
         "resendOnRefresh": true,
         "templateScope": "global",
         "className": "",
-        "x": 860,
-        "y": 120,
+        "x": 560,
+        "y": 300,
         "wires": [
             []
         ]
@@ -2537,11 +2536,12 @@
         "payload": "",
         "payloadType": "date",
         "x": 370,
-        "y": 200,
+        "y": 220,
         "wires": [
             [
                 "37c8c1e9c34acf79",
-                "ffb0cebaadbf616e"
+                "ffb0cebaadbf616e",
+                "f8248c544656c01b"
             ]
         ]
     },
