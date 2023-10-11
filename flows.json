@@ -2639,7 +2639,7 @@
         "y": 480,
         "wires": [
             [
-                "1eeac06e7934a176"
+                "ac302133121e110d"
             ]
         ]
     },
@@ -2717,9 +2717,7 @@
         "x": 180,
         "y": 620,
         "wires": [
-            [
-                "1eeac06e7934a176"
-            ]
+            []
         ]
     },
     {
@@ -2734,9 +2732,7 @@
         "x": 180,
         "y": 660,
         "wires": [
-            [
-                "1eeac06e7934a176"
-            ]
+            []
         ]
     },
     {
@@ -2751,9 +2747,7 @@
         "x": 180,
         "y": 720,
         "wires": [
-            [
-                "1eeac06e7934a176"
-            ]
+            []
         ]
     },
     {
@@ -2768,9 +2762,7 @@
         "x": 180,
         "y": 780,
         "wires": [
-            [
-                "1eeac06e7934a176"
-            ]
+            []
         ]
     },
     {
@@ -2785,35 +2777,7 @@
         "x": 180,
         "y": 840,
         "wires": [
-            [
-                "1eeac06e7934a176"
-            ]
-        ]
-    },
-    {
-        "id": "1eeac06e7934a176",
-        "type": "function",
-        "z": "28ee04db56f2a03d",
-        "name": "function 104",
-        "func": "let headers_directory = \"/home/del/headers/\";\nmsg.payload = headers_directory;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 410,
-        "y": 620,
-        "wires": [
-            [
-                "86fec22b22ebe4d7",
-                "3948cba1a65a8d73",
-                "042e52694c124d06",
-                "5645a0aa3b6a48ac",
-                "eb033cb4c01b9e0b",
-                "0f77eeeb6e2c639e",
-                "4a800663715b5b56"
-            ]
+            []
         ]
     },
     {
@@ -2990,9 +2954,7 @@
         "x": 180,
         "y": 560,
         "wires": [
-            [
-                "1eeac06e7934a176"
-            ]
+            []
         ]
     },
     {
@@ -3386,6 +3348,26 @@
         "x": 1210,
         "y": 800,
         "wires": []
+    },
+    {
+        "id": "ac302133121e110d",
+        "type": "function",
+        "z": "28ee04db56f2a03d",
+        "name": "function 105",
+        "func": "let headers_directory = \"/home/del/headers/\";\nmsg.payload = headers_directory;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 460,
+        "wires": [
+            [
+                "86fec22b22ebe4d7"
+            ]
+        ]
     },
     {
         "id": "d660d717a9bffefc",
