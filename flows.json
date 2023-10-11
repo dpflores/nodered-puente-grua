@@ -69,7 +69,9 @@
             "ab7d8e0de922c171"
         ],
         "x": 94,
-        "y": 119
+        "y": 119,
+        "w": 632,
+        "h": 262
     },
     {
         "id": "6b7c1f4fbbe77c84",
@@ -90,7 +92,9 @@
             "aa1c36cde09fb4f4"
         ],
         "x": 94,
-        "y": 959
+        "y": 959,
+        "w": 752,
+        "h": 162
     },
     {
         "id": "65c598bb5234d69b",
@@ -111,7 +115,9 @@
             "c2403b842567b383"
         ],
         "x": 84,
-        "y": 419
+        "y": 419,
+        "w": 742,
+        "h": 182
     },
     {
         "id": "a5bc3a1930f09c8f",
@@ -136,7 +142,9 @@
             "124808048f0bda31"
         ],
         "x": 84,
-        "y": 639
+        "y": 639,
+        "w": 1142,
+        "h": 262
     },
     {
         "id": "39ddbe85a72ee0b3",
@@ -205,7 +213,9 @@
             "c75c61cf2dd42916"
         ],
         "x": 54,
-        "y": 2199
+        "y": 2199,
+        "w": 1612,
+        "h": 342
     },
     {
         "id": "24d00d6b1a472a12",
@@ -232,7 +242,9 @@
             "4512bff38c8cd675"
         ],
         "x": 54,
-        "y": 1199
+        "y": 1199,
+        "w": 1712,
+        "h": 202
     },
     {
         "id": "1a0d550707f8cc4f",
@@ -251,7 +263,9 @@
             "75f7fd59086311fd"
         ],
         "x": 54,
-        "y": 1939
+        "y": 1939,
+        "w": 792,
+        "h": 202
     },
     {
         "id": "f3d20ca83e6edb3b",
@@ -270,7 +284,9 @@
             "e89cfe106f7515fa"
         ],
         "x": 54,
-        "y": 1739
+        "y": 1739,
+        "w": 932,
+        "h": 142
     },
     {
         "id": "1d1b1c227a0bc262",
@@ -286,7 +302,9 @@
             "0c617771a3bf80f9"
         ],
         "x": 54,
-        "y": 2659
+        "y": 2659,
+        "w": 572,
+        "h": 82
     },
     {
         "id": "a6e52991c91f4c94",
@@ -307,7 +325,9 @@
             "d6f35d0e35000628"
         ],
         "x": 94,
-        "y": 1479
+        "y": 1479,
+        "w": 1152,
+        "h": 122
     },
     {
         "id": "8d53d2f17df7fbc4",
@@ -2374,7 +2394,7 @@
         "z": "d91ac3d282c069d0",
         "g": "a6e52991c91f4c94",
         "name": "csv",
-        "func": "function arrayToCSV(data) {\n    // Verificar si el array de datos está vacío\n    if (data.length === 0) {\n        return '';\n    }\n\n    // Obtener las claves del primer objeto JSON para los encabezados de columna\n    const keys = Object.keys(data[0]);\n\n    // Construir los encabezados de columna\n    const headerRow = keys.join(',');\n\n    // Construir filas del CSV\n    const csvRows = [];\n    csvRows.push(headerRow);\n\n    for (const obj of data) {\n        const values = keys.map(key => obj[key]);\n        const csvRow = values.join(',');\n        csvRows.push(csvRow);\n    }\n\n    // Unir todas las filas con saltos de línea\n    return csvRows.join('\\n');\n}\n// Convertir el array de objetos JSON a una cadena CSV\nconst csvString = arrayToCSV(msg.payload);\nmsg.payload = csvString;\n\n\nreturn msg;",
+        "func": "function arrayToCSV(data) {\n    // Verificar si el array de datos está vacío\n    if (data.length === 0) {\n        return '';\n    }\n\n    // Obtener las claves del primer objeto JSON para los encabezados de columna\n    const keys = Object.keys(data[0]);\n\n    // Construir los encabezados de columna\n    const headerRow = keys.join(',');\n\n    // Construir filas del CSV\n    const csvRows = [];\n    csvRows.push(headerRow);\n\n    for (const obj of data) {\n        const values = keys.map(key => obj[key]);\n        const csvRow = values.join(',');\n        csvRows.push(csvRow);\n    }\n\n    // Unir todas las filas con saltos de línea\n    return csvRows.join('\\n');\n}\n// Convertir el array de objetos JSON a una cadena CSV\nconst csvString = arrayToCSV(msg.payload);\nmsg.payload = csvString;\nmsg.descarga = 1;\n\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -2399,7 +2419,7 @@
         "order": 11,
         "width": 0,
         "height": 0,
-        "format": "<div id=\"descarga_csv\"></div>\n<script>\n\n\nfunction downloadCSV(csv, filename) {  \n    var csvFile;  \n    var downloadLink;  \n    \n    //define the file type to text/csv  \n    csvFile = new Blob([csv], {type: 'text/csv'});  \n    downloadLink = document.createElement(\"a\");  \n    downloadLink.download = filename;  \n    downloadLink.href = window.URL.createObjectURL(csvFile);  \n    downloadLink.style.display = \"none\";  \n  \n    document.body.appendChild(downloadLink);  \n    downloadLink.click();  \n    document.body.removeChild(downloadLink);\n\n}\n\n\n\n// Update data & layout\n(function(scope) {\n  scope.$watch('msg', function(msg) {\n      csv = msg.payload;\n      downloadCSV(csv, msg.filename);\n  });\n})(scope);\n</script>\n\n",
+        "format": "<div id=\"descarga_csv\"></div>\n<script>\n\n\nfunction downloadCSV(csv, filename) {  \n    var csvFile;  \n    var downloadLink;  \n    \n    //define the file type to text/csv  \n    csvFile = new Blob([csv], {type: 'text/csv'});  \n    downloadLink = document.createElement(\"a\");  \n    downloadLink.download = filename;  \n    downloadLink.href = window.URL.createObjectURL(csvFile);  \n    downloadLink.style.display = \"none\";  \n  \n    document.body.appendChild(downloadLink);  \n    downloadLink.click();  \n    document.body.removeChild(downloadLink);\n\n}\n\n\n\n// Update data & layout\n(function(scope) {\n  scope.$watch('msg', function(msg) {\n      if (msg.descarga){\n        csv = msg.payload;\n        downloadCSV(csv, msg.filename);\n      }\n  });\n})(scope);\n</script>\n\n",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": false,
