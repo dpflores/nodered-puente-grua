@@ -2717,7 +2717,9 @@
         "x": 180,
         "y": 620,
         "wires": [
-            []
+            [
+                "8205dda2c57f5823"
+            ]
         ]
     },
     {
@@ -2732,7 +2734,9 @@
         "x": 180,
         "y": 660,
         "wires": [
-            []
+            [
+                "66864dd03d936b28"
+            ]
         ]
     },
     {
@@ -2747,7 +2751,9 @@
         "x": 180,
         "y": 720,
         "wires": [
-            []
+            [
+                "e45deb41f9df0f6c"
+            ]
         ]
     },
     {
@@ -2762,7 +2768,9 @@
         "x": 180,
         "y": 780,
         "wires": [
-            []
+            [
+                "6160ae745c4b4f7b"
+            ]
         ]
     },
     {
@@ -2777,7 +2785,9 @@
         "x": 180,
         "y": 840,
         "wires": [
-            []
+            [
+                "1c610b18ecd24cab"
+            ]
         ]
     },
     {
@@ -2954,7 +2964,9 @@
         "x": 180,
         "y": 560,
         "wires": [
-            []
+            [
+                "b6bbd3b4cfbb30f4"
+            ]
         ]
     },
     {
@@ -3366,6 +3378,126 @@
         "wires": [
             [
                 "86fec22b22ebe4d7"
+            ]
+        ]
+    },
+    {
+        "id": "b6bbd3b4cfbb30f4",
+        "type": "function",
+        "z": "28ee04db56f2a03d",
+        "name": "function 106",
+        "func": "let headers_directory = \"/home/del/headers/\";\nmsg.payload = headers_directory;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 540,
+        "wires": [
+            [
+                "4a800663715b5b56"
+            ]
+        ]
+    },
+    {
+        "id": "8205dda2c57f5823",
+        "type": "function",
+        "z": "28ee04db56f2a03d",
+        "name": "function 107",
+        "func": "let headers_directory = \"/home/del/headers/\";\nmsg.payload = headers_directory;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 580,
+        "wires": [
+            [
+                "042e52694c124d06"
+            ]
+        ]
+    },
+    {
+        "id": "66864dd03d936b28",
+        "type": "function",
+        "z": "28ee04db56f2a03d",
+        "name": "function 108",
+        "func": "let headers_directory = \"/home/del/headers/\";\nmsg.payload = headers_directory;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 620,
+        "wires": [
+            [
+                "3948cba1a65a8d73"
+            ]
+        ]
+    },
+    {
+        "id": "e45deb41f9df0f6c",
+        "type": "function",
+        "z": "28ee04db56f2a03d",
+        "name": "function 109",
+        "func": "let headers_directory = \"/home/del/headers/\";\nmsg.payload = headers_directory;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 660,
+        "wires": [
+            [
+                "5645a0aa3b6a48ac"
+            ]
+        ]
+    },
+    {
+        "id": "6160ae745c4b4f7b",
+        "type": "function",
+        "z": "28ee04db56f2a03d",
+        "name": "function 110",
+        "func": "let headers_directory = \"/home/del/headers/\";\nmsg.payload = headers_directory;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 760,
+        "wires": [
+            [
+                "eb033cb4c01b9e0b"
+            ]
+        ]
+    },
+    {
+        "id": "1c610b18ecd24cab",
+        "type": "function",
+        "z": "28ee04db56f2a03d",
+        "name": "function 111",
+        "func": "let headers_directory = \"/home/del/headers/\";\nmsg.payload = headers_directory;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 800,
+        "wires": [
+            [
+                "0f77eeeb6e2c639e"
             ]
         ]
     },
