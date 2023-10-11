@@ -2627,33 +2627,6 @@
         ]
     },
     {
-        "id": "5b24b0aa66ff6996",
-        "type": "inject",
-        "z": "28ee04db56f2a03d",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 370,
-        "y": 220,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "c7e341a0.381cc",
         "type": "http in",
         "z": "28ee04db56f2a03d",
@@ -2683,8 +2656,7 @@
         "y": 620,
         "wires": [
             [
-                "c9e28681.361d78",
-                "2a74adc81742c746"
+                "c9e28681.361d78"
             ]
         ]
     },
@@ -2819,22 +2791,6 @@
         ]
     },
     {
-        "id": "2a74adc81742c746",
-        "type": "debug",
-        "z": "28ee04db56f2a03d",
-        "name": "debug 149",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1090,
-        "y": 420,
-        "wires": []
-    },
-    {
         "id": "1eeac06e7934a176",
         "type": "function",
         "z": "28ee04db56f2a03d",
@@ -2894,8 +2850,8 @@
         "resendOnRefresh": true,
         "templateScope": "global",
         "className": "",
-        "x": 590,
-        "y": 180,
+        "x": 470,
+        "y": 280,
         "wires": [
             []
         ]
@@ -2915,8 +2871,8 @@
         "resendOnRefresh": true,
         "templateScope": "global",
         "className": "",
-        "x": 920,
-        "y": 180,
+        "x": 800,
+        "y": 280,
         "wires": [
             []
         ]
