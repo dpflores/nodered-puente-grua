@@ -19,7 +19,7 @@
         "id": "28ee04db56f2a03d",
         "type": "tab",
         "label": "DASHBOARD HEAD",
-        "disabled": true,
+        "disabled": false,
         "info": "",
         "env": []
     },
