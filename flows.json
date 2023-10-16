@@ -4035,7 +4035,7 @@
         "order": 1,
         "width": 26,
         "height": 12,
-        "format": "<!-- <div ng-bind-html=\"msg.payload\"></div> -->\n\n\n<div>Hols</div>",
+        "format": "<!-- <div ng-bind-html=\"msg.payload\"></div> -->\n\n<style>\n    .container {\n        border: 5px outset red;\n        background-color: lightblue;\n        text-align: center;\n    }\n</style>\n\n<div class=\"container\">Hols</div>",
         "storeOutMessages": true,
         "fwdInMessages": true,
         "resendOnRefresh": true,
