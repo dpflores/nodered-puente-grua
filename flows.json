@@ -4027,22 +4027,43 @@
         ]
     },
     {
-        "id": "ed36f61bcb038465",
-        "type": "ui_template",
+        "id": "e73b2e27b018880c",
+        "type": "http in",
         "z": "e7bb50b21f9817d9",
-        "group": "25bec14118d50672",
         "name": "",
-        "order": 1,
-        "width": 26,
-        "height": 18,
-        "format": "<!-- <div ng-bind-html=\"msg.payload\"></div> -->\n\n<style>\n    .container {\n        border: 5px outset red;\n        background-color: lightblue;\n        text-align: center;\n        width: 90%;\n        height: 90%;\n    }\n</style>\n\n<div class=\"container\">Hols</div>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "local",
-        "className": "",
-        "x": 520,
-        "y": 240,
+        "url": "/frequency",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 260,
+        "y": 180,
+        "wires": [
+            [
+                "c03f6a9ca41d74b5"
+            ]
+        ]
+    },
+    {
+        "id": "c03f6a9ca41d74b5",
+        "type": "change",
+        "z": "e7bb50b21f9817d9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"hours\":1,\"month\":11,\"fInit\":1698076766890,\"fEnd\":1698076866890,\"state\":\"positivo\",\"sw\":true}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 480,
+        "y": 180,
         "wires": [
             []
         ]
