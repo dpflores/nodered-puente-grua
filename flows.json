@@ -4053,7 +4053,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "[{\"hours\":1,\"month\":\"Noviembre\",\"fInit\":1698076766890,\"fEnd\":1698076866890,\"state\":\"positivo\",\"sw\":true}]",
+                "to": "[{\"hours\":1,\"month\":\"Noviembre\",\"fInit\":1698076766890,\"fEnd\":1698076866890,\"state\":\"positivo\",\"sw\":true},{\"hours\":1,\"month\":\"Noviembre\",\"fInit\":1698076866890,\"fEnd\":1698076966890,\"state\":\"negativo\",\"sw\":true}]",
                 "tot": "json"
             }
         ],
