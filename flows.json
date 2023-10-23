@@ -4065,8 +4065,23 @@
         "x": 480,
         "y": 180,
         "wires": [
-            []
+            [
+                "5bd242acd662cc38"
+            ]
         ]
+    },
+    {
+        "id": "5bd242acd662cc38",
+        "type": "http response",
+        "z": "e7bb50b21f9817d9",
+        "name": "",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 720,
+        "y": 180,
+        "wires": []
     },
     {
         "id": "e2e8f2bc2a0fa59e",
