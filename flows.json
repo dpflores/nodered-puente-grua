@@ -1618,7 +1618,7 @@
         "id": "02237d5e1f5440a8",
         "type": "exec",
         "z": "2b38db8948a44852",
-        "command": "",
+        "command": "echo pwd",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
@@ -1626,12 +1626,30 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 370,
+        "x": 380,
         "y": 200,
         "wires": [
-            [],
+            [
+                "b5c9ce605d1a80c1"
+            ],
             [],
             []
         ]
+    },
+    {
+        "id": "b5c9ce605d1a80c1",
+        "type": "debug",
+        "z": "2b38db8948a44852",
+        "name": "debug 123",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 180,
+        "wires": []
     }
 ]
