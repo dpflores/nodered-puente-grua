@@ -4130,6 +4130,123 @@
         ]
     },
     {
+        "id": "d63a203ca9c66e6e",
+        "type": "inject",
+        "z": "e7bb50b21f9817d9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 450,
+        "y": 40,
+        "wires": [
+            [
+                "f57de3850e730edc"
+            ]
+        ]
+    },
+    {
+        "id": "f57de3850e730edc",
+        "type": "change",
+        "z": "e7bb50b21f9817d9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "realtime",
+                "pt": "global",
+                "to": "{\"array1\":[],\"array2\":[]}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 650,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ee8416594914b1d3",
+        "type": "inject",
+        "z": "e7bb50b21f9817d9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 450,
+        "y": 100,
+        "wires": [
+            [
+                "b5536d9a51afc3d1"
+            ]
+        ]
+    },
+    {
+        "id": "b5536d9a51afc3d1",
+        "type": "function",
+        "z": "e7bb50b21f9817d9",
+        "name": "function 113",
+        "func": "var array1 = global.get(\"realtime\");\n\nfunction getRandomArbitrary(min, max) {\n  return Math.random() * (max - min) + min;\n}\n\narray1.push([msg.payload, getRandomArbitrary(0,10) ])\n\nmsg.payload = array1\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cc7e6743b0ab3689",
+        "type": "debug",
+        "z": "e7bb50b21f9817d9",
+        "name": "debug 126",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 100,
+        "wires": []
+    },
+    {
         "id": "e2e8f2bc2a0fa59e",
         "type": "debug",
         "z": "87fe75fba6b00d60",
