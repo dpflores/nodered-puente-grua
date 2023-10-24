@@ -1618,7 +1618,7 @@
         "id": "02237d5e1f5440a8",
         "type": "exec",
         "z": "2b38db8948a44852",
-        "command": "echo pwd",
+        "command": "pwd",
         "addpay": "",
         "append": "",
         "useSpawn": "false",
@@ -1626,7 +1626,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 380,
+        "x": 370,
         "y": 200,
         "wires": [
             [
