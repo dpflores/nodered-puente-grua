@@ -4217,7 +4217,7 @@
         "type": "function",
         "z": "e7bb50b21f9817d9",
         "name": "function 113",
-        "func": "var array1 = global.get(\"realtime\");\n\nfunction getRandomArbitrary(min, max) {\n  return Math.random() * (max - min) + min;\n}\n\narray1.push([msg.payload, getRandomArbitrary(0,10) ])\n\nmsg.payload = array1\nreturn msg;",
+        "func": "var globlal = global.get(\"realtime\");\n\nfunction getRandomArbitrary(min, max) {\n  return Math.random() * (max - min) + min;\n}\n\nglobal.array1.push([msg.payload, getRandomArbitrary(0,10) ])\n\nmsg.payload = global.array1;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
