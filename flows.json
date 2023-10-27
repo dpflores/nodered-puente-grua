@@ -4568,7 +4568,7 @@
         "type": "function",
         "z": "e7bb50b21f9817d9",
         "name": "function 119",
-        "func": "const arraySize = 12;\nconst minValue = 0;\nconst maxValue = 100;\n\nfunction randomNumber(minValue, maxValue){\nvar number = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;\nreturn number;\n}\n\nmsg.payload = {\n  \"rm9000\":{\"x_axis\":randomNumber(0,10), \"y_axis\":randomNumber(0,10)},\n  \"carga_grua\":{\"carga1\":randomNumber(0,10), \"carga2\":randomNumber(0,10)}\n};\n\nreturn msg;",
+        "func": "const arraySize = 12;\nconst minValue = 0;\nconst maxValue = 100;\n\nfunction randomNumber(minValue, maxValue){\nvar number = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;\nreturn number;\n}\n\nmsg.payload = {\n  \"rm9000\":{\"x_axis\":randomNumber(0,75), \"y_axis\":randomNumber(0,38)},\n  \"carga_grua\":{\"carga1\":randomNumber(0,10), \"carga2\":randomNumber(0,10)}\n};\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
