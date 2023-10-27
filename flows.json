@@ -4722,7 +4722,7 @@
                 "t": "set",
                 "p": "hourmeter",
                 "pt": "global",
-                "to": "{\"minutes\":[],\"hours\":[]}",
+                "to": "{\"minutes\":0,\"hours\":0}",
                 "tot": "json"
             }
         ],
