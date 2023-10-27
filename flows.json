@@ -4350,6 +4350,73 @@
         "wires": []
     },
     {
+        "id": "682bdf5582de9d02",
+        "type": "http in",
+        "z": "e7bb50b21f9817d9",
+        "name": "",
+        "url": "/bell2",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 280,
+        "y": 660,
+        "wires": [
+            [
+                "03bbdf2057806ba3"
+            ]
+        ]
+    },
+    {
+        "id": "12e57e71b2488dec",
+        "type": "http response",
+        "z": "e7bb50b21f9817d9",
+        "name": "",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 760,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "03bbdf2057806ba3",
+        "type": "function",
+        "z": "e7bb50b21f9817d9",
+        "name": "function 116",
+        "func": "const arraySize = 13;\nconst minValue = 0;\nconst maxValue = 100;\nconst randomArray = [];\n\nfor (let i = 0; i < arraySize; i++) {\n  const randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;\n  randomArray.push(randomNumber);\n}\n\nmsg.payload = randomArray;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 660,
+        "wires": [
+            [
+                "12e57e71b2488dec",
+                "7b339c567e8441dd"
+            ]
+        ]
+    },
+    {
+        "id": "7b339c567e8441dd",
+        "type": "debug",
+        "z": "e7bb50b21f9817d9",
+        "name": "debug 128",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 720,
+        "wires": []
+    },
+    {
         "id": "e2e8f2bc2a0fa59e",
         "type": "debug",
         "z": "87fe75fba6b00d60",
