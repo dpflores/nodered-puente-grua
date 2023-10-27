@@ -4250,31 +4250,6 @@
         ]
     },
     {
-        "id": "505169593b6bc27a",
-        "type": "change",
-        "z": "e7bb50b21f9817d9",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{\"array1\":[14,54,23,42,53,65,98,65,76,45,34,14],\"array2\":[24,24,43,52,63,15,38,45,76,55,44,24]}",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 600,
-        "y": 340,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "9caf72f87b320984",
         "type": "http response",
         "z": "e7bb50b21f9817d9",
@@ -4299,11 +4274,61 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 590,
-        "y": 400,
+        "x": 610,
+        "y": 360,
         "wires": [
             [
                 "9caf72f87b320984"
+            ]
+        ]
+    },
+    {
+        "id": "52c2cb9693ac4315",
+        "type": "http in",
+        "z": "e7bb50b21f9817d9",
+        "name": "",
+        "url": "/bell1",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 340,
+        "y": 420,
+        "wires": [
+            [
+                "6c45b6dbd3c497d5"
+            ]
+        ]
+    },
+    {
+        "id": "f9f172d16da434b7",
+        "type": "http response",
+        "z": "e7bb50b21f9817d9",
+        "name": "",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 820,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "6c45b6dbd3c497d5",
+        "type": "function",
+        "z": "e7bb50b21f9817d9",
+        "name": "function 115",
+        "func": "const arraySize = 12;\nconst minValue = 0;\nconst maxValue = 100;\nconst randomArray = [];\n\nfor (let i = 0; i < arraySize; i++) {\n  const randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;\n  randomArray.push(randomNumber);\n}\n\nmsg.payload = randomArray;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 420,
+        "wires": [
+            [
+                "f9f172d16da434b7"
             ]
         ]
     },
