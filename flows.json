@@ -4221,7 +4221,7 @@
         "type": "debug",
         "z": "e7bb50b21f9817d9",
         "name": "debug 126",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4338,7 +4338,7 @@
         "type": "debug",
         "z": "e7bb50b21f9817d9",
         "name": "debug 127",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4405,7 +4405,7 @@
         "type": "debug",
         "z": "e7bb50b21f9817d9",
         "name": "debug 128",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4415,6 +4415,106 @@
         "x": 750,
         "y": 720,
         "wires": []
+    },
+    {
+        "id": "49f52441f42eccd2",
+        "type": "http in",
+        "z": "e7bb50b21f9817d9",
+        "name": "",
+        "url": "/barchart1",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 280,
+        "y": 920,
+        "wires": [
+            [
+                "677de558c06a0b18"
+            ]
+        ]
+    },
+    {
+        "id": "b545aee89207cac3",
+        "type": "http response",
+        "z": "e7bb50b21f9817d9",
+        "name": "",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 780,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "677de558c06a0b18",
+        "type": "function",
+        "z": "e7bb50b21f9817d9",
+        "name": "function 117",
+        "func": "const arraySize = 12;\nconst minValue = 0;\nconst maxValue = 100;\nconst randomArray = [];\n\nfor (let i = 0; i < arraySize; i++) {\n  const randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;\n  randomArray.push(randomNumber);\n}\n\nmsg.payload = randomArray;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 920,
+        "wires": [
+            [
+                "b545aee89207cac3"
+            ]
+        ]
+    },
+    {
+        "id": "7d960e9b97cf7cd3",
+        "type": "http in",
+        "z": "e7bb50b21f9817d9",
+        "name": "",
+        "url": "/barchart2",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 280,
+        "y": 1000,
+        "wires": [
+            [
+                "80854ceec67839a4"
+            ]
+        ]
+    },
+    {
+        "id": "43f7966f19088fba",
+        "type": "http response",
+        "z": "e7bb50b21f9817d9",
+        "name": "",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 780,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "80854ceec67839a4",
+        "type": "function",
+        "z": "e7bb50b21f9817d9",
+        "name": "function 118",
+        "func": "const arraySize = 12;\nconst minValue = 0;\nconst maxValue = 100;\nconst randomArray = [];\n\nfor (let i = 0; i < arraySize; i++) {\n  const randomNumber = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;\n  randomArray.push(randomNumber);\n}\n\nmsg.payload = randomArray;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 1000,
+        "wires": [
+            [
+                "43f7966f19088fba"
+            ]
+        ]
     },
     {
         "id": "e2e8f2bc2a0fa59e",
