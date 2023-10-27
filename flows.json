@@ -4542,8 +4542,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 220,
-        "y": 1160,
+        "x": 260,
+        "y": 1180,
         "wires": [
             [
                 "4f05fe2fdcb38e8f"
@@ -4559,8 +4559,8 @@
         "headers": {
             "content-type": "application/json"
         },
-        "x": 720,
-        "y": 1160,
+        "x": 760,
+        "y": 1180,
         "wires": []
     },
     {
@@ -4575,11 +4575,61 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 510,
-        "y": 1160,
+        "x": 550,
+        "y": 1180,
         "wires": [
             [
                 "e210b8f5e615bd0e"
+            ]
+        ]
+    },
+    {
+        "id": "082af9c899d4d959",
+        "type": "http in",
+        "z": "e7bb50b21f9817d9",
+        "name": "",
+        "url": "/hourmeter",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 260,
+        "y": 1300,
+        "wires": [
+            [
+                "33abe1ce5bfb652b"
+            ]
+        ]
+    },
+    {
+        "id": "d897bca3f8fd5b79",
+        "type": "http response",
+        "z": "e7bb50b21f9817d9",
+        "name": "",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 760,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "33abe1ce5bfb652b",
+        "type": "function",
+        "z": "e7bb50b21f9817d9",
+        "name": "function 120",
+        "func": "const arraySize = 12;\nconst minValue = 0;\nconst maxValue = 100;\n\nfunction randomNumber(minValue, maxValue){\nvar number = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;\nreturn number;\n}\n\nmsg.payload = {\n  \"hours\":10,\n  \"minutes\":25\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 1300,
+        "wires": [
+            [
+                "d897bca3f8fd5b79"
             ]
         ]
     },
