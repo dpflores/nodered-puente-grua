@@ -4593,7 +4593,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 260,
-        "y": 1300,
+        "y": 1380,
         "wires": [
             [
                 "33abe1ce5bfb652b"
@@ -4610,7 +4610,7 @@
             "content-type": "application/json"
         },
         "x": 760,
-        "y": 1300,
+        "y": 1380,
         "wires": []
     },
     {
@@ -4618,7 +4618,7 @@
         "type": "function",
         "z": "e7bb50b21f9817d9",
         "name": "function 120",
-        "func": "const arraySize = 12;\nconst minValue = 0;\nconst maxValue = 100;\n\nfunction randomNumber(minValue, maxValue){\nvar number = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;\nreturn number;\n}\n\nmsg.payload = {\n  \"hours\":10,\n  \"minutes\":25\n};\n\nreturn msg;",
+        "func": "var hourmeter = global.get(\"hourmeter\");\n\n\nmsg.payload = hourmeter;\n\nhourmeter.minutes += 1;\nif (hourmeter.minutes >=60){\n  hourmeter.minutes = 0;\n  hourmeter.hours += 1;\n}\n\n\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -4626,7 +4626,7 @@
         "finalize": "",
         "libs": [],
         "x": 550,
-        "y": 1300,
+        "y": 1380,
         "wires": [
             [
                 "d897bca3f8fd5b79"
@@ -4643,7 +4643,7 @@
         "upload": false,
         "swaggerDoc": "",
         "x": 260,
-        "y": 1240,
+        "y": 1120,
         "wires": [
             [
                 "f7116aa1b4a33b66"
@@ -4660,7 +4660,7 @@
             "content-type": "application/json"
         },
         "x": 760,
-        "y": 1240,
+        "y": 1120,
         "wires": []
     },
     {
@@ -4676,11 +4676,65 @@
         "finalize": "",
         "libs": [],
         "x": 550,
-        "y": 1240,
+        "y": 1120,
         "wires": [
             [
                 "3752576055a02af3"
             ]
+        ]
+    },
+    {
+        "id": "698dd709fe455cbe",
+        "type": "inject",
+        "z": "e7bb50b21f9817d9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 350,
+        "y": 1280,
+        "wires": [
+            [
+                "2907737b107aa45c"
+            ]
+        ]
+    },
+    {
+        "id": "2907737b107aa45c",
+        "type": "change",
+        "z": "e7bb50b21f9817d9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "hourmeter",
+                "pt": "global",
+                "to": "{\"minutes\":[],\"hours\":[]}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 1280,
+        "wires": [
+            []
         ]
     },
     {
