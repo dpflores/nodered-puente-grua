@@ -85,7 +85,9 @@
             "ab7d8e0de922c171"
         ],
         "x": 94,
-        "y": 119
+        "y": 119,
+        "w": 632,
+        "h": 262
     },
     {
         "id": "6b7c1f4fbbe77c84",
@@ -106,7 +108,9 @@
             "aa1c36cde09fb4f4"
         ],
         "x": 94,
-        "y": 959
+        "y": 959,
+        "w": 752,
+        "h": 162
     },
     {
         "id": "65c598bb5234d69b",
@@ -127,7 +131,9 @@
             "c2403b842567b383"
         ],
         "x": 84,
-        "y": 419
+        "y": 419,
+        "w": 742,
+        "h": 182
     },
     {
         "id": "a5bc3a1930f09c8f",
@@ -152,7 +158,9 @@
             "124808048f0bda31"
         ],
         "x": 84,
-        "y": 639
+        "y": 639,
+        "w": 1142,
+        "h": 262
     },
     {
         "id": "39ddbe85a72ee0b3",
@@ -174,9 +182,7 @@
             "47371280d37afc93"
         ],
         "x": 74,
-        "y": 79,
-        "w": 1212,
-        "h": 242
+        "y": 79
     },
     {
         "id": "b7f9bad1da3f666b",
@@ -197,9 +203,7 @@
             "227c7884566505e1"
         ],
         "x": 54,
-        "y": 359,
-        "w": 1072,
-        "h": 182
+        "y": 359
     },
     {
         "id": "f2e2e6faa602b3b4",
@@ -225,7 +229,9 @@
             "c75c61cf2dd42916"
         ],
         "x": 54,
-        "y": 2199
+        "y": 2199,
+        "w": 1612,
+        "h": 342
     },
     {
         "id": "24d00d6b1a472a12",
@@ -252,7 +258,9 @@
             "4512bff38c8cd675"
         ],
         "x": 54,
-        "y": 1199
+        "y": 1199,
+        "w": 1712,
+        "h": 202
     },
     {
         "id": "1a0d550707f8cc4f",
@@ -271,7 +279,9 @@
             "75f7fd59086311fd"
         ],
         "x": 54,
-        "y": 1939
+        "y": 1939,
+        "w": 792,
+        "h": 202
     },
     {
         "id": "f3d20ca83e6edb3b",
@@ -290,7 +300,9 @@
             "e89cfe106f7515fa"
         ],
         "x": 54,
-        "y": 1739
+        "y": 1739,
+        "w": 932,
+        "h": 142
     },
     {
         "id": "1d1b1c227a0bc262",
@@ -306,7 +318,9 @@
             "0c617771a3bf80f9"
         ],
         "x": 54,
-        "y": 2659
+        "y": 2659,
+        "w": 572,
+        "h": 82
     },
     {
         "id": "a6e52991c91f4c94",
@@ -326,7 +340,9 @@
             "e349b59a54266dfb"
         ],
         "x": 54,
-        "y": 1479
+        "y": 1479,
+        "w": 1152,
+        "h": 82
     },
     {
         "id": "8d53d2f17df7fbc4",
@@ -4736,6 +4752,182 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "a4aa6c2b9dd43c0c",
+        "type": "http in",
+        "z": "e7bb50b21f9817d9",
+        "name": "",
+        "url": "/heat1",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 300,
+        "y": 1660,
+        "wires": [
+            [
+                "e49164c21b2a0a80"
+            ]
+        ]
+    },
+    {
+        "id": "974c1fcd555cb916",
+        "type": "http response",
+        "z": "e7bb50b21f9817d9",
+        "name": "",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 800,
+        "y": 1660,
+        "wires": []
+    },
+    {
+        "id": "e49164c21b2a0a80",
+        "type": "change",
+        "z": "e7bb50b21f9817d9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "heat1",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 1700,
+        "wires": [
+            [
+                "974c1fcd555cb916"
+            ]
+        ]
+    },
+    {
+        "id": "0c42f0aba4a22599",
+        "type": "inject",
+        "z": "e7bb50b21f9817d9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 310,
+        "y": 1540,
+        "wires": [
+            [
+                "1de45e1ea62c8639"
+            ]
+        ]
+    },
+    {
+        "id": "1de45e1ea62c8639",
+        "type": "change",
+        "z": "e7bb50b21f9817d9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "heat1",
+                "pt": "global",
+                "to": "[]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 1540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bb52086734897313",
+        "type": "inject",
+        "z": "e7bb50b21f9817d9",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 330,
+        "y": 1880,
+        "wires": [
+            [
+                "b2f9910713ba5191"
+            ]
+        ]
+    },
+    {
+        "id": "b2f9910713ba5191",
+        "type": "function",
+        "z": "e7bb50b21f9817d9",
+        "name": "function 104",
+        "func": "var heat_array = global.get(\"heat1\")\n\nfunction getRandomNumber(min=0, max=500) {\n  return Math.floor(Math.random() * (max - min + 1)) + min;\n}\n\nconst new_value = { \"g\": getRandomNumber(), \"l\": getRandomNumber(), \"tmp\":getRandomNumber(0,300)};\n\nheat_array.push(new_value);\n\nglobal.set(\"heat1\", heat_array);\n\nmsg.payload = heat_array;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 1880,
+        "wires": [
+            [
+                "bab758c0d3d2376e"
+            ]
+        ]
+    },
+    {
+        "id": "bab758c0d3d2376e",
+        "type": "debug",
+        "z": "e7bb50b21f9817d9",
+        "name": "debug 128",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 1880,
+        "wires": []
     },
     {
         "id": "e2e8f2bc2a0fa59e",
