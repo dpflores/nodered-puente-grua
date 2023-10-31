@@ -3238,6 +3238,7 @@
         "id": "45822acf90a8bdd3",
         "type": "http in",
         "z": "12b6281657f0f653",
+        "d": true,
         "name": "",
         "url": "/hourmeter",
         "method": "get",
@@ -3255,6 +3256,7 @@
         "id": "ce40d9db692bee8a",
         "type": "http response",
         "z": "12b6281657f0f653",
+        "d": true,
         "name": "",
         "statusCode": "200",
         "headers": {
@@ -3268,6 +3270,7 @@
         "id": "45fb59add5ae2e58",
         "type": "function",
         "z": "12b6281657f0f653",
+        "d": true,
         "name": "function 123",
         "func": "var hourmeter = global.get(\"hourmeter\");\n\nfunction decimalHoursToHoursAndMinutes(decimalHours) {\n  const hours = Math.floor(decimalHours);\n  const minutes = Math.round((decimalHours - hours) * 60);\n  return { hours, minutes };\n}\n\n\n\n\nmsg.payload = decimalHoursToHoursAndMinutes(hourmeter.total);\n\n\nreturn msg;",
         "outputs": 1,
@@ -3289,6 +3292,7 @@
         "id": "8062610a9d29681f",
         "type": "debug",
         "z": "12b6281657f0f653",
+        "d": true,
         "name": "debug 163",
         "active": true,
         "tosidebar": true,
@@ -3305,6 +3309,7 @@
         "id": "14d993cd66d8acbc",
         "type": "inject",
         "z": "12b6281657f0f653",
+        "d": true,
         "name": "",
         "props": [
             {
@@ -3334,6 +3339,7 @@
         "id": "8691a2e33293c113",
         "type": "change",
         "z": "12b6281657f0f653",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -3359,6 +3365,7 @@
         "id": "540c5e936dbbfaaf",
         "type": "inject",
         "z": "12b6281657f0f653",
+        "d": true,
         "name": "",
         "props": [
             {
@@ -3382,6 +3389,110 @@
             [
                 "45fb59add5ae2e58"
             ]
+        ]
+    },
+    {
+        "id": "7751d33be3325498",
+        "type": "http in",
+        "z": "12b6281657f0f653",
+        "name": "",
+        "url": "/hourmeter",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 440,
+        "y": 1660,
+        "wires": [
+            [
+                "13665e27d3554675"
+            ]
+        ]
+    },
+    {
+        "id": "cd9e6f4c9a49f2a3",
+        "type": "http response",
+        "z": "12b6281657f0f653",
+        "name": "",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 940,
+        "y": 1660,
+        "wires": []
+    },
+    {
+        "id": "13665e27d3554675",
+        "type": "function",
+        "z": "12b6281657f0f653",
+        "name": "function 124",
+        "func": "var hourmeter = global.get(\"hourmeter\");\n\n\nmsg.payload = hourmeter;\n\nhourmeter.minutes += 1;\nif (hourmeter.minutes >=60){\n  hourmeter.minutes = 0;\n  hourmeter.hours += 1;\n}\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 1660,
+        "wires": [
+            [
+                "cd9e6f4c9a49f2a3"
+            ]
+        ]
+    },
+    {
+        "id": "369f04d2cf0c811c",
+        "type": "inject",
+        "z": "12b6281657f0f653",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 530,
+        "y": 1560,
+        "wires": [
+            [
+                "18fda71ed532483c"
+            ]
+        ]
+    },
+    {
+        "id": "18fda71ed532483c",
+        "type": "change",
+        "z": "12b6281657f0f653",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "hourmeter",
+                "pt": "global",
+                "to": "{\"minutes\":0,\"hours\":0}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 1560,
+        "wires": [
+            []
         ]
     },
     {
