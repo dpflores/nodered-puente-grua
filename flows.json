@@ -3180,7 +3180,7 @@
         "z": "12b6281657f0f653",
         "g": "2491dc44ba7072d1",
         "name": "debug 161",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -3217,7 +3217,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "hourmeter",
+                "p": "hourmeter.total",
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
@@ -3228,7 +3228,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1860,
+        "x": 1870,
         "y": 640,
         "wires": [
             []
@@ -3269,7 +3269,7 @@
         "type": "function",
         "z": "12b6281657f0f653",
         "name": "function 123",
-        "func": "var hourmeter = global.get(\"graphs\").hourmeter;\n\nhourmeter.minutes += 1;\nif (hourmeter.minutes >=60){\n  hourmeter.minutes = 0;\n  hourmeter.hours += 1;\n}\n\nmsg.payload = hourmeter;\n\n\n\n\n\nreturn msg;",
+        "func": "var hourmeter = global.get(\"graphs\");\n\nfunction decimalHoursToHoursAndMinutes(decimalHours) {\n  const hours = Math.floor(decimalHours);\n  const minutes = Math.round((decimalHours - hours) * 60);\n  return { hours, minutes };\n}\n\n\n\n\nmsg.payload = decimalHoursToHoursAndMinutes(hourmeter.total);\n\n\n\n\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -3340,7 +3340,7 @@
                 "t": "set",
                 "p": "hourmeter",
                 "pt": "global",
-                "to": "{\"minutes\":0,\"hours\":0}",
+                "to": "{\"total\":0, \"minutes\":0,\"hours\":0}",
                 "tot": "json"
             }
         ],
