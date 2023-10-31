@@ -349,7 +349,6 @@
             "label": true
         },
         "nodes": [
-            "acdf3f2e45c14da8",
             "b96aedb2c8faedf7",
             "f98abb4fe7a367b0",
             "7acb17b8b6747504",
@@ -357,10 +356,11 @@
             "50bf59d98eba1a53",
             "7da739b59da81a69",
             "3cf4ea1277d17c9b",
-            "5e9a1077c77c1127"
+            "5e9a1077c77c1127",
+            "5a470f467d6d46dc"
         ],
         "x": 874,
-        "y": 619,
+        "y": 579,
         "w": 992,
         "h": 262
     },
@@ -2693,23 +2693,6 @@
         ]
     },
     {
-        "id": "acdf3f2e45c14da8",
-        "type": "debug",
-        "z": "12b6281657f0f653",
-        "g": "2491dc44ba7072d1",
-        "name": "debug 156",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 970,
-        "y": 840,
-        "wires": []
-    },
-    {
         "id": "b96aedb2c8faedf7",
         "type": "function",
         "z": "12b6281657f0f653",
@@ -2741,7 +2724,7 @@
         "z": "12b6281657f0f653",
         "g": "2491dc44ba7072d1",
         "name": "obtenemos suma de horas útiles totales",
-        "func": "var array_in = msg.payload;\n\nlet sum = 0;\n\narray_in.forEach(element => {\n    sum += element.hours;\n});\nmsg.payload = sum;\n\nreturn msg;",
+        "func": "var array_in = msg.payload;\n\nlet sum = 0;\n\narray_in.forEach(element => {\n    sum += element.hours;\n});\n\nmsg.payload = sum;\n\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -2752,7 +2735,8 @@
         "y": 660,
         "wires": [
             [
-                "5e9a1077c77c1127"
+                "5e9a1077c77c1127",
+                "5a470f467d6d46dc"
             ]
         ]
     },
@@ -2805,7 +2789,7 @@
         "z": "12b6281657f0f653",
         "g": "2491dc44ba7072d1",
         "name": "debug 159",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -3062,7 +3046,7 @@
                 "t": "set",
                 "p": "graphs",
                 "pt": "global",
-                "to": "{\"array1\":[0,0,0,0,0,0,0,0,0,0,0,0],\"array2\":[0,0,0,0,0,0,0,0,0,0,0,0]}",
+                "to": "{\"array1\":[0,0,0,0,0,0,0,0,0,0,0,0],\"array2\":[0,0,0,0,0,0,0,0,0,0,0,0],\"hourmeter\":0}",
                 "tot": "json"
             }
         ],
@@ -3200,10 +3184,11 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "false",
+        "complete": "payload",
+        "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1710,
+        "x": 1750,
         "y": 660,
         "wires": []
     },
@@ -3222,6 +3207,32 @@
         "x": 850,
         "y": 1100,
         "wires": []
+    },
+    {
+        "id": "5a470f467d6d46dc",
+        "type": "change",
+        "z": "12b6281657f0f653",
+        "g": "2491dc44ba7072d1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "graphs.hourmeter",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1720,
+        "y": 620,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "e73b2e27b018880c",
