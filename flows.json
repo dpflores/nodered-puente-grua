@@ -341,31 +341,6 @@
         "h": 82
     },
     {
-        "id": "b3e051910f2a64ee",
-        "type": "group",
-        "z": "d91ac3d282c069d0",
-        "name": "Recuperar data local",
-        "style": {
-            "label": true,
-            "color": "#000000"
-        },
-        "nodes": [
-            "49948d8554edb4e3",
-            "70036d189377757b",
-            "5c36b7b82f2c640c",
-            "37c20ef96deec730",
-            "0229b3b86d408205",
-            "66ddce359e5ff10c",
-            "3d2a5f782bb82e23",
-            "2720a2dadf8be76f",
-            "64736f3117e82360"
-        ],
-        "x": 14,
-        "y": 2839,
-        "w": 1252,
-        "h": 202
-    },
-    {
         "id": "2491dc44ba7072d1",
         "type": "group",
         "z": "12b6281657f0f653",
@@ -383,8 +358,8 @@
             "7da739b59da81a69",
             "3cf4ea1277d17c9b"
         ],
-        "x": 134,
-        "y": 559,
+        "x": 874,
+        "y": 619,
         "w": 992,
         "h": 262
     },
@@ -2716,294 +2691,6 @@
         ]
     },
     {
-        "id": "681741c33cbc66ab",
-        "type": "function",
-        "z": "d91ac3d282c069d0",
-        "name": "Preprocesamiento para frecuencia mensual",
-        "func": "var array_in = msg.payload;\nvar array_out = [];\n\nvar count = 0; // Cambié el inicio de count a 0\nvar current_state = \"\";\nvar prev_state = \"\";\nvar current_date = 0;\n\nfor (var i = 0; i < array_in.length; i++) {\n    current_state = array_in[i].data.sensor_estado.state;\n    current_date = array_in[i].timestamp;\n\n    if (current_state != prev_state) {\n        // Crear un nuevo objeto en cada cambio de estado\n        array_out[count] = {\n            estado: current_state,\n            fecha_inicio: current_date,\n            fecha_fin: current_date\n        };\n        count++;\n    } else {\n        // Actualizar la fecha_fin del objeto anterior si el estado es el mismo\n        array_out[count - 1].fecha_fin = current_date;\n    }\n    prev_state = current_state;\n}\n\nmsg.payload = array_out;\nreturn msg;\n\n\n\n\n\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 990,
-        "y": 3100,
-        "wires": [
-            [
-                "ec97ae6ae39a6757"
-            ]
-        ]
-    },
-    {
-        "id": "ba54e166354bbdb3",
-        "type": "inject",
-        "z": "d91ac3d282c069d0",
-        "name": "Low rate",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "5",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 140,
-        "y": 3140,
-        "wires": [
-            [
-                "0f550d9133ad3c6f"
-            ]
-        ]
-    },
-    {
-        "id": "0f550d9133ad3c6f",
-        "type": "link out",
-        "z": "d91ac3d282c069d0",
-        "name": "low_ate",
-        "mode": "link",
-        "links": [],
-        "x": 305,
-        "y": 3140,
-        "wires": []
-    },
-    {
-        "id": "ec97ae6ae39a6757",
-        "type": "function",
-        "z": "d91ac3d282c069d0",
-        "name": "Añadiendo mes y horas",
-        "func": "var properties = global.get('properties');\n\n\nvar array_in = msg.payload;\nvar array_out = [];\n\nvar nombresMeses = properties.month_names;\n\n\nfor(var i=0;i<array_in.length;i++){\n    array_out[i] = array_in[i];\n    // Calcula la diferencia en milisegundos\n    const diferenciaEnMilisegundos = (array_in[i].fecha_fin - array_in[i].fecha_inicio); // Multiplicamos por 1000 para convertir a milisegundos\n\n    // Convierte la diferencia en milisegundos a horas\n    const horas = diferenciaEnMilisegundos / (60 * 60 * 1000); // 1 hora = 60 minutos * 60 segundos * 1000 milisegundos\n    array_out[i].horas = horas;\n\n\n    // MES\n    var date = new Date(array_in[i].fecha_inicio);\n    // Obtiene el número del mes (0 para enero, 1 para febrero, etc.)\n    var mes = date.getMonth();\n    array_out[i].mes = nombresMeses[mes];\n\n}\nreturn msg;\n\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1310,
-        "y": 3100,
-        "wires": [
-            [
-                "34ad96d6ce8ce8bd",
-                "ad4df472da4b072d"
-            ]
-        ]
-    },
-    {
-        "id": "34ad96d6ce8ce8bd",
-        "type": "debug",
-        "z": "d91ac3d282c069d0",
-        "name": "debug 157",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1610,
-        "y": 3160,
-        "wires": []
-    },
-    {
-        "id": "ad4df472da4b072d",
-        "type": "link out",
-        "z": "d91ac3d282c069d0",
-        "name": "state_stream",
-        "mode": "link",
-        "links": [
-            "4df296479cfd6ab5",
-            "d1cfb4774fe42b7f"
-        ],
-        "x": 1495,
-        "y": 3080,
-        "wires": []
-    },
-    {
-        "id": "49948d8554edb4e3",
-        "type": "mysql",
-        "z": "d91ac3d282c069d0",
-        "g": "b3e051910f2a64ee",
-        "mydb": "45598baf2af77f76",
-        "name": "",
-        "x": 420,
-        "y": 2940,
-        "wires": [
-            [
-                "5c36b7b82f2c640c",
-                "0229b3b86d408205"
-            ]
-        ]
-    },
-    {
-        "id": "70036d189377757b",
-        "type": "function",
-        "z": "d91ac3d282c069d0",
-        "g": "b3e051910f2a64ee",
-        "name": "",
-        "func": "var properties = global.get('properties');\n\n\nmsg.topic = \"SELECT data FROM \"+ properties.table_name +\"\";\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 280,
-        "y": 2940,
-        "wires": [
-            [
-                "49948d8554edb4e3"
-            ]
-        ]
-    },
-    {
-        "id": "5c36b7b82f2c640c",
-        "type": "debug",
-        "z": "d91ac3d282c069d0",
-        "g": "b3e051910f2a64ee",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 690,
-        "y": 2880,
-        "wires": []
-    },
-    {
-        "id": "37c20ef96deec730",
-        "type": "debug",
-        "z": "d91ac3d282c069d0",
-        "g": "b3e051910f2a64ee",
-        "name": "debug 119",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 1150,
-        "y": 2880,
-        "wires": []
-    },
-    {
-        "id": "0229b3b86d408205",
-        "type": "function",
-        "z": "d91ac3d282c069d0",
-        "g": "b3e051910f2a64ee",
-        "name": "Process to json array",
-        "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = JSON.parse(msg.payload[i].data);\n}\n\nmsg.payload = array_out;\n\nmsg.columns = Object.keys(msg.payload[0]).toString();\n\n\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 680,
-        "y": 2940,
-        "wires": [
-            [
-                "66ddce359e5ff10c",
-                "2720a2dadf8be76f",
-                "681741c33cbc66ab",
-                "64736f3117e82360"
-            ]
-        ]
-    },
-    {
-        "id": "66ddce359e5ff10c",
-        "type": "debug",
-        "z": "d91ac3d282c069d0",
-        "g": "b3e051910f2a64ee",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "columns",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 990,
-        "y": 2880,
-        "wires": []
-    },
-    {
-        "id": "3d2a5f782bb82e23",
-        "type": "inject",
-        "z": "d91ac3d282c069d0",
-        "g": "b3e051910f2a64ee",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 120,
-        "y": 2940,
-        "wires": [
-            [
-                "70036d189377757b"
-            ]
-        ]
-    },
-    {
-        "id": "2720a2dadf8be76f",
-        "type": "debug",
-        "z": "d91ac3d282c069d0",
-        "g": "b3e051910f2a64ee",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1090,
-        "y": 2980,
-        "wires": []
-    },
-    {
-        "id": "64736f3117e82360",
-        "type": "link out",
-        "z": "d91ac3d282c069d0",
-        "g": "b3e051910f2a64ee",
-        "name": "database_stream",
-        "mode": "link",
-        "links": [
-            "75dfe0f1550e370e",
-            "78f185d7e7b2cca7"
-        ],
-        "x": 885,
-        "y": 3000,
-        "wires": []
-    },
-    {
         "id": "acdf3f2e45c14da8",
         "type": "debug",
         "z": "12b6281657f0f653",
@@ -3016,8 +2703,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 230,
-        "y": 780,
+        "x": 970,
+        "y": 840,
         "wires": []
     },
     {
@@ -3033,8 +2720,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 280,
-        "y": 660,
+        "x": 1020,
+        "y": 720,
         "wires": [
             [
                 "f98abb4fe7a367b0",
@@ -3059,8 +2746,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 660,
-        "y": 600,
+        "x": 1400,
+        "y": 660,
         "wires": [
             []
         ]
@@ -3078,8 +2765,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 660,
-        "y": 640,
+        "x": 1400,
+        "y": 700,
         "wires": [
             [
                 "7da739b59da81a69"
@@ -3099,8 +2786,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
-        "y": 680,
+        "x": 1410,
+        "y": 740,
         "wires": [
             [
                 "50bf59d98eba1a53",
@@ -3121,8 +2808,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 950,
-        "y": 740,
+        "x": 1690,
+        "y": 800,
         "wires": []
     },
     {
@@ -3145,8 +2832,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 990,
-        "y": 640,
+        "x": 1730,
+        "y": 700,
         "wires": [
             []
         ]
@@ -3171,8 +2858,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 990,
-        "y": 680,
+        "x": 1730,
+        "y": 740,
         "wires": [
             []
         ]
@@ -3414,6 +3101,56 @@
         "wires": [
             [
                 "e148917b295d6dd2"
+            ]
+        ]
+    },
+    {
+        "id": "09432c578ffb84f4",
+        "type": "http in",
+        "z": "12b6281657f0f653",
+        "name": "",
+        "url": "/cumulatedfrequency",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 350,
+        "y": 1020,
+        "wires": [
+            [
+                "c7f8e0dcbe0f1683"
+            ]
+        ]
+    },
+    {
+        "id": "de6229a748b4171f",
+        "type": "http response",
+        "z": "12b6281657f0f653",
+        "name": "",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 820,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "c7f8e0dcbe0f1683",
+        "type": "function",
+        "z": "12b6281657f0f653",
+        "name": "function 122",
+        "func": "var data = global.get('graphs')\n\nmsg.payload = data;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 1020,
+        "wires": [
+            [
+                "de6229a748b4171f"
             ]
         ]
     },
