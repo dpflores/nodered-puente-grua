@@ -2715,7 +2715,7 @@
         "z": "12b6281657f0f653",
         "g": "2491dc44ba7072d1",
         "name": "filtramos array por estados",
-        "func": "var properties = global.get('properties');\n\nvar array_in = msg.payload;\nvar array_out = [];\nvar msg1 = {};\nvar msg2 = {};\n\n\nmsg.payload = array_in.filter(d => d.estado == properties.states[0]);\nmsg1.payload =array_in.filter(d => d.estado == properties.states[1]);\nmsg2.payload =array_in.filter(d => d.estado == properties.states[2]);\n\n\n// positivo, negativo, init\nreturn [msg, msg1, msg2];",
+        "func": "var properties = global.get('properties');\n\nvar array_in = msg.payload;\nvar array_out = [];\nvar msg1 = {};\nvar msg2 = {};\n\n\nmsg.payload = array_in.filter(d => d.state == properties.states[0]);\nmsg1.payload =array_in.filter(d => d.state == properties.states[1]);\nmsg2.payload =array_in.filter(d => d.state == properties.states[2]);\n\n\n// positivo, negativo, init\nreturn [msg, msg1, msg2];",
         "outputs": 3,
         "timeout": 0,
         "noerr": 0,
