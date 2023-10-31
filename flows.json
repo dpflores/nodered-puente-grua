@@ -27,7 +27,7 @@
         "id": "e7bb50b21f9817d9",
         "type": "tab",
         "label": "DASHBOARD TEST",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -405,12 +405,11 @@
             "3ec866512bb5ef80",
             "cec16d99a7a25b04",
             "9fa711b80817a5c5",
-            "ebe23663e71a27b3",
             "aed8a7f60e83516b"
         ],
-        "x": 14,
+        "x": 194,
         "y": 439,
-        "w": 1252,
+        "w": 1072,
         "h": 182
     },
     {
@@ -3219,7 +3218,8 @@
         "wires": [
             [
                 "b96aedb2c8faedf7",
-                "ed56023b701838bc"
+                "ed56023b701838bc",
+                "850fefbfc2e4e036"
             ]
         ]
     },
@@ -3335,36 +3335,6 @@
         "x": 990,
         "y": 480,
         "wires": []
-    },
-    {
-        "id": "ebe23663e71a27b3",
-        "type": "inject",
-        "z": "12b6281657f0f653",
-        "g": "4c1211b19890c008",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 120,
-        "y": 540,
-        "wires": [
-            [
-                "e148917b295d6dd2"
-            ]
-        ]
     },
     {
         "id": "aed8a7f60e83516b",
@@ -3524,6 +3494,63 @@
         "y": 180,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "e2641392d240c750",
+        "type": "change",
+        "z": "12b6281657f0f653",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[{\"hours\":1,\"month\":\"Octubre\",\"fInit\":1698076766890,\"fEnd\":1698076866890,\"state\":\"positivo\",\"sw\":true},{\"hours\":1,\"month\":\"Octubre\",\"fInit\":1698076866890,\"fEnd\":1698076966890,\"state\":\"negativo\",\"sw\":true},{\"hours\":1,\"month\":\"Octubre\",\"fInit\":1698076966890,\"fEnd\":1698077066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Octubre\",\"fInit\":1698076966890,\"fEnd\":1698077066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Octubre\",\"fInit\":1698076966890,\"fEnd\":1698077066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Octubre\",\"fInit\":1698076966890,\"fEnd\":1698077066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Octubre\",\"fInit\":1698076966890,\"fEnd\":1698077066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Noviembre\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Noviembre\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Noviembre\",\"fInit\":1698076966890,\"fEnd\":1698077066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Noviembre\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Noviembre\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Diciembre\",\"fInit\":1698076966890,\"fEnd\":1698077066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Diciembre\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Diciembre\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Diciembre\",\"fInit\":1698076966890,\"fEnd\":1698077066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Diciembre\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Diciembre\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Enero\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Enero\",\"fInit\":1698076966890,\"fEnd\":1698077066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Enero\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Enero\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Febrero\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"positivo\",\"sw\":true},{\"hours\":1,\"month\":\"Febrero\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"positivo\",\"sw\":true},{\"hours\":1,\"month\":\"Febrero\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"positivo\",\"sw\":true},{\"hours\":1,\"month\":\"Febrero\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"positivo\",\"sw\":true},{\"hours\":1,\"month\":\"Febrero\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"positivo\",\"sw\":true}]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 980,
+        "wires": [
+            [
+                "850fefbfc2e4e036"
+            ]
+        ]
+    },
+    {
+        "id": "850fefbfc2e4e036",
+        "type": "http response",
+        "z": "12b6281657f0f653",
+        "name": "",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 1020,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "fa1e23d60e897bfb",
+        "type": "http in",
+        "z": "12b6281657f0f653",
+        "name": "",
+        "url": "/frequency",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 120,
+        "y": 660,
+        "wires": [
+            [
+                "e148917b295d6dd2"
+            ]
         ]
     },
     {
