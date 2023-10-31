@@ -374,7 +374,6 @@
             "label": true
         },
         "nodes": [
-            "36d4796071d40346",
             "acdf3f2e45c14da8",
             "b96aedb2c8faedf7",
             "f98abb4fe7a367b0",
@@ -384,10 +383,10 @@
             "7da739b59da81a69",
             "3cf4ea1277d17c9b"
         ],
-        "x": 1254,
-        "y": 719,
+        "x": 134,
+        "y": 559,
         "w": 992,
-        "h": 322
+        "h": 262
     },
     {
         "id": "4c1211b19890c008",
@@ -401,16 +400,16 @@
         "nodes": [
             "cb41c12bc59dd4ef",
             "e148917b295d6dd2",
-            "1a3d2b49ca321ed6",
-            "3ec866512bb5ef80",
             "cec16d99a7a25b04",
-            "9fa711b80817a5c5",
-            "aed8a7f60e83516b"
+            "fa1e23d60e897bfb",
+            "561856b7fa69579b",
+            "8a611a2f49459cc9",
+            "850fefbfc2e4e036"
         ],
-        "x": 194,
-        "y": 439,
-        "w": 1072,
-        "h": 182
+        "x": 134,
+        "y": 379,
+        "w": 1632,
+        "h": 82
     },
     {
         "id": "8d53d2f17df7fbc4",
@@ -950,7 +949,8 @@
         "y": 560,
         "wires": [
             [
-                "6707de4e5568bf43"
+                "6707de4e5568bf43",
+                "9197ae96ecf6e751"
             ]
         ]
     },
@@ -1069,6 +1069,22 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "9197ae96ecf6e751",
+        "type": "debug",
+        "z": "0bd865dc83ec0d5a",
+        "name": "debug 160",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 700,
+        "wires": []
     },
     {
         "id": "d4c91e04aba283b0",
@@ -2985,28 +3001,6 @@
         "wires": []
     },
     {
-        "id": "36d4796071d40346",
-        "type": "ui_text",
-        "z": "12b6281657f0f653",
-        "g": "2491dc44ba7072d1",
-        "group": "bf980bdca4a87b7e",
-        "order": 26,
-        "width": 3,
-        "height": 1,
-        "name": "horometro",
-        "label": "Horómetro:",
-        "format": "",
-        "layout": "row-left",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": "",
-        "color": "#000000",
-        "x": 1410,
-        "y": 760,
-        "wires": []
-    },
-    {
         "id": "acdf3f2e45c14da8",
         "type": "debug",
         "z": "12b6281657f0f653",
@@ -3019,8 +3013,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1350,
-        "y": 1000,
+        "x": 230,
+        "y": 780,
         "wires": []
     },
     {
@@ -3036,8 +3030,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1400,
-        "y": 880,
+        "x": 280,
+        "y": 660,
         "wires": [
             [
                 "f98abb4fe7a367b0",
@@ -3062,8 +3056,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1780,
-        "y": 820,
+        "x": 660,
+        "y": 600,
         "wires": [
             []
         ]
@@ -3081,8 +3075,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1780,
-        "y": 860,
+        "x": 660,
+        "y": 640,
         "wires": [
             [
                 "7da739b59da81a69"
@@ -3102,8 +3096,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1790,
-        "y": 900,
+        "x": 670,
+        "y": 680,
         "wires": [
             [
                 "50bf59d98eba1a53",
@@ -3124,8 +3118,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 2070,
-        "y": 960,
+        "x": 950,
+        "y": 740,
         "wires": []
     },
     {
@@ -3148,8 +3142,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2110,
-        "y": 860,
+        "x": 990,
+        "y": 640,
         "wires": [
             []
         ]
@@ -3174,8 +3168,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 2110,
-        "y": 900,
+        "x": 990,
+        "y": 680,
         "wires": [
             []
         ]
@@ -3184,6 +3178,7 @@
         "id": "561856b7fa69579b",
         "type": "function",
         "z": "12b6281657f0f653",
+        "g": "4c1211b19890c008",
         "name": "Preprocesamiento para frecuencia mensual",
         "func": "var array_in = msg.payload;\nvar array_out = [];\n\nvar count = 0; // Cambié el inicio de count a 0\nvar current_state = \"\";\nvar prev_state = \"\";\nvar current_date = 0;\n\nfor (var i = 0; i < array_in.length; i++) {\n    current_state = array_in[i].state;\n    current_date = array_in[i].timestamp;\n\n    if (current_state != prev_state) {\n        // Crear un nuevo objeto en cada cambio de estado\n        array_out[count] = {\n            state: current_state,\n            fInit: current_date,\n            fEnd: current_date\n        };\n        count++;\n    } else {\n        // Actualizar la fecha_fin del objeto anterior si el estado es el mismo\n        array_out[count - 1].fEnd = current_date;\n    }\n    prev_state = current_state;\n}\n\nmsg.payload = array_out;\nreturn msg;\n\n\n\n\n\n",
         "outputs": 1,
@@ -3192,12 +3187,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
-        "y": 700,
+        "x": 1110,
+        "y": 420,
         "wires": [
             [
-                "8a611a2f49459cc9",
-                "fb658c3b32872a32"
+                "8a611a2f49459cc9"
             ]
         ]
     },
@@ -3205,6 +3199,7 @@
         "id": "8a611a2f49459cc9",
         "type": "function",
         "z": "12b6281657f0f653",
+        "g": "4c1211b19890c008",
         "name": "Añadiendo mes y horas",
         "func": "var properties = global.get('properties');\n\n\nvar array_in = msg.payload;\nvar array_out = [];\n\nvar nombresMeses = properties.month_names;\n\n\nfor(var i=0;i<array_in.length;i++){\n    array_out[i] = array_in[i];\n    // Calcula la diferencia en milisegundos\n    const diferenciaEnMilisegundos = (array_in[i].fEnd - array_in[i].fInit); // Multiplicamos por 1000 para convertir a milisegundos\n\n    // Convierte la diferencia en milisegundos a horas\n    const horas = diferenciaEnMilisegundos / (60 * 60 * 1000); // 1 hora = 60 minutos * 60 segundos * 1000 milisegundos\n    array_out[i].hours = horas;\n\n    // MES\n    var date = new Date(array_in[i].fInit);\n    // Obtiene el número del mes (0 para enero, 1 para febrero, etc.)\n    var mes = date.getMonth();\n    array_out[i].month = nombresMeses[mes];\n\n}\n\nreturn msg;\n\n",
         "outputs": 1,
@@ -3213,12 +3208,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 790,
-        "y": 840,
+        "x": 1450,
+        "y": 420,
         "wires": [
             [
                 "b96aedb2c8faedf7",
-                "ed56023b701838bc",
                 "850fefbfc2e4e036"
             ]
         ]
@@ -3230,11 +3224,10 @@
         "g": "4c1211b19890c008",
         "mydb": "45598baf2af77f76",
         "name": "",
-        "x": 420,
-        "y": 540,
+        "x": 540,
+        "y": 420,
         "wires": [
             [
-                "1a3d2b49ca321ed6",
                 "cec16d99a7a25b04"
             ]
         ]
@@ -3252,48 +3245,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 280,
-        "y": 540,
+        "x": 400,
+        "y": 420,
         "wires": [
             [
                 "cb41c12bc59dd4ef"
             ]
         ]
-    },
-    {
-        "id": "1a3d2b49ca321ed6",
-        "type": "debug",
-        "z": "12b6281657f0f653",
-        "g": "4c1211b19890c008",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 690,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "3ec866512bb5ef80",
-        "type": "debug",
-        "z": "12b6281657f0f653",
-        "g": "4c1211b19890c008",
-        "name": "debug 160",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 1150,
-        "y": 480,
-        "wires": []
     },
     {
         "id": "cec16d99a7a25b04",
@@ -3308,68 +3266,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 660,
-        "y": 540,
+        "x": 780,
+        "y": 420,
         "wires": [
             [
-                "561856b7fa69579b",
-                "9fa711b80817a5c5",
-                "aed8a7f60e83516b"
+                "561856b7fa69579b"
             ]
         ]
-    },
-    {
-        "id": "9fa711b80817a5c5",
-        "type": "debug",
-        "z": "12b6281657f0f653",
-        "g": "4c1211b19890c008",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "columns",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 990,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "aed8a7f60e83516b",
-        "type": "debug",
-        "z": "12b6281657f0f653",
-        "g": "4c1211b19890c008",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1090,
-        "y": 580,
-        "wires": []
-    },
-    {
-        "id": "ed56023b701838bc",
-        "type": "debug",
-        "z": "12b6281657f0f653",
-        "name": "debug 161",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1130,
-        "y": 760,
-        "wires": []
     },
     {
         "id": "1dd14c02f2393c01",
@@ -3426,23 +3329,6 @@
         ]
     },
     {
-        "id": "fb658c3b32872a32",
-        "type": "debug",
-        "z": "12b6281657f0f653",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1110,
-        "y": 700,
-        "wires": []
-    },
-    {
         "id": "f3614f0385ccc827",
         "type": "inject",
         "z": "12b6281657f0f653",
@@ -3497,56 +3383,31 @@
         ]
     },
     {
-        "id": "e2641392d240c750",
-        "type": "change",
-        "z": "12b6281657f0f653",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "[{\"hours\":1,\"month\":\"Octubre\",\"fInit\":1698076766890,\"fEnd\":1698076866890,\"state\":\"positivo\",\"sw\":true},{\"hours\":1,\"month\":\"Octubre\",\"fInit\":1698076866890,\"fEnd\":1698076966890,\"state\":\"negativo\",\"sw\":true},{\"hours\":1,\"month\":\"Octubre\",\"fInit\":1698076966890,\"fEnd\":1698077066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Octubre\",\"fInit\":1698076966890,\"fEnd\":1698077066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Octubre\",\"fInit\":1698076966890,\"fEnd\":1698077066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Octubre\",\"fInit\":1698076966890,\"fEnd\":1698077066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Octubre\",\"fInit\":1698076966890,\"fEnd\":1698077066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Noviembre\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Noviembre\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Noviembre\",\"fInit\":1698076966890,\"fEnd\":1698077066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Noviembre\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Noviembre\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Diciembre\",\"fInit\":1698076966890,\"fEnd\":1698077066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Diciembre\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Diciembre\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Diciembre\",\"fInit\":1698076966890,\"fEnd\":1698077066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Diciembre\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Diciembre\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Enero\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Enero\",\"fInit\":1698076966890,\"fEnd\":1698077066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Enero\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Enero\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"init\",\"sw\":true},{\"hours\":1,\"month\":\"Febrero\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"positivo\",\"sw\":true},{\"hours\":1,\"month\":\"Febrero\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"positivo\",\"sw\":true},{\"hours\":1,\"month\":\"Febrero\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"positivo\",\"sw\":true},{\"hours\":1,\"month\":\"Febrero\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"positivo\",\"sw\":true},{\"hours\":1,\"month\":\"Febrero\",\"fInit\":1698077066890,\"fEnd\":1698078066890,\"state\":\"positivo\",\"sw\":true}]",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 720,
-        "y": 980,
-        "wires": [
-            [
-                "850fefbfc2e4e036"
-            ]
-        ]
-    },
-    {
         "id": "850fefbfc2e4e036",
         "type": "http response",
         "z": "12b6281657f0f653",
+        "g": "4c1211b19890c008",
         "name": "",
         "statusCode": "200",
         "headers": {
             "content-type": "application/json"
         },
-        "x": 1020,
-        "y": 980,
+        "x": 1680,
+        "y": 420,
         "wires": []
     },
     {
         "id": "fa1e23d60e897bfb",
         "type": "http in",
         "z": "12b6281657f0f653",
+        "g": "4c1211b19890c008",
         "name": "",
         "url": "/frequency",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 120,
-        "y": 660,
+        "x": 240,
+        "y": 420,
         "wires": [
             [
                 "e148917b295d6dd2"
