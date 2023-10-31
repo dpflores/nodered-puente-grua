@@ -654,8 +654,7 @@
                 "56cdadc6c4e658a8",
                 "0d0085b9ae9c524c",
                 "39cbc9153cb96df7",
-                "76e65c6efcafe950",
-                "7d8b5edc12bd2124"
+                "76e65c6efcafe950"
             ]
         ]
     },
@@ -996,31 +995,6 @@
         ]
     },
     {
-        "id": "7d8b5edc12bd2124",
-        "type": "delay",
-        "z": "0bd865dc83ec0d5a",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "60",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 280,
-        "y": 560,
-        "wires": [
-            [
-                "14739e50bfb85e8c"
-            ]
-        ]
-    },
-    {
         "id": "b03c4268ae1a5bf4",
         "type": "change",
         "z": "0bd865dc83ec0d5a",
@@ -1085,6 +1059,35 @@
         "x": 870,
         "y": 700,
         "wires": []
+    },
+    {
+        "id": "96d6ef2cddbac871",
+        "type": "inject",
+        "z": "0bd865dc83ec0d5a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 560,
+        "wires": [
+            [
+                "14739e50bfb85e8c"
+            ]
+        ]
     },
     {
         "id": "d4c91e04aba283b0",
