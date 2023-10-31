@@ -3241,7 +3241,7 @@
         "z": "12b6281657f0f653",
         "g": "4c1211b19890c008",
         "name": "",
-        "func": "var properties = global.get('properties');\n\n\nmsg.topic =`SELECT data FROM local_data\nORDER BY date ASC\nLIMIT 10;`;\nreturn msg;",
+        "func": "var properties = global.get('properties');\n\n\n// msg.topic =`SELECT data FROM local_data\n// ORDER BY date ASC\n// LIMIT 10;`;\n\nmsg.topic = `SELECT data FROM local_data;`;\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
