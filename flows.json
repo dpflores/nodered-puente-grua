@@ -3267,6 +3267,60 @@
         "wires": []
     },
     {
+        "id": "1dd14c02f2393c01",
+        "type": "inject",
+        "z": "12b6281657f0f653",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 610,
+        "y": 180,
+        "wires": [
+            [
+                "39c5a815debadc9f"
+            ]
+        ]
+    },
+    {
+        "id": "39c5a815debadc9f",
+        "type": "change",
+        "z": "12b6281657f0f653",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "properties",
+                "pt": "global",
+                "to": "{\"table_name\":\"puente_grua_test\",\"states\":[\"positivo\",\"negativo\",\"init\"],\"month_names\":[\"Enero\",\"Febrero\",\"Marzo\",\"Abril\",\"Mayo\",\"Junio\",\"Julio\",\"Agosto\",\"Septiembre\",\"Octubre\",\"Noviembre\",\"Diciembre\"]}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 840,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "e73b2e27b018880c",
         "type": "http in",
         "z": "e7bb50b21f9817d9",
