@@ -3269,7 +3269,7 @@
         "type": "function",
         "z": "12b6281657f0f653",
         "name": "function 123",
-        "func": "var hourmeter = global.get(\"graphs\");\n\nfunction decimalHoursToHoursAndMinutes(decimalHours) {\n  const hours = Math.floor(decimalHours);\n  const minutes = Math.round((decimalHours - hours) * 60);\n  return { hours, minutes };\n}\n\n\n\n\nmsg.payload = decimalHoursToHoursAndMinutes(hourmeter.total);\n\n\n\n\n\nreturn msg;",
+        "func": "var hourmeter = global.get(\"hourmeter\");\n\nfunction decimalHoursToHoursAndMinutes(decimalHours) {\n  const hours = Math.floor(decimalHours);\n  const minutes = Math.round((decimalHours - hours) * 60);\n  return { hours, minutes };\n}\n\n\n\n\nmsg.payload = decimalHoursToHoursAndMinutes(hourmeter.total);\n\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
