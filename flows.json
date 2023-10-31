@@ -2826,7 +2826,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "graphs.data1",
+                "p": "graphs.array1",
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
@@ -2852,7 +2852,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "graphs.data2",
+                "p": "graphs.array2",
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
@@ -3062,7 +3062,7 @@
                 "t": "set",
                 "p": "graphs",
                 "pt": "global",
-                "to": "{\"data1\":[0,0,0,0,0,0,0,0,0,0,0,0],\"data2\":[0,0,0,0,0,0,0,0,0,0,0,0]}",
+                "to": "{\"array1\":[0,0,0,0,0,0,0,0,0,0,0,0],\"array2\":[0,0,0,0,0,0,0,0,0,0,0,0]}",
                 "tot": "json"
             }
         ],
