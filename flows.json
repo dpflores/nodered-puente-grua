@@ -664,7 +664,8 @@
                 "56cdadc6c4e658a8",
                 "0d0085b9ae9c524c",
                 "39cbc9153cb96df7",
-                "76e65c6efcafe950"
+                "76e65c6efcafe950",
+                "37be9db8305c3097"
             ]
         ]
     },
@@ -918,6 +919,31 @@
             [
                 "8602465676af17b1"
             ]
+        ]
+    },
+    {
+        "id": "37be9db8305c3097",
+        "type": "change",
+        "z": "0bd865dc83ec0d5a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gateway_data.data.sensor_estado.estado",
+                "pt": "global",
+                "to": "positivo",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 520,
+        "wires": [
+            []
         ]
     },
     {
@@ -3220,7 +3246,7 @@
         "z": "12b6281657f0f653",
         "g": "4c1211b19890c008",
         "name": "",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
