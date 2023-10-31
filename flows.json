@@ -2427,7 +2427,7 @@
         "z": "d91ac3d282c069d0",
         "g": "6b7c1f4fbbe77c84",
         "name": "Filter",
-        "func": "let out_data = {}\n\nout_data.timestamp = msg.payload.timestamp;\nout_data.x_axis = msg.payload.data.rm9000.x_axis;\nout_data.y_axis = msg.payload.data.rm9000.y_axis;\nout_data.z1_axis = msg.payload.data.rm9000.z1_axis;\nout_data.z2_axis = msg.payload.data.rm9000.z2_axis;\nout_data.carga1 = msg.payload.data.carga_grua.carga1;\nout_data.carga2 = msg.payload.data.carga_grua.carga2;\nout_data.speed = msg.payload.data.gps.speed;\n\n\nmsg.payload = out_data;\nreturn msg;",
+        "func": "let out_data = {}\n\nout_data.timestamp = msg.payload.timestamp;\nout_data.x_axis = msg.payload.data.rm9000.x_axis;\nout_data.y_axis = msg.payload.data.rm9000.y_axis;\nout_data.z1_axis = msg.payload.data.rm9000.z1_axis;\nout_data.z2_axis = msg.payload.data.rm9000.z2_axis;\nout_data.carga1 = msg.payload.data.carga_grua.carga1;\nout_data.carga2 = msg.payload.data.carga_grua.carga2;\nout_data.speed = msg.payload.data.gps.speed;\nout_data.state = msg.payload.data.sensor_estado.estado;\n\n\nmsg.payload = out_data;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
