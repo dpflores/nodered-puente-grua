@@ -16,9 +16,9 @@
         "env": []
     },
     {
-        "id": "28ee04db56f2a03d",
+        "id": "12b6281657f0f653",
         "type": "tab",
-        "label": "DASHBOARD HEAD",
+        "label": "ESTATUS DEL SISTEMA",
         "disabled": false,
         "info": "",
         "env": []
@@ -34,7 +34,7 @@
     {
         "id": "e7bb50b21f9817d9",
         "type": "tab",
-        "label": "DASHBOARD",
+        "label": "DASHBOARD TEST",
         "disabled": false,
         "info": "",
         "env": []
@@ -349,6 +349,56 @@
         "h": 82
     },
     {
+        "id": "b3e051910f2a64ee",
+        "type": "group",
+        "z": "d91ac3d282c069d0",
+        "name": "Recuperar data local",
+        "style": {
+            "label": true,
+            "color": "#000000"
+        },
+        "nodes": [
+            "49948d8554edb4e3",
+            "70036d189377757b",
+            "5c36b7b82f2c640c",
+            "37c20ef96deec730",
+            "0229b3b86d408205",
+            "66ddce359e5ff10c",
+            "3d2a5f782bb82e23",
+            "2720a2dadf8be76f",
+            "64736f3117e82360"
+        ],
+        "x": 14,
+        "y": 2839,
+        "w": 1252,
+        "h": 202
+    },
+    {
+        "id": "2491dc44ba7072d1",
+        "type": "group",
+        "z": "12b6281657f0f653",
+        "name": "Horómetro",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "36d4796071d40346",
+            "4df296479cfd6ab5",
+            "acdf3f2e45c14da8",
+            "b96aedb2c8faedf7",
+            "f98abb4fe7a367b0",
+            "7acb17b8b6747504",
+            "d883f4cd09fbd51e",
+            "50bf59d98eba1a53",
+            "7da739b59da81a69",
+            "3cf4ea1277d17c9b"
+        ],
+        "x": 164,
+        "y": 539,
+        "w": 1142,
+        "h": 322
+    },
+    {
         "id": "8d53d2f17df7fbc4",
         "type": "mqtt-broker",
         "name": "ACME_broker",
@@ -532,35 +582,34 @@
         "width": 6
     },
     {
-        "id": "5dedb706.b6d6a8",
-        "type": "ui_group",
-        "z": "28ee04db56f2a03d",
-        "name": "Default",
-        "tab": "",
-        "order": 1,
-        "disp": true,
-        "width": "6"
+        "id": "f1881403c636972e",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "localhost",
+        "port": "3306",
+        "db": "db_mysql",
+        "tz": "",
+        "charset": "UTF8"
     },
     {
-        "id": "2a02c3e9.d5fd3c",
-        "type": "mqtt-broker",
-        "z": "28ee04db56f2a03d",
-        "broker": "accrete.org",
-        "port": "1883",
-        "clientid": "",
-        "usetls": false,
-        "verifyservercert": true,
-        "compatmode": true,
-        "keepalive": "30",
-        "cleansession": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthRetain": "false",
-        "birthPayload": "",
-        "willTopic": "",
-        "willQos": "0",
-        "willRetain": "false",
-        "willPayload": ""
+        "id": "bf980bdca4a87b7e",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "d212cb1ffc18f352",
+        "order": 1,
+        "disp": false,
+        "width": 28,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d212cb1ffc18f352",
+        "type": "ui_tab",
+        "name": "ESTATUS DEL SISTEMA",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
     },
     {
         "id": "49729f7479e52854",
@@ -2470,6 +2519,589 @@
         "className": "",
         "x": 1110,
         "y": 1520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "681741c33cbc66ab",
+        "type": "function",
+        "z": "d91ac3d282c069d0",
+        "name": "Preprocesamiento para frecuencia mensual",
+        "func": "var array_in = msg.payload;\nvar array_out = [];\n\nvar count = 0; // Cambié el inicio de count a 0\nvar current_state = \"\";\nvar prev_state = \"\";\nvar current_date = 0;\n\nfor (var i = 0; i < array_in.length; i++) {\n    current_state = array_in[i].data.sensor_estado.state;\n    current_date = array_in[i].timestamp;\n\n    if (current_state != prev_state) {\n        // Crear un nuevo objeto en cada cambio de estado\n        array_out[count] = {\n            estado: current_state,\n            fecha_inicio: current_date,\n            fecha_fin: current_date\n        };\n        count++;\n    } else {\n        // Actualizar la fecha_fin del objeto anterior si el estado es el mismo\n        array_out[count - 1].fecha_fin = current_date;\n    }\n    prev_state = current_state;\n}\n\nmsg.payload = array_out;\nreturn msg;\n\n\n\n\n\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 990,
+        "y": 3100,
+        "wires": [
+            [
+                "ec97ae6ae39a6757"
+            ]
+        ]
+    },
+    {
+        "id": "ba54e166354bbdb3",
+        "type": "inject",
+        "z": "d91ac3d282c069d0",
+        "name": "Low rate",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 3140,
+        "wires": [
+            [
+                "0f550d9133ad3c6f"
+            ]
+        ]
+    },
+    {
+        "id": "0f550d9133ad3c6f",
+        "type": "link out",
+        "z": "d91ac3d282c069d0",
+        "name": "low_ate",
+        "mode": "link",
+        "links": [],
+        "x": 305,
+        "y": 3140,
+        "wires": []
+    },
+    {
+        "id": "ec97ae6ae39a6757",
+        "type": "function",
+        "z": "d91ac3d282c069d0",
+        "name": "Añadiendo mes y horas",
+        "func": "var properties = global.get('properties');\n\n\nvar array_in = msg.payload;\nvar array_out = [];\n\nvar nombresMeses = properties.month_names;\n\n\nfor(var i=0;i<array_in.length;i++){\n    array_out[i] = array_in[i];\n    // Calcula la diferencia en milisegundos\n    const diferenciaEnMilisegundos = (array_in[i].fecha_fin - array_in[i].fecha_inicio); // Multiplicamos por 1000 para convertir a milisegundos\n\n    // Convierte la diferencia en milisegundos a horas\n    const horas = diferenciaEnMilisegundos / (60 * 60 * 1000); // 1 hora = 60 minutos * 60 segundos * 1000 milisegundos\n    array_out[i].horas = horas;\n\n\n    // MES\n    var date = new Date(array_in[i].fecha_inicio);\n    // Obtiene el número del mes (0 para enero, 1 para febrero, etc.)\n    var mes = date.getMonth();\n    array_out[i].mes = nombresMeses[mes];\n\n}\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1310,
+        "y": 3100,
+        "wires": [
+            [
+                "34ad96d6ce8ce8bd",
+                "ad4df472da4b072d"
+            ]
+        ]
+    },
+    {
+        "id": "34ad96d6ce8ce8bd",
+        "type": "debug",
+        "z": "d91ac3d282c069d0",
+        "name": "debug 157",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1610,
+        "y": 3160,
+        "wires": []
+    },
+    {
+        "id": "ad4df472da4b072d",
+        "type": "link out",
+        "z": "d91ac3d282c069d0",
+        "name": "state_stream",
+        "mode": "link",
+        "links": [
+            "4df296479cfd6ab5",
+            "d1cfb4774fe42b7f"
+        ],
+        "x": 1495,
+        "y": 3080,
+        "wires": []
+    },
+    {
+        "id": "49948d8554edb4e3",
+        "type": "mysql",
+        "z": "d91ac3d282c069d0",
+        "g": "b3e051910f2a64ee",
+        "mydb": "f1881403c636972e",
+        "name": "",
+        "x": 420,
+        "y": 2940,
+        "wires": [
+            [
+                "5c36b7b82f2c640c",
+                "0229b3b86d408205"
+            ]
+        ]
+    },
+    {
+        "id": "70036d189377757b",
+        "type": "function",
+        "z": "d91ac3d282c069d0",
+        "g": "b3e051910f2a64ee",
+        "name": "",
+        "func": "var properties = global.get('properties');\n\n\nmsg.topic = \"SELECT data FROM \"+ properties.table_name +\"\";\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 2940,
+        "wires": [
+            [
+                "49948d8554edb4e3"
+            ]
+        ]
+    },
+    {
+        "id": "5c36b7b82f2c640c",
+        "type": "debug",
+        "z": "d91ac3d282c069d0",
+        "g": "b3e051910f2a64ee",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 2880,
+        "wires": []
+    },
+    {
+        "id": "37c20ef96deec730",
+        "type": "debug",
+        "z": "d91ac3d282c069d0",
+        "g": "b3e051910f2a64ee",
+        "name": "debug 119",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 1150,
+        "y": 2880,
+        "wires": []
+    },
+    {
+        "id": "0229b3b86d408205",
+        "type": "function",
+        "z": "d91ac3d282c069d0",
+        "g": "b3e051910f2a64ee",
+        "name": "Process to json array",
+        "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = JSON.parse(msg.payload[i].data);\n}\n\nmsg.payload = array_out;\n\nmsg.columns = Object.keys(msg.payload[0]).toString();\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 2940,
+        "wires": [
+            [
+                "66ddce359e5ff10c",
+                "2720a2dadf8be76f",
+                "681741c33cbc66ab",
+                "64736f3117e82360"
+            ]
+        ]
+    },
+    {
+        "id": "66ddce359e5ff10c",
+        "type": "debug",
+        "z": "d91ac3d282c069d0",
+        "g": "b3e051910f2a64ee",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "columns",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 990,
+        "y": 2880,
+        "wires": []
+    },
+    {
+        "id": "3d2a5f782bb82e23",
+        "type": "inject",
+        "z": "d91ac3d282c069d0",
+        "g": "b3e051910f2a64ee",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 2940,
+        "wires": [
+            [
+                "70036d189377757b"
+            ]
+        ]
+    },
+    {
+        "id": "2720a2dadf8be76f",
+        "type": "debug",
+        "z": "d91ac3d282c069d0",
+        "g": "b3e051910f2a64ee",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 2980,
+        "wires": []
+    },
+    {
+        "id": "64736f3117e82360",
+        "type": "link out",
+        "z": "d91ac3d282c069d0",
+        "g": "b3e051910f2a64ee",
+        "name": "database_stream",
+        "mode": "link",
+        "links": [
+            "75dfe0f1550e370e",
+            "78f185d7e7b2cca7"
+        ],
+        "x": 885,
+        "y": 3000,
+        "wires": []
+    },
+    {
+        "id": "8e46f8b7793ce4d0",
+        "type": "ui_text",
+        "z": "12b6281657f0f653",
+        "group": "bf980bdca4a87b7e",
+        "order": 16,
+        "width": 8,
+        "height": 1,
+        "name": "",
+        "label": "Estatus:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 520,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "196e8694a544ece8",
+        "type": "link in",
+        "z": "12b6281657f0f653",
+        "name": "link in 1",
+        "links": [
+            "e33b267c831d7686"
+        ],
+        "x": 215,
+        "y": 360,
+        "wires": [
+            [
+                "b13afd378d9db79c"
+            ]
+        ]
+    },
+    {
+        "id": "b13afd378d9db79c",
+        "type": "change",
+        "z": "12b6281657f0f653",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.data.sensor_estado.state",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 360,
+        "wires": [
+            [
+                "8e46f8b7793ce4d0",
+                "62fb3176ac85f9b6"
+            ]
+        ]
+    },
+    {
+        "id": "62fb3176ac85f9b6",
+        "type": "debug",
+        "z": "12b6281657f0f653",
+        "name": "debug 152",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "36d4796071d40346",
+        "type": "ui_text",
+        "z": "12b6281657f0f653",
+        "g": "2491dc44ba7072d1",
+        "group": "bf980bdca4a87b7e",
+        "order": 26,
+        "width": 3,
+        "height": 1,
+        "name": "horometro",
+        "label": "Horómetro:",
+        "format": "",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 470,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "4df296479cfd6ab5",
+        "type": "link in",
+        "z": "12b6281657f0f653",
+        "g": "2491dc44ba7072d1",
+        "name": "link in 2",
+        "links": [
+            "ad4df472da4b072d"
+        ],
+        "x": 205,
+        "y": 640,
+        "wires": [
+            [
+                "acdf3f2e45c14da8",
+                "b96aedb2c8faedf7"
+            ]
+        ]
+    },
+    {
+        "id": "acdf3f2e45c14da8",
+        "type": "debug",
+        "z": "12b6281657f0f653",
+        "g": "2491dc44ba7072d1",
+        "name": "debug 156",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "b96aedb2c8faedf7",
+        "type": "function",
+        "z": "12b6281657f0f653",
+        "g": "2491dc44ba7072d1",
+        "name": "filtramos array por estados",
+        "func": "var properties = global.get('properties');\n\nvar array_in = msg.payload;\nvar array_out = [];\nvar msg1 = {};\nvar msg2 = {};\n\n\nmsg.payload = array_in.filter(d => d.estado == properties.states[0]);\nmsg1.payload =array_in.filter(d => d.estado == properties.states[1]);\nmsg2.payload =array_in.filter(d => d.estado == properties.states[2]);\n\n\n// positivo, negativo, init\nreturn [msg, msg1, msg2];",
+        "outputs": 3,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 700,
+        "wires": [
+            [
+                "f98abb4fe7a367b0",
+                "7acb17b8b6747504"
+            ],
+            [
+                "d883f4cd09fbd51e"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f98abb4fe7a367b0",
+        "type": "function",
+        "z": "12b6281657f0f653",
+        "g": "2491dc44ba7072d1",
+        "name": "obtenemos suma de horas útiles totales",
+        "func": "var array_in = msg.payload;\n\nlet sum = 0;\n\narray_in.forEach(element => {\n    sum += element.horas;\n});\nmsg.payload = sum;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7acb17b8b6747504",
+        "type": "function",
+        "z": "12b6281657f0f653",
+        "g": "2491dc44ba7072d1",
+        "name": "filtramos horas útiles acumuladas por mes ",
+        "func": "var properties = global.get('properties');\n\nvar array_in = msg.payload;\nvar array_out = [];\nvar nombresMeses = properties.month_names;\n\narray_out = array_in.filter(d => d.estado == properties.states[0]);\n\nmsg.payload = array_out;\n\n\n// Inicializa un objeto para almacenar las sumas por mes\nconst sumaPorMes = {};\n\n// Itera sobre los datos y suma las horas por mes\narray_in.forEach(dato => {\n  const mes = dato.mes;\n  const horas = dato.horas;\n  \n  // Si el mes aún no existe en el objeto sumaPorMes, inicialízalo en 0\n  if (!sumaPorMes[mes]) {\n    sumaPorMes[mes] = 0;\n  }\n  \n  // Suma las horas al mes correspondiente\n  sumaPorMes[mes] += horas;\n});\n\n// Crea un array con las sumas acumuladas en el orden de los nombres de los meses\nconst sumasAcumuladas = nombresMeses.map(mes => sumaPorMes[mes] || 0);\narray_out = sumasAcumuladas;\n\nmsg.payload = array_out;\nmsg.topic = properties.states[0];\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 680,
+        "wires": [
+            [
+                "7da739b59da81a69"
+            ]
+        ]
+    },
+    {
+        "id": "d883f4cd09fbd51e",
+        "type": "function",
+        "z": "12b6281657f0f653",
+        "g": "2491dc44ba7072d1",
+        "name": "filtramos horas no útiles acumuladas por mes ",
+        "func": "var properties = global.get('properties');\n\nvar array_in = msg.payload;\nvar array_out = [];\nvar nombresMeses = properties.month_names;\n\narray_out = array_in.filter(d => d.estado == properties.states[0]);\n\nmsg.payload = array_out;\n\n\n// Inicializa un objeto para almacenar las sumas por mes\nconst sumaPorMes = {};\n\n// Itera sobre los datos y suma las horas por mes\narray_in.forEach(dato => {\n  const mes = dato.mes;\n  const horas = dato.horas;\n  \n  // Si el mes aún no existe en el objeto sumaPorMes, inicialízalo en 0\n  if (!sumaPorMes[mes]) {\n    sumaPorMes[mes] = 0;\n  }\n  \n  // Suma las horas al mes correspondiente\n  sumaPorMes[mes] += horas;\n});\n\n// Crea un array con las sumas acumuladas en el orden de los nombres de los meses\nconst sumasAcumuladas = nombresMeses.map(mes => sumaPorMes[mes] || 0);\narray_out = sumasAcumuladas;\n\nmsg.payload = array_out;\nmsg.topic = properties.states[1];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 720,
+        "wires": [
+            [
+                "50bf59d98eba1a53",
+                "3cf4ea1277d17c9b"
+            ]
+        ]
+    },
+    {
+        "id": "50bf59d98eba1a53",
+        "type": "debug",
+        "z": "12b6281657f0f653",
+        "g": "2491dc44ba7072d1",
+        "name": "debug 159",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "7da739b59da81a69",
+        "type": "change",
+        "z": "12b6281657f0f653",
+        "g": "2491dc44ba7072d1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "graphs.data1",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1170,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3cf4ea1277d17c9b",
+        "type": "change",
+        "z": "12b6281657f0f653",
+        "g": "2491dc44ba7072d1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "graphs.data2",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1170,
+        "y": 720,
         "wires": [
             []
         ]
