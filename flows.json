@@ -359,8 +359,8 @@
             "5e9a1077c77c1127",
             "5a470f467d6d46dc"
         ],
-        "x": 874,
-        "y": 579,
+        "x": 1034,
+        "y": 599,
         "w": 992,
         "h": 262
     },
@@ -383,7 +383,7 @@
             "850fefbfc2e4e036",
             "31c3ccc4207e816c"
         ],
-        "x": 134,
+        "x": 54,
         "y": 379,
         "w": 1632,
         "h": 142
@@ -2705,8 +2705,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1020,
-        "y": 720,
+        "x": 1180,
+        "y": 740,
         "wires": [
             [
                 "f98abb4fe7a367b0",
@@ -2731,8 +2731,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1400,
-        "y": 660,
+        "x": 1560,
+        "y": 680,
         "wires": [
             [
                 "5e9a1077c77c1127",
@@ -2753,8 +2753,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1400,
-        "y": 700,
+        "x": 1560,
+        "y": 720,
         "wires": [
             [
                 "7da739b59da81a69"
@@ -2774,8 +2774,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1410,
-        "y": 740,
+        "x": 1570,
+        "y": 760,
         "wires": [
             [
                 "50bf59d98eba1a53",
@@ -2797,8 +2797,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1690,
-        "y": 800,
+        "x": 1850,
+        "y": 820,
         "wires": []
     },
     {
@@ -2821,8 +2821,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1730,
-        "y": 700,
+        "x": 1890,
+        "y": 720,
         "wires": [
             []
         ]
@@ -2847,8 +2847,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1730,
-        "y": 740,
+        "x": 1890,
+        "y": 760,
         "wires": [
             []
         ]
@@ -2866,7 +2866,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1110,
+        "x": 1030,
         "y": 420,
         "wires": [
             [
@@ -2887,7 +2887,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1450,
+        "x": 1370,
         "y": 420,
         "wires": [
             [
@@ -2903,7 +2903,7 @@
         "g": "4c1211b19890c008",
         "mydb": "45598baf2af77f76",
         "name": "",
-        "x": 540,
+        "x": 460,
         "y": 420,
         "wires": [
             [
@@ -2924,7 +2924,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 400,
+        "x": 320,
         "y": 420,
         "wires": [
             [
@@ -2945,7 +2945,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 780,
+        "x": 700,
         "y": 420,
         "wires": [
             [
@@ -3071,7 +3071,7 @@
         "headers": {
             "content-type": "application/json"
         },
-        "x": 1680,
+        "x": 1600,
         "y": 420,
         "wires": []
     },
@@ -3085,7 +3085,7 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 240,
+        "x": 160,
         "y": 420,
         "wires": [
             [
@@ -3166,7 +3166,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 240,
+        "x": 160,
         "y": 480,
         "wires": [
             [
@@ -3188,8 +3188,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1750,
-        "y": 660,
+        "x": 1910,
+        "y": 680,
         "wires": []
     },
     {
@@ -3228,10 +3228,60 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1720,
-        "y": 620,
+        "x": 1880,
+        "y": 640,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "45822acf90a8bdd3",
+        "type": "http in",
+        "z": "12b6281657f0f653",
+        "name": "",
+        "url": "/hourmeter",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 300,
+        "y": 1340,
+        "wires": [
+            [
+                "45fb59add5ae2e58"
+            ]
+        ]
+    },
+    {
+        "id": "ce40d9db692bee8a",
+        "type": "http response",
+        "z": "12b6281657f0f653",
+        "name": "",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 800,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "45fb59add5ae2e58",
+        "type": "function",
+        "z": "12b6281657f0f653",
+        "name": "function 123",
+        "func": "var hourmeter = global.get(\"graphs\").hourmeter;\n\nhourmeter.minutes += 1;\nif (hourmeter.minutes >=60){\n  hourmeter.minutes = 0;\n  hourmeter.hours += 1;\n}\n\nmsg.payload = hourmeter;\n\n\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 1340,
+        "wires": [
+            [
+                "ce40d9db692bee8a"
+            ]
         ]
     },
     {
