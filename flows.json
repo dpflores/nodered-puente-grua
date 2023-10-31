@@ -3005,7 +3005,7 @@
                 "t": "set",
                 "p": "properties",
                 "pt": "global",
-                "to": "{\"table_name\":\"puente_grua_test\",\"states\":[\"positivo\",\"negativo\",\"init\"],\"month_names\":[\"Enero\",\"Febrero\",\"Marzo\",\"Abril\",\"Mayo\",\"Junio\",\"Julio\",\"Agosto\",\"Septiembre\",\"Octubre\",\"Noviembre\",\"Diciembre\"]}",
+                "to": "{\"table_name\":\"local_data\",\"states\":[\"positivo\",\"negativo\",\"init\"],\"month_names\":[\"Enero\",\"Febrero\",\"Marzo\",\"Abril\",\"Mayo\",\"Junio\",\"Julio\",\"Agosto\",\"Septiembre\",\"Octubre\",\"Noviembre\",\"Diciembre\"]}",
                 "tot": "json"
             }
         ],
