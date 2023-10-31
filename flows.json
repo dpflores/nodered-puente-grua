@@ -3046,7 +3046,7 @@
                 "t": "set",
                 "p": "graphs",
                 "pt": "global",
-                "to": "{\"array1\":[0,0,0,0,0,0,0,0,0,0,0,0],\"array2\":[0,0,0,0,0,0,0,0,0,0,0,0],\"hourmeter\":0}",
+                "to": "{\"array1\":[0,0,0,0,0,0,0,0,0,0,0,0],\"array2\":[0,0,0,0,0,0,0,0,0,0,0,0]}",
                 "tot": "json"
             }
         ],
@@ -3217,7 +3217,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "graphs.hourmeter",
+                "p": "hourmeter",
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
@@ -3228,7 +3228,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1880,
+        "x": 1860,
         "y": 640,
         "wires": [
             []
@@ -3243,8 +3243,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 300,
-        "y": 1340,
+        "x": 400,
+        "y": 1380,
         "wires": [
             [
                 "45fb59add5ae2e58"
@@ -3260,8 +3260,8 @@
         "headers": {
             "content-type": "application/json"
         },
-        "x": 800,
-        "y": 1340,
+        "x": 900,
+        "y": 1380,
         "wires": []
     },
     {
@@ -3276,8 +3276,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 530,
-        "y": 1340,
+        "x": 630,
+        "y": 1380,
         "wires": [
             [
                 "ce40d9db692bee8a",
@@ -3297,9 +3297,63 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 710,
-        "y": 1380,
+        "x": 810,
+        "y": 1420,
         "wires": []
+    },
+    {
+        "id": "14d993cd66d8acbc",
+        "type": "inject",
+        "z": "12b6281657f0f653",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 510,
+        "y": 1300,
+        "wires": [
+            [
+                "8691a2e33293c113"
+            ]
+        ]
+    },
+    {
+        "id": "8691a2e33293c113",
+        "type": "change",
+        "z": "12b6281657f0f653",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "hourmeter",
+                "pt": "global",
+                "to": "{\"minutes\":0,\"hours\":0}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 720,
+        "y": 1300,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "e73b2e27b018880c",
