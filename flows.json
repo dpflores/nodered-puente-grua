@@ -3940,6 +3940,156 @@
         ]
     },
     {
+        "id": "d1a55a3323434040",
+        "type": "http in",
+        "z": "bb0105d61235458f",
+        "name": "",
+        "url": "/heat2",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 540,
+        "wires": [
+            [
+                "d0755b3692e0b3dd"
+            ]
+        ]
+    },
+    {
+        "id": "db350179b6e48cff",
+        "type": "http response",
+        "z": "bb0105d61235458f",
+        "name": "",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 1120,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "d0755b3692e0b3dd",
+        "type": "function",
+        "z": "bb0105d61235458f",
+        "name": "",
+        "func": "var properties = global.get('properties');\n\n\n// msg.topic =`SELECT data FROM local_data\n// ORDER BY date ASC\n// LIMIT 10;`;\n\nmsg.topic = `SELECT data FROM local_data;`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 540,
+        "wires": [
+            [
+                "cd77c78639023eb2"
+            ]
+        ]
+    },
+    {
+        "id": "cd77c78639023eb2",
+        "type": "mysql",
+        "z": "bb0105d61235458f",
+        "mydb": "45598baf2af77f76",
+        "name": "",
+        "x": 520,
+        "y": 540,
+        "wires": [
+            [
+                "a7eb3061dd07a5fb"
+            ]
+        ]
+    },
+    {
+        "id": "a7eb3061dd07a5fb",
+        "type": "function",
+        "z": "bb0105d61235458f",
+        "name": "Process to json array",
+        "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = JSON.parse(msg.payload[i].data);\n}\n\nmsg.payload = array_out;\n\nmsg.columns = Object.keys(msg.payload[0]).toString();\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 540,
+        "wires": [
+            [
+                "7506180c62ae2992"
+            ]
+        ]
+    },
+    {
+        "id": "7506180c62ae2992",
+        "type": "function",
+        "z": "bb0105d61235458f",
+        "name": "to carga2",
+        "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = { \"g\": array_in[i].x_axis ,\n        \"l\": array_in[i].y_axis,\n        \"tmp\": array_in[i].carga2};\n\n    \n}\n\nmsg.payload = array_out;\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 540,
+        "wires": [
+            [
+                "cb5ac76698191c89",
+                "db350179b6e48cff"
+            ]
+        ]
+    },
+    {
+        "id": "cb5ac76698191c89",
+        "type": "debug",
+        "z": "bb0105d61235458f",
+        "name": "debug 169",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "84eade63b1906cb6",
+        "type": "inject",
+        "z": "bb0105d61235458f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 620,
+        "wires": [
+            [
+                "d0755b3692e0b3dd"
+            ]
+        ]
+    },
+    {
         "id": "e73b2e27b018880c",
         "type": "http in",
         "z": "e7bb50b21f9817d9",
