@@ -3577,7 +3577,7 @@
         "y": 340,
         "wires": [
             [
-                "71e641b3de3dd236"
+                "bacbbce613cf7a97"
             ]
         ]
     },
@@ -3593,9 +3593,29 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1010,
-        "y": 400,
+        "x": 1150,
+        "y": 340,
         "wires": []
+    },
+    {
+        "id": "bacbbce613cf7a97",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "name": "to carga1",
+        "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = array_in.carga1;\n}\n\nmsg.payload = array_out;\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 340,
+        "wires": [
+            [
+                "71e641b3de3dd236"
+            ]
+        ]
     },
     {
         "id": "e73b2e27b018880c",
