@@ -3874,7 +3874,7 @@
         "type": "function",
         "z": "bb0105d61235458f",
         "name": "to carga1",
-        "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i].g = array_in[i].x_axis;\n    array_out[i].l = array_in[i].y_axis;\n    array_out[i].tmp = array_in[i].carga1;\n    \n}\n\nmsg.payload = array_out;\n\n\nreturn msg;\n",
+        "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = { \"g\": array_in[i].x_axis ,\n        \"l\": array_in[i].y_axis,\n        \"tmp\": array_in[i].carga1};\n\n    \n}\n\nmsg.payload = array_out;\n\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
