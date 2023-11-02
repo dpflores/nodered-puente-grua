@@ -32,6 +32,14 @@
         "env": []
     },
     {
+        "id": "bb0105d61235458f",
+        "type": "tab",
+        "label": "ESTATUS MENSUAL 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "e7bb50b21f9817d9",
         "type": "tab",
         "label": "DASHBOARD TEST",
@@ -3775,6 +3783,124 @@
         "statusType": "auto",
         "x": 950,
         "y": 560,
+        "wires": []
+    },
+    {
+        "id": "8580898d0416f2be",
+        "type": "http in",
+        "z": "bb0105d61235458f",
+        "name": "",
+        "url": "/heat1",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 220,
+        "y": 240,
+        "wires": [
+            [
+                "5951339fb027f9bf"
+            ]
+        ]
+    },
+    {
+        "id": "f2f557e11e51046a",
+        "type": "http response",
+        "z": "bb0105d61235458f",
+        "name": "",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 1060,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "5951339fb027f9bf",
+        "type": "function",
+        "z": "bb0105d61235458f",
+        "name": "",
+        "func": "var properties = global.get('properties');\n\n\n// msg.topic =`SELECT data FROM local_data\n// ORDER BY date ASC\n// LIMIT 10;`;\n\nmsg.topic = `SELECT data FROM local_data;`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 240,
+        "wires": [
+            [
+                "3ee2d3326521d0cc"
+            ]
+        ]
+    },
+    {
+        "id": "3ee2d3326521d0cc",
+        "type": "mysql",
+        "z": "bb0105d61235458f",
+        "mydb": "45598baf2af77f76",
+        "name": "",
+        "x": 520,
+        "y": 240,
+        "wires": [
+            [
+                "b8551e6cff23c416"
+            ]
+        ]
+    },
+    {
+        "id": "b8551e6cff23c416",
+        "type": "function",
+        "z": "bb0105d61235458f",
+        "name": "Process to json array",
+        "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = JSON.parse(msg.payload[i].data);\n}\n\nmsg.payload = array_out;\n\nmsg.columns = Object.keys(msg.payload[0]).toString();\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 240,
+        "wires": [
+            [
+                "b62f1cc9ce8dda96"
+            ]
+        ]
+    },
+    {
+        "id": "5866acbf3ab6d09b",
+        "type": "function",
+        "z": "bb0105d61235458f",
+        "name": "to carga1",
+        "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = array_in[i].carga1;\n}\n\nmsg.payload = array_out;\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b62f1cc9ce8dda96",
+        "type": "debug",
+        "z": "bb0105d61235458f",
+        "name": "debug 168",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1050,
+        "y": 320,
         "wires": []
     },
     {
