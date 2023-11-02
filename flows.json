@@ -3604,7 +3604,7 @@
         "type": "function",
         "z": "ccbba8193508b160",
         "name": "to carga1",
-        "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = array_in[i].carga1;\n}\n\nmsg.payload = array_out;\n\n\nreturn msg;\n",
+        "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = array_in[i].carga2;\n}\n\nmsg.payload = array_out;\n\n\nreturn msg;\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
