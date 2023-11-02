@@ -3559,7 +3559,9 @@
         "x": 320,
         "y": 1700,
         "wires": [
-            []
+            [
+                "ca99f517f8d0284a"
+            ]
         ]
     },
     {
@@ -3603,32 +3605,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
-        "y": 1680,
+        "x": 630,
+        "y": 1700,
         "wires": [
             [
                 "cc447b4918c87811",
                 "4ebf086cde315e49"
-            ]
-        ]
-    },
-    {
-        "id": "f082a5dfdff68d8c",
-        "type": "function",
-        "z": "12b6281657f0f653",
-        "name": "function 127",
-        "func": "msg.payload = {\"status\": 0}\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 730,
-        "y": 1720,
-        "wires": [
-            [
-                "cc447b4918c87811"
             ]
         ]
     },
