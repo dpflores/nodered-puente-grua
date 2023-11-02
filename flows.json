@@ -3638,6 +3638,146 @@
         "wires": []
     },
     {
+        "id": "a4fb89939f777435",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "name": "",
+        "func": "var properties = global.get('properties');\n\n\n// msg.topic =`SELECT data FROM local_data\n// ORDER BY date ASC\n// LIMIT 10;`;\n\nmsg.topic = `SELECT data FROM local_data;`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 520,
+        "wires": [
+            [
+                "ac0d4fb62a60eb17"
+            ]
+        ]
+    },
+    {
+        "id": "6611359445a40875",
+        "type": "http in",
+        "z": "ccbba8193508b160",
+        "name": "",
+        "url": "/bell2",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 160,
+        "y": 520,
+        "wires": [
+            [
+                "a4fb89939f777435"
+            ]
+        ]
+    },
+    {
+        "id": "576425faceb2d8d2",
+        "type": "http response",
+        "z": "ccbba8193508b160",
+        "name": "",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 1100,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "ac0d4fb62a60eb17",
+        "type": "mysql",
+        "z": "ccbba8193508b160",
+        "mydb": "45598baf2af77f76",
+        "name": "",
+        "x": 520,
+        "y": 520,
+        "wires": [
+            [
+                "1a40002f62fd9509"
+            ]
+        ]
+    },
+    {
+        "id": "1a40002f62fd9509",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "name": "Process to json array",
+        "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = JSON.parse(msg.payload[i].data);\n}\n\nmsg.payload = array_out;\n\nmsg.columns = Object.keys(msg.payload[0]).toString();\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 520,
+        "wires": [
+            [
+                "6e5024bd83a8b958",
+                "32543335f2385e18"
+            ]
+        ]
+    },
+    {
+        "id": "f558651d1c044c21",
+        "type": "debug",
+        "z": "ccbba8193508b160",
+        "name": "debug 166",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "6e5024bd83a8b958",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "name": "to carga2",
+        "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = array_in[i].carga2;\n}\n\nmsg.payload = array_out;\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 520,
+        "wires": [
+            [
+                "f558651d1c044c21",
+                "576425faceb2d8d2"
+            ]
+        ]
+    },
+    {
+        "id": "32543335f2385e18",
+        "type": "debug",
+        "z": "ccbba8193508b160",
+        "name": "debug 167",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 950,
+        "y": 560,
+        "wires": []
+    },
+    {
         "id": "e73b2e27b018880c",
         "type": "http in",
         "z": "e7bb50b21f9817d9",
