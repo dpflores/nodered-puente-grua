@@ -3560,7 +3560,7 @@
         "y": 1700,
         "wires": [
             [
-                "a66fcbd2fd9ac01a"
+                "b11234e887015721"
             ]
         ]
     },
@@ -3578,34 +3578,6 @@
         "wires": []
     },
     {
-        "id": "a66fcbd2fd9ac01a",
-        "type": "change",
-        "z": "12b6281657f0f653",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "gateway_data.data.sensor_estado",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 580,
-        "y": 1700,
-        "wires": [
-            [
-                "cc447b4918c87811",
-                "4ebf086cde315e49"
-            ]
-        ]
-    },
-    {
         "id": "4ebf086cde315e49",
         "type": "debug",
         "z": "12b6281657f0f653",
@@ -3620,6 +3592,31 @@
         "x": 850,
         "y": 1620,
         "wires": []
+    },
+    {
+        "id": "b11234e887015721",
+        "type": "switch",
+        "z": "12b6281657f0f653",
+        "name": "",
+        "property": "gateway_data.data.sensor_estado.state",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "init",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 590,
+        "y": 1700,
+        "wires": [
+            [
+                "cc447b4918c87811"
+            ]
+        ]
     },
     {
         "id": "1afd5cec81f07905",
