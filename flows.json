@@ -3598,7 +3598,7 @@
         "type": "function",
         "z": "12b6281657f0f653",
         "name": "function 126",
-        "func": "var status = global.get(\"gateway_data\").data.sensor_estado.state;\n\nif (status != \"init\"){\n    msg.payload = {\"status\": 1}\n\n}\nelse{\n    msg.payload = {\"status\": 0}\n}\nreturn msg;",
+        "func": "var status = global.get(\"gateway_data\").data.sensor_estado.state;\n\nif (status === \"init\"){\n    msg.payload = {\"status\": 0}\n    \n\n}\nelse{\n    msg.payload = {\"status\": 1}\n}\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
