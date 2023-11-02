@@ -24,6 +24,14 @@
         "env": []
     },
     {
+        "id": "ccbba8193508b160",
+        "type": "tab",
+        "label": "ESTATUS MENSUAL",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "e7bb50b21f9817d9",
         "type": "tab",
         "label": "DASHBOARD TEST",
@@ -3488,6 +3496,106 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "1afd5cec81f07905",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "name": "",
+        "func": "var properties = global.get('properties');\n\n\n// msg.topic =`SELECT data FROM local_data\n// ORDER BY date ASC\n// LIMIT 10;`;\n\nmsg.topic = `SELECT data FROM local_data;`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 340,
+        "wires": [
+            [
+                "6e54ef6d06aa9daa"
+            ]
+        ]
+    },
+    {
+        "id": "0691751ad43d6e19",
+        "type": "http in",
+        "z": "ccbba8193508b160",
+        "name": "",
+        "url": "/bell1",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 180,
+        "y": 340,
+        "wires": [
+            [
+                "1afd5cec81f07905"
+            ]
+        ]
+    },
+    {
+        "id": "74c5e538fffdd527",
+        "type": "http response",
+        "z": "ccbba8193508b160",
+        "name": "",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 960,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "6e54ef6d06aa9daa",
+        "type": "mysql",
+        "z": "ccbba8193508b160",
+        "mydb": "45598baf2af77f76",
+        "name": "",
+        "x": 540,
+        "y": 340,
+        "wires": [
+            [
+                "ca7d08bcc5d1b252"
+            ]
+        ]
+    },
+    {
+        "id": "ca7d08bcc5d1b252",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "name": "Process to json array",
+        "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = JSON.parse(msg.payload[i].data);\n}\n\nmsg.payload = array_out;\n\nmsg.columns = Object.keys(msg.payload[0]).toString();\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 340,
+        "wires": [
+            [
+                "71e641b3de3dd236"
+            ]
+        ]
+    },
+    {
+        "id": "71e641b3de3dd236",
+        "type": "debug",
+        "z": "ccbba8193508b160",
+        "name": "debug 164",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 400,
+        "wires": []
     },
     {
         "id": "e73b2e27b018880c",
