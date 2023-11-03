@@ -4559,7 +4559,7 @@
         "type": "function",
         "z": "ccbba8193508b160",
         "name": "Query ",
-        "func": "var dates = msg.payload.dateRange;\nmsg.topic = `\n  SELECT * FROM local_data WHERE ${dates[0]} <data < ${dates[1]};\n`;\n\nreturn msg;",
+        "func": "var dates = msg.payload.dateRange;\nmsg.topic = `\n  SELECT * FROM local_data WHERE ${dates[0]} <date < ${dates[1]};\n`;\n\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
