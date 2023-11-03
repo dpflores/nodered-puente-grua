@@ -4506,23 +4506,6 @@
         ]
     },
     {
-        "id": "f9584a37b8388c5d",
-        "type": "http in",
-        "z": "ccbba8193508b160",
-        "name": "",
-        "url": "/download",
-        "method": "get",
-        "upload": false,
-        "swaggerDoc": "",
-        "x": 180,
-        "y": 1640,
-        "wires": [
-            [
-                "fb584c44547f932c"
-            ]
-        ]
-    },
-    {
         "id": "3f07affd7205b45c",
         "type": "http response",
         "z": "ccbba8193508b160",
@@ -4552,6 +4535,23 @@
         "wires": [
             [
                 "3f07affd7205b45c"
+            ]
+        ]
+    },
+    {
+        "id": "a65e837f1c997061",
+        "type": "http in",
+        "z": "ccbba8193508b160",
+        "name": "",
+        "url": "/download",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 200,
+        "y": 1640,
+        "wires": [
+            [
+                "fb584c44547f932c"
             ]
         ]
     },
