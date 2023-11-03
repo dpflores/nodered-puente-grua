@@ -364,9 +364,7 @@
             "5a470f467d6d46dc"
         ],
         "x": 114,
-        "y": 579,
-        "w": 1012,
-        "h": 262
+        "y": 579
     },
     {
         "id": "4c1211b19890c008",
@@ -388,9 +386,7 @@
             "31c3ccc4207e816c"
         ],
         "x": 14,
-        "y": 379,
-        "w": 1252,
-        "h": 142
+        "y": 379
     },
     {
         "id": "8d53d2f17df7fbc4",
@@ -4011,8 +4007,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1090,
-        "y": 820,
+        "x": 1150,
+        "y": 800,
         "wires": []
     },
     {
@@ -4313,6 +4309,24 @@
                 "9f951d15a3c36ecd",
                 "869dd987768f740f"
             ]
+        ]
+    },
+    {
+        "id": "aadb9f1fa31679b8",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "name": "function 127",
+        "func": "const gridSize = 100;\nconst grid = new Array(gridSize).fill().map(() => new Array(gridSize).fill(0));\n\n// Supongamos que tienes una lista de miles de datos en el formato JSON dado\nconst datos = msg.payload;\n\n// Acumular la cantidad de veces que cada posición se repite en el grid\ndatos.forEach(({ x_axis, y_axis }) => {\n  if (x_axis >= 0 && x_axis < gridSize && y_axis >= 0 && y_axis < gridSize) {\n    grid[y_axis][x_axis]++;\n  }\n});\n\n// Convertir el grid a la estructura JSON deseada\nconst heatmapJSON = [];\n\ngrid.forEach((row, y) => {\n  row.forEach((value, x) => {\n    if (value > 0) {\n      heatmapJSON.push({ g: x, l: x, tmp: value });\n    }\n  });\n});\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 860,
+        "wires": [
+            []
         ]
     },
     {
