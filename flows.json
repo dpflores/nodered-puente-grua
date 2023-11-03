@@ -4620,12 +4620,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 890,
+        "x": 870,
         "y": 1740,
         "wires": [
             [
                 "cb149fbeafee754b",
-                "3f07affd7205b45c"
+                "3f07affd7205b45c",
+                "47eaa39190c06f23"
             ]
         ]
     },
@@ -4644,11 +4645,27 @@
         "resendOnRefresh": false,
         "templateScope": "local",
         "className": "",
-        "x": 1030,
+        "x": 1070,
         "y": 1740,
         "wires": [
             []
         ]
+    },
+    {
+        "id": "47eaa39190c06f23",
+        "type": "debug",
+        "z": "ccbba8193508b160",
+        "name": "debug 172",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 1820,
+        "wires": []
     },
     {
         "id": "e73b2e27b018880c",
