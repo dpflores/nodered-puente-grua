@@ -4303,7 +4303,7 @@
         "type": "debug",
         "z": "ccbba8193508b160",
         "name": "debug 169",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4533,9 +4533,7 @@
         "x": 410,
         "y": 1640,
         "wires": [
-            [
-                "3f07affd7205b45c"
-            ]
+            []
         ]
     },
     {
@@ -4552,12 +4550,108 @@
         "wires": [
             [
                 "fb584c44547f932c",
-                "3ec72feb8db1f384"
+                "334f1dc507ebc497"
             ]
         ]
     },
     {
-        "id": "3ec72feb8db1f384",
+        "id": "334f1dc507ebc497",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "name": "Query ",
+        "func": "var dates = msg.payload.dateRange;\nmsg.topic = `\n  SELECT * FROM local_data WHERE ${dates[0]} <data < ${dates[1]};\n`;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 1740,
+        "wires": [
+            [
+                "dfc9a728ae933341"
+            ]
+        ]
+    },
+    {
+        "id": "dfc9a728ae933341",
+        "type": "mysql",
+        "z": "ccbba8193508b160",
+        "mydb": "45598baf2af77f76",
+        "name": "",
+        "x": 600,
+        "y": 1740,
+        "wires": [
+            [
+                "23f41fa73df18c90"
+            ]
+        ]
+    },
+    {
+        "id": "23f41fa73df18c90",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "name": "Procesar array para csv",
+        "func": "var array_in = msg.payload;\nvar array_out = [];\n\n// All data\nfor (var i = 0; i < array_in.length; i++) {\n    array_out[i] = JSON.parse(msg.payload[i].data);\n\n    // Converting simple timestamp to human readable\n    // time\n    array_out[i].timestamp = unixTimestampToHumanReadable(array_out[i].timestamp);\n}\nmsg.filename = `${array_out[0].timestamp.split(\" \")[0]} hasta ${array_out[array_out.length - 1].timestamp.split(\" \")[0]}`;\n\nmsg.payload = array_out;\n\nmsg.columns = Object.keys(msg.payload[0]).toString();\n\n\nreturn msg;\n\n\n\n// Function for timestamp to readable time\nfunction unixTimestampToHumanReadable(unixTimestamp) {\n    const date = new Date(unixTimestamp);\n    const year = date.getFullYear();\n    const month = (date.getMonth() + 1).toString().padStart(2, '0');\n    const day = date.getDate().toString().padStart(2, '0');\n    const hours = date.getHours().toString().padStart(2, '0');\n    const minutes = date.getMinutes().toString().padStart(2, '0');\n    const seconds = date.getSeconds().toString().padStart(2, '0');\n\n    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;\n}\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 1740,
+        "wires": [
+            [
+                "b487682548ed1bfc"
+            ]
+        ]
+    },
+    {
+        "id": "b487682548ed1bfc",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "name": "csv",
+        "func": "function arrayToCSV(data) {\n    // Verificar si el array de datos está vacío\n    if (data.length === 0) {\n        return '';\n    }\n\n    // Obtener las claves del primer objeto JSON para los encabezados de columna\n    const keys = Object.keys(data[0]);\n\n    // Construir los encabezados de columna\n    const headerRow = keys.join(',');\n\n    // Construir filas del CSV\n    const csvRows = [];\n    csvRows.push(headerRow);\n\n    for (const obj of data) {\n        const values = keys.map(key => obj[key]);\n        const csvRow = values.join(',');\n        csvRows.push(csvRow);\n    }\n\n    // Unir todas las filas con saltos de línea\n    return csvRows.join('\\n');\n}\n// Convertir el array de objetos JSON a una cadena CSV\nconst csvString = arrayToCSV(msg.payload);\nmsg.payload = csvString;\nmsg.descarga = 1;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1010,
+        "y": 1740,
+        "wires": [
+            [
+                "cb149fbeafee754b",
+                "8c17af92b2c53edf"
+            ]
+        ]
+    },
+    {
+        "id": "cb149fbeafee754b",
+        "type": "ui_template",
+        "z": "ccbba8193508b160",
+        "group": "25bec14118d50672",
+        "name": "descarga csv",
+        "order": 2,
+        "width": 26,
+        "height": 1,
+        "format": "<div id=\"descarga_csv\"></div>\n<script>\n\n\nfunction downloadCSV(csv, filename) {  \n    var csvFile;  \n    var downloadLink;  \n    \n    //define the file type to text/csv  \n    csvFile = new Blob([csv], {type: 'text/csv'});  \n    downloadLink = document.createElement(\"a\");  \n    downloadLink.download = filename;  \n    downloadLink.href = window.URL.createObjectURL(csvFile);  \n    downloadLink.style.display = \"none\";  \n  \n    document.body.appendChild(downloadLink);  \n    downloadLink.click();  \n    document.body.removeChild(downloadLink);\n\n}\n\n\n\n// Update data & layout\n(function(scope) {\n  scope.$watch('msg', function(msg) {\n      if (msg.descarga){\n        csv = msg.payload;\n        downloadCSV(csv, msg.filename);\n      }\n  });\n})(scope);\n</script>\n\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 1170,
+        "y": 1740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8c17af92b2c53edf",
         "type": "debug",
         "z": "ccbba8193508b160",
         "name": "debug 172",
@@ -4568,8 +4662,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 410,
-        "y": 1600,
+        "x": 1130,
+        "y": 1660,
         "wires": []
     },
     {
