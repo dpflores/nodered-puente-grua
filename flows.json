@@ -364,7 +364,9 @@
             "5a470f467d6d46dc"
         ],
         "x": 114,
-        "y": 579
+        "y": 579,
+        "w": 1012,
+        "h": 262
     },
     {
         "id": "4c1211b19890c008",
@@ -386,7 +388,9 @@
             "31c3ccc4207e816c"
         ],
         "x": 14,
-        "y": 379
+        "y": 379,
+        "w": 1252,
+        "h": 142
     },
     {
         "id": "8d53d2f17df7fbc4",
@@ -4118,28 +4122,7 @@
         "y": 1040,
         "wires": [
             [
-                "7506180c62ae2992"
-            ]
-        ]
-    },
-    {
-        "id": "7506180c62ae2992",
-        "type": "function",
-        "z": "ccbba8193508b160",
-        "name": "to carga2",
-        "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = { \"g\": array_in[i].x_axis ,\n        \"l\": array_in[i].y_axis,\n        \"tmp\": array_in[i].carga2};\n\n    \n}\n\nmsg.payload = array_out;\n\n\nreturn msg;\n",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 940,
-        "y": 1040,
-        "wires": [
-            [
-                "cb5ac76698191c89",
-                "db350179b6e48cff"
+                "b8ad83107444114c"
             ]
         ]
     },
@@ -4327,6 +4310,26 @@
             [
                 "b62f1cc9ce8dda96",
                 "f2f557e11e51046a"
+            ]
+        ]
+    },
+    {
+        "id": "b8ad83107444114c",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "name": "function 128",
+        "func": "const gridSize = 100;\nconst grid = new Array(gridSize).fill().map(() => new Array(gridSize).fill(0));\n\n// Supongamos que tienes una lista de miles de datos en el formato JSON dado\nconst datos = msg.payload;\n\n// Acumular la cantidad de veces que cada posición se repite en el grid\ndatos.forEach(({ x_axis, y_axis }) => {\n  if (x_axis >= 0 && x_axis < gridSize && y_axis >= 0 && y_axis < gridSize) {\n    grid[y_axis][x_axis]++;\n  }\n});\n\n// Convertir el grid a la estructura JSON deseada\nconst heatmapJSON = [];\n\nfor (let y = 0; y < gridSize; y++) {\n  for (let x = 0; x < gridSize; x++) {\n    if (grid[y][x] > 0) {\n      heatmapJSON.push({ g: x, l: y, tmp: grid[y][x] });\n    }\n  }\n}\n\nmsg.payload = heatmapJSON;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 1100,
+        "wires": [
+            [
+                "db350179b6e48cff"
             ]
         ]
     },
