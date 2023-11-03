@@ -4514,27 +4514,9 @@
         "headers": {
             "content-type": "application/json"
         },
-        "x": 1080,
-        "y": 1680,
-        "wires": []
-    },
-    {
-        "id": "fb584c44547f932c",
-        "type": "function",
-        "z": "ccbba8193508b160",
-        "name": "function 129",
-        "func": "msg.payload = \"Hello\";\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 290,
+        "x": 1000,
         "y": 1640,
-        "wires": [
-            []
-        ]
+        "wires": []
     },
     {
         "id": "a65e837f1c997061",
@@ -4549,9 +4531,7 @@
         "y": 1640,
         "wires": [
             [
-                "fb584c44547f932c",
-                "334f1dc507ebc497",
-                "e6539dd3adce94b6"
+                "334f1dc507ebc497"
             ]
         ]
     },
@@ -4567,12 +4547,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 290,
-        "y": 1740,
+        "x": 250,
+        "y": 1640,
         "wires": [
             [
-                "dfc9a728ae933341",
-                "063f08231e00a167"
+                "dfc9a728ae933341"
             ]
         ]
     },
@@ -4582,12 +4561,11 @@
         "z": "ccbba8193508b160",
         "mydb": "45598baf2af77f76",
         "name": "",
-        "x": 480,
-        "y": 1740,
+        "x": 440,
+        "y": 1640,
         "wires": [
             [
-                "23f41fa73df18c90",
-                "c6984ba42d4bc64c"
+                "23f41fa73df18c90"
             ]
         ]
     },
@@ -4603,8 +4581,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 690,
-        "y": 1740,
+        "x": 650,
+        "y": 1640,
         "wires": [
             [
                 "b487682548ed1bfc"
@@ -4623,101 +4601,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 870,
-        "y": 1740,
+        "x": 830,
+        "y": 1640,
         "wires": [
             [
-                "cb149fbeafee754b",
-                "3f07affd7205b45c",
-                "47eaa39190c06f23"
+                "3f07affd7205b45c"
             ]
         ]
-    },
-    {
-        "id": "cb149fbeafee754b",
-        "type": "ui_template",
-        "z": "ccbba8193508b160",
-        "group": "25bec14118d50672",
-        "name": "descarga csv",
-        "order": 2,
-        "width": 26,
-        "height": 1,
-        "format": "<div id=\"descarga_csv\"></div>\n<script>\n\n\nfunction downloadCSV(csv, filename) {  \n    var csvFile;  \n    var downloadLink;  \n    \n    //define the file type to text/csv  \n    csvFile = new Blob([csv], {type: 'text/csv'});  \n    downloadLink = document.createElement(\"a\");  \n    downloadLink.download = filename;  \n    downloadLink.href = window.URL.createObjectURL(csvFile);  \n    downloadLink.style.display = \"none\";  \n  \n    document.body.appendChild(downloadLink);  \n    downloadLink.click();  \n    document.body.removeChild(downloadLink);\n\n}\n\n\n\n// Update data & layout\n(function(scope) {\n  scope.$watch('msg', function(msg) {\n      if (msg.descarga){\n        csv = msg.payload;\n        downloadCSV(csv, msg.filename);\n      }\n  });\n})(scope);\n</script>\n\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": false,
-        "templateScope": "local",
-        "className": "",
-        "x": 1070,
-        "y": 1740,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "47eaa39190c06f23",
-        "type": "debug",
-        "z": "ccbba8193508b160",
-        "name": "debug 172",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1070,
-        "y": 1820,
-        "wires": []
-    },
-    {
-        "id": "c6984ba42d4bc64c",
-        "type": "debug",
-        "z": "ccbba8193508b160",
-        "name": "debug 173",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 670,
-        "y": 1820,
-        "wires": []
-    },
-    {
-        "id": "063f08231e00a167",
-        "type": "debug",
-        "z": "ccbba8193508b160",
-        "name": "debug 174",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "topic",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 450,
-        "y": 1820,
-        "wires": []
-    },
-    {
-        "id": "e6539dd3adce94b6",
-        "type": "debug",
-        "z": "ccbba8193508b160",
-        "name": "debug 175",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 330,
-        "y": 1560,
-        "wires": []
     },
     {
         "id": "e73b2e27b018880c",
