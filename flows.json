@@ -3970,7 +3970,8 @@
         "y": 740,
         "wires": [
             [
-                "5866acbf3ab6d09b"
+                "5866acbf3ab6d09b",
+                "aadb9f1fa31679b8"
             ]
         ]
     },
@@ -3990,7 +3991,6 @@
         "y": 740,
         "wires": [
             [
-                "b62f1cc9ce8dda96",
                 "f2f557e11e51046a"
             ]
         ]
@@ -4225,7 +4225,7 @@
         "type": "debug",
         "z": "ccbba8193508b160",
         "name": "debug 170",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4326,7 +4326,9 @@
         "x": 950,
         "y": 860,
         "wires": [
-            []
+            [
+                "b62f1cc9ce8dda96"
+            ]
         ]
     },
     {
