@@ -4559,7 +4559,7 @@
         "type": "function",
         "z": "ccbba8193508b160",
         "name": "Query ",
-        "func": "var dates = msg.payload.dateRange;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\n\nreturn msg;",
+        "func": "var dates = msg.payload.dateRange;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]/1000}) AND date <= FROM_UNIXTIME(${dates[1]/1000});\n`;\n\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
