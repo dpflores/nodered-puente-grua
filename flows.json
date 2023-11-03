@@ -4514,8 +4514,8 @@
         "headers": {
             "content-type": "application/json"
         },
-        "x": 600,
-        "y": 1640,
+        "x": 1080,
+        "y": 1680,
         "wires": []
     },
     {
@@ -4530,7 +4530,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
+        "x": 290,
         "y": 1640,
         "wires": [
             []
@@ -4545,7 +4545,7 @@
         "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 200,
+        "x": 80,
         "y": 1640,
         "wires": [
             [
@@ -4566,7 +4566,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 410,
+        "x": 290,
         "y": 1740,
         "wires": [
             [
@@ -4580,7 +4580,7 @@
         "z": "ccbba8193508b160",
         "mydb": "45598baf2af77f76",
         "name": "",
-        "x": 600,
+        "x": 480,
         "y": 1740,
         "wires": [
             [
@@ -4600,7 +4600,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 810,
+        "x": 690,
         "y": 1740,
         "wires": [
             [
@@ -4620,12 +4620,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1010,
+        "x": 890,
         "y": 1740,
         "wires": [
             [
                 "cb149fbeafee754b",
-                "8c17af92b2c53edf"
+                "3f07affd7205b45c"
             ]
         ]
     },
@@ -4644,27 +4644,11 @@
         "resendOnRefresh": false,
         "templateScope": "local",
         "className": "",
-        "x": 1170,
+        "x": 1030,
         "y": 1740,
         "wires": [
             []
         ]
-    },
-    {
-        "id": "8c17af92b2c53edf",
-        "type": "debug",
-        "z": "ccbba8193508b160",
-        "name": "debug 172",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1130,
-        "y": 1660,
-        "wires": []
     },
     {
         "id": "e73b2e27b018880c",
