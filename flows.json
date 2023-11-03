@@ -50,8 +50,8 @@
     {
         "id": "93c938d261dc36e3",
         "type": "tab",
-        "label": "CAN",
-        "disabled": false,
+        "label": "DESCARGA USB",
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -59,6 +59,14 @@
         "id": "ac1b7f858f654d07",
         "type": "tab",
         "label": "CONNECTIVITY & MONITORING",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6a74f3eea392f98a",
+        "type": "tab",
+        "label": "CAN",
         "disabled": false,
         "info": "",
         "env": []
@@ -85,9 +93,7 @@
             "ab7d8e0de922c171"
         ],
         "x": 94,
-        "y": 119,
-        "w": 632,
-        "h": 262
+        "y": 119
     },
     {
         "id": "6b7c1f4fbbe77c84",
@@ -108,9 +114,7 @@
             "aa1c36cde09fb4f4"
         ],
         "x": 94,
-        "y": 959,
-        "w": 752,
-        "h": 162
+        "y": 959
     },
     {
         "id": "65c598bb5234d69b",
@@ -131,9 +135,7 @@
             "c2403b842567b383"
         ],
         "x": 84,
-        "y": 419,
-        "w": 742,
-        "h": 182
+        "y": 419
     },
     {
         "id": "a5bc3a1930f09c8f",
@@ -158,9 +160,7 @@
             "124808048f0bda31"
         ],
         "x": 84,
-        "y": 639,
-        "w": 1142,
-        "h": 262
+        "y": 639
     },
     {
         "id": "39ddbe85a72ee0b3",
@@ -229,9 +229,7 @@
             "c75c61cf2dd42916"
         ],
         "x": 54,
-        "y": 2199,
-        "w": 1612,
-        "h": 342
+        "y": 2199
     },
     {
         "id": "24d00d6b1a472a12",
@@ -258,9 +256,7 @@
             "4512bff38c8cd675"
         ],
         "x": 54,
-        "y": 1199,
-        "w": 1712,
-        "h": 202
+        "y": 1199
     },
     {
         "id": "1a0d550707f8cc4f",
@@ -279,9 +275,7 @@
             "75f7fd59086311fd"
         ],
         "x": 54,
-        "y": 1939,
-        "w": 792,
-        "h": 202
+        "y": 1939
     },
     {
         "id": "f3d20ca83e6edb3b",
@@ -300,9 +294,7 @@
             "e89cfe106f7515fa"
         ],
         "x": 54,
-        "y": 1739,
-        "w": 932,
-        "h": 142
+        "y": 1739
     },
     {
         "id": "1d1b1c227a0bc262",
@@ -318,9 +310,7 @@
             "0c617771a3bf80f9"
         ],
         "x": 54,
-        "y": 2659,
-        "w": 572,
-        "h": 82
+        "y": 2659
     },
     {
         "id": "a6e52991c91f4c94",
@@ -340,9 +330,7 @@
             "e349b59a54266dfb"
         ],
         "x": 54,
-        "y": 1479,
-        "w": 1152,
-        "h": 82
+        "y": 1479
     },
     {
         "id": "2491dc44ba7072d1",
@@ -3315,7 +3303,7 @@
         "z": "12b6281657f0f653",
         "g": "bf106bc84bf8e0c1",
         "name": "debug 163",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -3905,7 +3893,7 @@
         "type": "debug",
         "z": "ccbba8193508b160",
         "name": "debug 165",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4165,7 +4153,7 @@
         "type": "debug",
         "z": "ccbba8193508b160",
         "name": "debug 168",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -5926,324 +5914,234 @@
         ]
     },
     {
-        "id": "c3f27ba3ca80b255",
-        "type": "switch",
+        "id": "0fa85570732327d9",
+        "type": "exec",
+        "z": "93c938d261dc36e3",
+        "command": "mount /dev/sda1 /media/USB/",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 710,
+        "y": 280,
+        "wires": [
+            [],
+            [],
+            [
+                "7cb1bfa6ee14cd59"
+            ]
+        ]
+    },
+    {
+        "id": "908fa73116dffd7a",
+        "type": "exec",
+        "z": "93c938d261dc36e3",
+        "command": "umount /media/USB",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 880,
+        "y": 480,
+        "wires": [
+            [],
+            [],
+            [
+                "eb67adf7cd48d352",
+                "484501af6a01d73c"
+            ]
+        ]
+    },
+    {
+        "id": "f0909c5883cf2bb5",
+        "type": "delay",
         "z": "93c938d261dc36e3",
         "name": "",
-        "property": "payload.id",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "100",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "102",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "104",
-                "vt": "str"
-            },
-            {
-                "t": "eq",
-                "v": "106",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 4,
-        "x": 490,
-        "y": 380,
-        "wires": [
-            [
-                "89fad250f62175d9"
-            ],
-            [
-                "6b51796093c809d6"
-            ],
-            [
-                "ce3739bf155001c6"
-            ],
-            [
-                "a4fd8d7ef754afb3"
-            ]
-        ]
-    },
-    {
-        "id": "d59f243112e62da5",
-        "type": "inject",
-        "z": "93c938d261dc36e3",
-        "name": "reset encoder 2",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 300,
-        "y": 620,
-        "wires": [
-            [
-                "8375ef1ec025f6f3",
-                "79b86d4717856136",
-                "ee531c4e031f9b08"
-            ]
-        ]
-    },
-    {
-        "id": "6b51796093c809d6",
-        "type": "function",
-        "z": "93c938d261dc36e3",
-        "name": "encoder 2",
-        "func": "var data = msg.payload.data;\n\nlet out = data[6]*1000000 + data[4]*10000 + data[2]*100 + data[0];\n\nmsg.payload = out;\n\nreturn msg;",
+        "pauseType": "delay",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
         "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 760,
-        "y": 300,
+        "x": 500,
+        "y": 280,
         "wires": [
             [
-                "aa5d262da2d5d3c6"
+                "0fa85570732327d9"
             ]
         ]
     },
     {
-        "id": "aa5d262da2d5d3c6",
-        "type": "debug",
+        "id": "611c4768cd164731",
+        "type": "delay",
         "z": "93c938d261dc36e3",
-        "name": "debug 132",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 990,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "ceaad11cddbbd77f",
-        "type": "candump",
-        "z": "93c938d261dc36e3",
-        "name": "candump",
-        "vconfig": "17817d0cf2f97b21",
-        "x": 160,
-        "y": 380,
-        "wires": [
-            [
-                "d4f8e3c3f5a07134",
-                "62321cdfe39d04ac"
-            ]
-        ]
-    },
-    {
-        "id": "d4f8e3c3f5a07134",
-        "type": "function",
-        "z": "93c938d261dc36e3",
-        "name": "adding ID",
-        "func": "const id_in = msg.payload.split('#')[0]; // Dividir la cadena en función del símbolo '#'\n\nmsg.payload = {\"id\": parseInt(id_in),\n\"data\": msg.data};\n\nreturn msg;\n",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
         "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 340,
-        "y": 380,
+        "x": 500,
+        "y": 360,
         "wires": [
             [
-                "c3f27ba3ca80b255",
-                "6e347290dc1c9e9f"
+                "24491a42e5626d87"
             ]
         ]
     },
     {
-        "id": "6e347290dc1c9e9f",
-        "type": "debug",
+        "id": "79c85eb3c32b4cec",
+        "type": "delay",
         "z": "93c938d261dc36e3",
-        "name": "debug 137",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 680,
+        "y": 480,
+        "wires": [
+            [
+                "908fa73116dffd7a"
+            ]
+        ]
+    },
+    {
+        "id": "6cae6ebd51676aa2",
+        "type": "exec",
+        "z": "93c938d261dc36e3",
+        "command": "echo 1 > /dev/usrled3; echo 0 > /dev/usrled2",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
         "x": 510,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "89fad250f62175d9",
-        "type": "function",
-        "z": "93c938d261dc36e3",
-        "name": "encoder 1",
-        "func": "var data = msg.payload.data;\n\nlet out = data[6]*1000000 + data[4]*10000 + data[2]*100 + data[0];\n\nmsg.payload = out;\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 760,
-        "y": 240,
-        "wires": [
-            [
-                "96f4a7f146108e7d"
-            ]
-        ]
-    },
-    {
-        "id": "96f4a7f146108e7d",
-        "type": "debug",
-        "z": "93c938d261dc36e3",
-        "name": "debug 138",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 990,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "62321cdfe39d04ac",
-        "type": "debug",
-        "z": "93c938d261dc36e3",
-        "name": "debug 139",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 310,
         "y": 180,
-        "wires": []
+        "wires": [
+            [],
+            [],
+            []
+        ]
     },
     {
-        "id": "6de60f8833512503",
-        "type": "change",
+        "id": "5913ac761e735950",
+        "type": "exec",
         "z": "93c938d261dc36e3",
+        "command": "echo 0 > /dev/usrled3; echo 1 > /dev/usrled2",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
         "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "[0,0,1,0,0,0,0,0]",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 720,
-        "y": 620,
+        "x": 1390,
+        "y": 660,
         "wires": [
+            [],
+            [],
             [
-                "b1272024f2f469be"
+                "95b9733afe4cfa28"
             ]
         ]
     },
     {
-        "id": "b1272024f2f469be",
-        "type": "cansend",
+        "id": "411b82cd9be62670",
+        "type": "exec",
         "z": "93c938d261dc36e3",
-        "config": "17817d0cf2f97b21",
-        "canid": "2005",
-        "payload": "",
-        "x": 940,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "79b86d4717856136",
-        "type": "change",
-        "z": "93c938d261dc36e3",
+        "command": "echo 0 > /dev/usrled3; echo 0 > /dev/usrled2; umount /media/USB",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
         "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "[0,0,0,0,0,0,0,0]",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 640,
-        "y": 880,
+        "x": 440,
+        "y": 600,
         "wires": [
+            [],
+            [],
             [
-                "b1272024f2f469be"
+                "36c50bea4f163c33"
             ]
         ]
     },
     {
-        "id": "41a525a4ca4918c4",
-        "type": "change",
+        "id": "8280a977f37e7427",
+        "type": "exec",
         "z": "93c938d261dc36e3",
+        "command": "echo 0 > /dev/diod3",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
         "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "[0,0,0,0,1,0,0,0]",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 720,
-        "y": 680,
+        "x": 950,
+        "y": 980,
         "wires": [
-            [
-                "b1272024f2f469be"
-            ]
+            [],
+            [],
+            []
         ]
     },
     {
-        "id": "0c980e4ddc661c63",
+        "id": "3b41906495a76b75",
+        "type": "exec",
+        "z": "93c938d261dc36e3",
+        "command": "echo 0 > /dev/usrled2",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 960,
+        "y": 860,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7c8765ccbcef1d36",
         "type": "inject",
         "z": "93c938d261dc36e3",
-        "name": "reset encoder 1",
+        "name": "",
         "props": [
             {
                 "p": "payload"
@@ -6255,198 +6153,27 @@
         ],
         "repeat": "",
         "crontab": "",
-        "once": false,
+        "once": true,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 300,
-        "y": 560,
+        "x": 730,
+        "y": 940,
         "wires": [
             [
-                "a1db46e6648214be",
-                "79b86d4717856136",
-                "ee531c4e031f9b08"
+                "3b41906495a76b75",
+                "8280a977f37e7427",
+                "a24ecf78cb9c4bcd",
+                "6599757e27dee406"
             ]
         ]
     },
     {
-        "id": "1bf7990196f9e898",
-        "type": "change",
-        "z": "93c938d261dc36e3",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "[1,0,0,0,0,0,0,0]",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 720,
-        "y": 560,
-        "wires": [
-            [
-                "b1272024f2f469be"
-            ]
-        ]
-    },
-    {
-        "id": "99de15a58763265e",
-        "type": "change",
-        "z": "93c938d261dc36e3",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "[0,0,0,0,0,0,1,0]",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 720,
-        "y": 740,
-        "wires": [
-            [
-                "b1272024f2f469be"
-            ]
-        ]
-    },
-    {
-        "id": "8ea9409731e1d1fb",
-        "type": "inject",
-        "z": "93c938d261dc36e3",
-        "name": "reset encoder 3",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 300,
-        "y": 680,
-        "wires": [
-            [
-                "55dd971d651d6a07",
-                "79b86d4717856136",
-                "ee531c4e031f9b08"
-            ]
-        ]
-    },
-    {
-        "id": "737fc8a7ccff66ae",
-        "type": "inject",
-        "z": "93c938d261dc36e3",
-        "name": "reset encoder 4",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 300,
-        "y": 740,
-        "wires": [
-            [
-                "3742fb170879f72f",
-                "79b86d4717856136",
-                "ee531c4e031f9b08"
-            ]
-        ]
-    },
-    {
-        "id": "a4fd8d7ef754afb3",
-        "type": "function",
-        "z": "93c938d261dc36e3",
-        "name": "encoder 4",
-        "func": "var data = msg.payload.data;\n\nlet out = data[6]*1000000 + data[4]*10000 + data[2]*100 + data[0];\n\nmsg.payload = out;\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 760,
-        "y": 440,
-        "wires": [
-            [
-                "9f05f9cb7ae0fad7"
-            ]
-        ]
-    },
-    {
-        "id": "ce3739bf155001c6",
-        "type": "function",
-        "z": "93c938d261dc36e3",
-        "name": "encoder 3",
-        "func": "var data = msg.payload.data;\n\nlet out = data[6]*1000000 + data[4]*10000 + data[2]*100 + data[0];\n\nmsg.payload = out;\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 760,
-        "y": 380,
-        "wires": [
-            [
-                "ec7eca1cee264341"
-            ]
-        ]
-    },
-    {
-        "id": "ec7eca1cee264341",
+        "id": "eb67adf7cd48d352",
         "type": "debug",
         "z": "93c938d261dc36e3",
-        "name": "debug 140",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 990,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "9f05f9cb7ae0fad7",
-        "type": "debug",
-        "z": "93c938d261dc36e3",
-        "name": "debug 141",
+        "name": "",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -6454,160 +6181,438 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 990,
-        "y": 440,
+        "x": 1070,
+        "y": 480,
         "wires": []
     },
     {
-        "id": "a1db46e6648214be",
-        "type": "delay",
+        "id": "24491a42e5626d87",
+        "type": "link out",
+        "z": "93c938d261dc36e3",
+        "name": "descarga_usb",
+        "mode": "link",
+        "links": [
+            "453da7bdd0eca604",
+            "08ef0af123c7225b",
+            "05d8f608fe5eb3a7",
+            "5640511ec10b0865"
+        ],
+        "x": 605,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "1bb50ae54662e6ff",
+        "type": "link in",
+        "z": "93c938d261dc36e3",
+        "name": "descarga_done",
+        "links": [
+            "f89cd51984aeef3d",
+            "fa52f9efaa73c12b",
+            "4512bff38c8cd675",
+            "2bc1b60033c6d16d"
+        ],
+        "x": 805,
+        "y": 400,
+        "wires": [
+            [
+                "09f0e4f9549d2ba9"
+            ]
+        ]
+    },
+    {
+        "id": "09f0e4f9549d2ba9",
+        "type": "exec",
+        "z": "93c938d261dc36e3",
+        "command": "cp -r /root/ITEMAQ/ANGULAMIENTO /media/USB",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 1030,
+        "y": 400,
+        "wires": [
+            [],
+            [],
+            [
+                "79c85eb3c32b4cec"
+            ]
+        ]
+    },
+    {
+        "id": "bb293532cfb39e99",
+        "type": "comment",
+        "z": "93c938d261dc36e3",
+        "name": "saving csv",
+        "info": "",
+        "x": 700,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "36c50bea4f163c33",
+        "type": "debug",
         "z": "93c938d261dc36e3",
         "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 560,
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "484501af6a01d73c",
+        "type": "function",
+        "z": "93c938d261dc36e3",
+        "name": "",
+        "func": "if (msg.payload.code == 0){\n    node.status({ fill: \"green\", shape: \"dot\", text: \"usb connected\" });\n    return [null, msg];\n    \n}\nelse{\n    node.status({ fill: \"red\", shape: \"ring\", text: \"usb disconnected\" });\n    return [msg, null];\n}\n",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1100,
+        "y": 600,
+        "wires": [
+            [
+                "af2952fef3c4bb96",
+                "39db48e634e5f68e"
+            ],
+            [
+                "5913ac761e735950",
+                "ca21724456fbfc8b"
+            ]
+        ]
+    },
+    {
+        "id": "af2952fef3c4bb96",
+        "type": "exec",
+        "z": "93c938d261dc36e3",
+        "command": "echo 0 > /dev/usrled3; echo 0 > /dev/usrled2",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 1390,
         "y": 560,
         "wires": [
+            [],
+            [],
             [
-                "1bf7990196f9e898"
+                "cd3920d3e89b9edd"
             ]
         ]
     },
     {
-        "id": "8375ef1ec025f6f3",
-        "type": "delay",
+        "id": "68ad270c7e3aa592",
+        "type": "inject",
         "z": "93c938d261dc36e3",
         "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 560,
-        "y": 620,
-        "wires": [
-            [
-                "6de60f8833512503"
-            ]
-        ]
-    },
-    {
-        "id": "55dd971d651d6a07",
-        "type": "delay",
-        "z": "93c938d261dc36e3",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 560,
-        "y": 680,
-        "wires": [
-            [
-                "41a525a4ca4918c4"
-            ]
-        ]
-    },
-    {
-        "id": "3742fb170879f72f",
-        "type": "delay",
-        "z": "93c938d261dc36e3",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "1",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 560,
-        "y": 740,
-        "wires": [
-            [
-                "99de15a58763265e"
-            ]
-        ]
-    },
-    {
-        "id": "ee531c4e031f9b08",
-        "type": "delay",
-        "z": "93c938d261dc36e3",
-        "name": "",
-        "pauseType": "delay",
-        "timeout": "2",
-        "timeoutUnits": "seconds",
-        "rate": "1",
-        "nbRateUnits": "1",
-        "rateUnits": "second",
-        "randomFirst": "1",
-        "randomLast": "5",
-        "randomUnits": "seconds",
-        "drop": false,
-        "allowrate": false,
-        "outputs": 1,
-        "x": 540,
-        "y": 940,
-        "wires": [
-            [
-                "26a4f16ff0a17ef9"
-            ]
-        ]
-    },
-    {
-        "id": "26a4f16ff0a17ef9",
-        "type": "change",
-        "z": "93c938d261dc36e3",
-        "name": "",
-        "rules": [
+        "props": [
             {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "[0,0,0,0,0,0,0,0]",
-                "tot": "json"
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
             }
         ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 740,
-        "y": 940,
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 660,
+        "y": 540,
         "wires": [
             [
-                "b1272024f2f469be"
+                "908fa73116dffd7a"
             ]
+        ]
+    },
+    {
+        "id": "cd3920d3e89b9edd",
+        "type": "debug",
+        "z": "93c938d261dc36e3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1650,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "95b9733afe4cfa28",
+        "type": "debug",
+        "z": "93c938d261dc36e3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1650,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "b896e77a5281950e",
+        "type": "debug",
+        "z": "93c938d261dc36e3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "82cc57f035f4b635",
+        "type": "inject",
+        "z": "93c938d261dc36e3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 300,
+        "wires": [
+            [
+                "f0909c5883cf2bb5"
+            ]
+        ]
+    },
+    {
+        "id": "c8180879340f9797",
+        "type": "usb-watch",
+        "z": "93c938d261dc36e3",
+        "name": "",
+        "initialScan": false,
+        "x": 260,
+        "y": 360,
+        "wires": [
+            [
+                "f0909c5883cf2bb5",
+                "6cae6ebd51676aa2",
+                "b896e77a5281950e",
+                "267bd568987c89b8"
+            ],
+            [
+                "411b82cd9be62670",
+                "42e2da368acfdb16"
+            ]
+        ]
+    },
+    {
+        "id": "267bd568987c89b8",
+        "type": "exec",
+        "z": "93c938d261dc36e3",
+        "command": "echo 1 > /dev/diod3; echo 0 > /dev/diod2",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 500,
+        "y": 120,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "42e2da368acfdb16",
+        "type": "exec",
+        "z": "93c938d261dc36e3",
+        "command": "echo 0 > /dev/diod3; echo 0 > /dev/diod2",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 360,
+        "y": 660,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "559d7dc0b202b6ec",
+        "type": "comment",
+        "z": "93c938d261dc36e3",
+        "name": "2 es luz verde, 3 es luz roja",
+        "info": "",
+        "x": 870,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "a24ecf78cb9c4bcd",
+        "type": "exec",
+        "z": "93c938d261dc36e3",
+        "command": "echo 0 > /dev/diod2",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 950,
+        "y": 800,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "6599757e27dee406",
+        "type": "exec",
+        "z": "93c938d261dc36e3",
+        "command": "echo 0 > /dev/diod3",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 950,
+        "y": 1040,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "39db48e634e5f68e",
+        "type": "exec",
+        "z": "93c938d261dc36e3",
+        "command": "echo 0 > /dev/diod3; echo 0 > /dev/diod2",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 1380,
+        "y": 520,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ca21724456fbfc8b",
+        "type": "exec",
+        "z": "93c938d261dc36e3",
+        "command": "echo 0 > /dev/diod3; echo 1 > /dev/diod2",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 1380,
+        "y": 720,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7cb1bfa6ee14cd59",
+        "type": "function",
+        "z": "93c938d261dc36e3",
+        "name": "",
+        "func": "if (msg.payload.code == 0){\n    node.status({ fill: \"green\", shape: \"dot\", text: \"usb connected\" });\n    return [null, msg];\n    \n}\nelse{\n    node.status({ fill: \"red\", shape: \"ring\", text: \"usb disconnected\" });\n    return [msg, null];\n}\n",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 960,
+        "y": 280,
+        "wires": [
+            [
+                "739dd41c60b23bc3"
+            ],
+            [
+                "611c4768cd164731"
+            ]
+        ]
+    },
+    {
+        "id": "739dd41c60b23bc3",
+        "type": "exec",
+        "z": "93c938d261dc36e3",
+        "command": "/root/axotec_scripts/blink_red_led.sh",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 1230,
+        "y": 240,
+        "wires": [
+            [],
+            [],
+            []
         ]
     },
     {
@@ -7626,6 +7631,691 @@
         "wires": [
             [
                 "a25ce97d8a1e53e6"
+            ]
+        ]
+    },
+    {
+        "id": "c3f27ba3ca80b255",
+        "type": "switch",
+        "z": "6a74f3eea392f98a",
+        "name": "",
+        "property": "payload.id",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "100",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "102",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "104",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "106",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 530,
+        "y": 300,
+        "wires": [
+            [
+                "89fad250f62175d9"
+            ],
+            [
+                "6b51796093c809d6"
+            ],
+            [
+                "ce3739bf155001c6"
+            ],
+            [
+                "a4fd8d7ef754afb3"
+            ]
+        ]
+    },
+    {
+        "id": "d59f243112e62da5",
+        "type": "inject",
+        "z": "6a74f3eea392f98a",
+        "name": "reset encoder 2",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 340,
+        "y": 540,
+        "wires": [
+            [
+                "8375ef1ec025f6f3",
+                "79b86d4717856136",
+                "ee531c4e031f9b08"
+            ]
+        ]
+    },
+    {
+        "id": "6b51796093c809d6",
+        "type": "function",
+        "z": "6a74f3eea392f98a",
+        "name": "encoder 2",
+        "func": "var data = msg.payload.data;\n\nlet out = data[6]*1000000 + data[4]*10000 + data[2]*100 + data[0];\n\nmsg.payload = out;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 220,
+        "wires": [
+            [
+                "aa5d262da2d5d3c6"
+            ]
+        ]
+    },
+    {
+        "id": "aa5d262da2d5d3c6",
+        "type": "debug",
+        "z": "6a74f3eea392f98a",
+        "name": "debug 132",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1030,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "ceaad11cddbbd77f",
+        "type": "candump",
+        "z": "6a74f3eea392f98a",
+        "name": "candump",
+        "vconfig": "17817d0cf2f97b21",
+        "x": 200,
+        "y": 300,
+        "wires": [
+            [
+                "d4f8e3c3f5a07134",
+                "62321cdfe39d04ac"
+            ]
+        ]
+    },
+    {
+        "id": "d4f8e3c3f5a07134",
+        "type": "function",
+        "z": "6a74f3eea392f98a",
+        "name": "adding ID",
+        "func": "const id_in = msg.payload.split('#')[0]; // Dividir la cadena en función del símbolo '#'\n\nmsg.payload = {\"id\": parseInt(id_in),\n\"data\": msg.data};\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 300,
+        "wires": [
+            [
+                "c3f27ba3ca80b255",
+                "6e347290dc1c9e9f"
+            ]
+        ]
+    },
+    {
+        "id": "6e347290dc1c9e9f",
+        "type": "debug",
+        "z": "6a74f3eea392f98a",
+        "name": "debug 137",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "89fad250f62175d9",
+        "type": "function",
+        "z": "6a74f3eea392f98a",
+        "name": "encoder 1",
+        "func": "var data = msg.payload.data;\n\nlet out = data[6]*1000000 + data[4]*10000 + data[2]*100 + data[0];\n\nmsg.payload = out;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 160,
+        "wires": [
+            [
+                "96f4a7f146108e7d"
+            ]
+        ]
+    },
+    {
+        "id": "96f4a7f146108e7d",
+        "type": "debug",
+        "z": "6a74f3eea392f98a",
+        "name": "debug 138",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1030,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "62321cdfe39d04ac",
+        "type": "debug",
+        "z": "6a74f3eea392f98a",
+        "name": "debug 139",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 350,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "6de60f8833512503",
+        "type": "change",
+        "z": "6a74f3eea392f98a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[0,0,1,0,0,0,0,0]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 540,
+        "wires": [
+            [
+                "b1272024f2f469be"
+            ]
+        ]
+    },
+    {
+        "id": "b1272024f2f469be",
+        "type": "cansend",
+        "z": "6a74f3eea392f98a",
+        "config": "17817d0cf2f97b21",
+        "canid": "2005",
+        "payload": "",
+        "x": 980,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "79b86d4717856136",
+        "type": "change",
+        "z": "6a74f3eea392f98a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[0,0,0,0,0,0,0,0]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 800,
+        "wires": [
+            [
+                "b1272024f2f469be"
+            ]
+        ]
+    },
+    {
+        "id": "41a525a4ca4918c4",
+        "type": "change",
+        "z": "6a74f3eea392f98a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[0,0,0,0,1,0,0,0]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 600,
+        "wires": [
+            [
+                "b1272024f2f469be"
+            ]
+        ]
+    },
+    {
+        "id": "0c980e4ddc661c63",
+        "type": "inject",
+        "z": "6a74f3eea392f98a",
+        "name": "reset encoder 1",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 340,
+        "y": 480,
+        "wires": [
+            [
+                "a1db46e6648214be",
+                "79b86d4717856136",
+                "ee531c4e031f9b08"
+            ]
+        ]
+    },
+    {
+        "id": "1bf7990196f9e898",
+        "type": "change",
+        "z": "6a74f3eea392f98a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[1,0,0,0,0,0,0,0]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 480,
+        "wires": [
+            [
+                "b1272024f2f469be"
+            ]
+        ]
+    },
+    {
+        "id": "99de15a58763265e",
+        "type": "change",
+        "z": "6a74f3eea392f98a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[0,0,0,0,0,0,1,0]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 660,
+        "wires": [
+            [
+                "b1272024f2f469be"
+            ]
+        ]
+    },
+    {
+        "id": "8ea9409731e1d1fb",
+        "type": "inject",
+        "z": "6a74f3eea392f98a",
+        "name": "reset encoder 3",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 340,
+        "y": 600,
+        "wires": [
+            [
+                "55dd971d651d6a07",
+                "79b86d4717856136",
+                "ee531c4e031f9b08"
+            ]
+        ]
+    },
+    {
+        "id": "737fc8a7ccff66ae",
+        "type": "inject",
+        "z": "6a74f3eea392f98a",
+        "name": "reset encoder 4",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 340,
+        "y": 660,
+        "wires": [
+            [
+                "3742fb170879f72f",
+                "79b86d4717856136",
+                "ee531c4e031f9b08"
+            ]
+        ]
+    },
+    {
+        "id": "a4fd8d7ef754afb3",
+        "type": "function",
+        "z": "6a74f3eea392f98a",
+        "name": "encoder 4",
+        "func": "var data = msg.payload.data;\n\nlet out = data[6]*1000000 + data[4]*10000 + data[2]*100 + data[0];\n\nmsg.payload = out;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 360,
+        "wires": [
+            [
+                "9f05f9cb7ae0fad7"
+            ]
+        ]
+    },
+    {
+        "id": "ce3739bf155001c6",
+        "type": "function",
+        "z": "6a74f3eea392f98a",
+        "name": "encoder 3",
+        "func": "var data = msg.payload.data;\n\nlet out = data[6]*1000000 + data[4]*10000 + data[2]*100 + data[0];\n\nmsg.payload = out;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 300,
+        "wires": [
+            [
+                "ec7eca1cee264341"
+            ]
+        ]
+    },
+    {
+        "id": "ec7eca1cee264341",
+        "type": "debug",
+        "z": "6a74f3eea392f98a",
+        "name": "debug 140",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1030,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "9f05f9cb7ae0fad7",
+        "type": "debug",
+        "z": "6a74f3eea392f98a",
+        "name": "debug 141",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1030,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "a1db46e6648214be",
+        "type": "delay",
+        "z": "6a74f3eea392f98a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 600,
+        "y": 480,
+        "wires": [
+            [
+                "1bf7990196f9e898"
+            ]
+        ]
+    },
+    {
+        "id": "8375ef1ec025f6f3",
+        "type": "delay",
+        "z": "6a74f3eea392f98a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 600,
+        "y": 540,
+        "wires": [
+            [
+                "6de60f8833512503"
+            ]
+        ]
+    },
+    {
+        "id": "55dd971d651d6a07",
+        "type": "delay",
+        "z": "6a74f3eea392f98a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 600,
+        "y": 600,
+        "wires": [
+            [
+                "41a525a4ca4918c4"
+            ]
+        ]
+    },
+    {
+        "id": "3742fb170879f72f",
+        "type": "delay",
+        "z": "6a74f3eea392f98a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 600,
+        "y": 660,
+        "wires": [
+            [
+                "99de15a58763265e"
+            ]
+        ]
+    },
+    {
+        "id": "ee531c4e031f9b08",
+        "type": "delay",
+        "z": "6a74f3eea392f98a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 580,
+        "y": 860,
+        "wires": [
+            [
+                "26a4f16ff0a17ef9"
+            ]
+        ]
+    },
+    {
+        "id": "26a4f16ff0a17ef9",
+        "type": "change",
+        "z": "6a74f3eea392f98a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[0,0,0,0,0,0,0,0]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 860,
+        "wires": [
+            [
+                "b1272024f2f469be"
             ]
         ]
     }
