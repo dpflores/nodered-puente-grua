@@ -4570,7 +4570,8 @@
         "y": 1740,
         "wires": [
             [
-                "dfc9a728ae933341"
+                "dfc9a728ae933341",
+                "063f08231e00a167"
             ]
         ]
     },
@@ -4681,6 +4682,23 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 670,
+        "y": 1820,
+        "wires": []
+    },
+    {
+        "id": "063f08231e00a167",
+        "type": "debug",
+        "z": "ccbba8193508b160",
+        "name": "debug 174",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
         "y": 1820,
         "wires": []
     },
