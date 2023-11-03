@@ -4559,7 +4559,7 @@
         "type": "function",
         "z": "ccbba8193508b160",
         "name": "Query ",
-        "func": "var dates = msg.payload.dateRange;\nmsg.topic = `\n  SELECT * FROM local_data WHERE date >= '${dates[0]}' AND date <= '${dates[1]}';\n`;\n\nreturn msg;",
+        "func": "var dates = msg.payload.dateRange;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIMESTAMP(${dates[0]}) AND date <= FROM_UNIXTIMESTAMP(${dates[1]});\n`;\n\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
