@@ -344,12 +344,11 @@
             "a6bcf2f01996a5c8",
             "ed991b72ae9093a6",
             "f468ca404ec7b3ba",
-            "92118584c83a7087",
-            "e349b59a54266dfb"
+            "92118584c83a7087"
         ],
         "x": 54,
         "y": 1479,
-        "w": 1152,
+        "w": 972,
         "h": 82
     },
     {
@@ -497,169 +496,6 @@
         "out": "char",
         "addchar": "",
         "responsetimeout": "10000"
-    },
-    {
-        "id": "25bec14118d50672",
-        "type": "ui_group",
-        "name": "Group 1",
-        "tab": "88dead4c2d39df0d",
-        "order": 1,
-        "disp": false,
-        "width": 26,
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "88dead4c2d39df0d",
-        "type": "ui_tab",
-        "name": "ESTATUS DE OPERACION",
-        "icon": "timeline",
-        "order": 4,
-        "disabled": false,
-        "hidden": false
-    },
-    {
-        "id": "51cc9a5c59010e6d",
-        "type": "ui_base",
-        "theme": {
-            "name": "theme-custom",
-            "lightTheme": {
-                "default": "#0094CE",
-                "baseColor": "#0094CE",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": true,
-                "reset": false
-            },
-            "darkTheme": {
-                "default": "#097479",
-                "baseColor": "#097479",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
-            },
-            "customTheme": {
-                "name": "komatsu",
-                "default": "#4B7930",
-                "baseColor": "#0e1271",
-                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "reset": false
-            },
-            "themeState": {
-                "base-color": {
-                    "default": "#4B7930",
-                    "value": "#0e1271",
-                    "edited": true
-                },
-                "page-titlebar-backgroundColor": {
-                    "value": "#0e1271",
-                    "edited": false
-                },
-                "page-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": true
-                },
-                "page-sidebar-backgroundColor": {
-                    "value": "#d8d9db",
-                    "edited": true
-                },
-                "group-textColor": {
-                    "value": "#0e1271",
-                    "edited": true
-                },
-                "group-borderColor": {
-                    "value": "#ffffff",
-                    "edited": true
-                },
-                "group-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": true
-                },
-                "widget-textColor": {
-                    "value": "#000000",
-                    "edited": true
-                },
-                "widget-backgroundColor": {
-                    "value": "#0e1271",
-                    "edited": false
-                },
-                "widget-borderColor": {
-                    "value": "#ffffff",
-                    "edited": true
-                },
-                "base-font": {
-                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
-                }
-            },
-            "angularTheme": {
-                "primary": "indigo",
-                "accents": "blue",
-                "warn": "red",
-                "background": "grey",
-                "palette": "light"
-            }
-        },
-        "site": {
-            "name": "Node-RED Dashboard",
-            "hideToolbar": "false",
-            "allowSwipe": "false",
-            "lockMenu": "false",
-            "allowTempTheme": "true",
-            "dateFormat": "DD/MM/YYYY",
-            "sizes": {
-                "sx": 48,
-                "sy": 48,
-                "gx": 6,
-                "gy": 6,
-                "cx": 6,
-                "cy": 6,
-                "px": 0,
-                "py": 0
-            }
-        }
-    },
-    {
-        "id": "0359ad7573d63126",
-        "type": "ui_group",
-        "name": "Group 1",
-        "tab": "",
-        "order": 1,
-        "disp": true,
-        "width": 6
-    },
-    {
-        "id": "f1881403c636972e",
-        "type": "MySQLdatabase",
-        "name": "",
-        "host": "localhost",
-        "port": "3306",
-        "db": "db_mysql",
-        "tz": "",
-        "charset": "UTF8"
-    },
-    {
-        "id": "bf980bdca4a87b7e",
-        "type": "ui_group",
-        "name": "Group 1",
-        "tab": "d212cb1ffc18f352",
-        "order": 1,
-        "disp": false,
-        "width": 28,
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "d212cb1ffc18f352",
-        "type": "ui_tab",
-        "name": "ESTATUS DEL SISTEMA",
-        "icon": "dashboard",
-        "order": 2,
-        "disabled": false,
-        "hidden": false
-    },
-    {
-        "id": "17817d0cf2f97b21",
-        "type": "canconfig",
-        "channel": "can1",
-        "bitrate": "125000"
     },
     {
         "id": "49729f7479e52854",
@@ -2724,30 +2560,6 @@
         "x": 950,
         "y": 1520,
         "wires": [
-            [
-                "e349b59a54266dfb"
-            ]
-        ]
-    },
-    {
-        "id": "e349b59a54266dfb",
-        "type": "ui_template",
-        "z": "d91ac3d282c069d0",
-        "g": "a6e52991c91f4c94",
-        "group": "25bec14118d50672",
-        "name": "descarga csv",
-        "order": 2,
-        "width": 26,
-        "height": 1,
-        "format": "<div id=\"descarga_csv\"></div>\n<script>\n\n\nfunction downloadCSV(csv, filename) {  \n    var csvFile;  \n    var downloadLink;  \n    \n    //define the file type to text/csv  \n    csvFile = new Blob([csv], {type: 'text/csv'});  \n    downloadLink = document.createElement(\"a\");  \n    downloadLink.download = filename;  \n    downloadLink.href = window.URL.createObjectURL(csvFile);  \n    downloadLink.style.display = \"none\";  \n  \n    document.body.appendChild(downloadLink);  \n    downloadLink.click();  \n    document.body.removeChild(downloadLink);\n\n}\n\n\n\n// Update data & layout\n(function(scope) {\n  scope.$watch('msg', function(msg) {\n      if (msg.descarga){\n        csv = msg.payload;\n        downloadCSV(csv, msg.filename);\n      }\n  });\n})(scope);\n</script>\n\n",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": false,
-        "templateScope": "local",
-        "className": "",
-        "x": 1110,
-        "y": 1520,
-        "wires": [
             []
         ]
     },
@@ -3790,7 +3602,7 @@
         "type": "function",
         "z": "ccbba8193508b160",
         "name": "",
-        "func": "var properties = global.get('properties');\n\n\n// msg.topic =`SELECT data FROM local_data\n// ORDER BY date ASC\n// LIMIT 10;`;\n\nmsg.topic = `SELECT data FROM local_data;`;\nreturn msg;",
+        "func": "var dates = msg.payload.dateRange;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\n\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -3811,10 +3623,10 @@
         "z": "ccbba8193508b160",
         "name": "",
         "url": "/bell1",
-        "method": "get",
+        "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 180,
+        "x": 190,
         "y": 340,
         "wires": [
             [
@@ -3930,7 +3742,7 @@
         "type": "function",
         "z": "ccbba8193508b160",
         "name": "",
-        "func": "var properties = global.get('properties');\n\n\n// msg.topic =`SELECT data FROM local_data\n// ORDER BY date ASC\n// LIMIT 10;`;\n\nmsg.topic = `SELECT data FROM local_data;`;\nreturn msg;",
+        "func": "var dates = msg.payload.dateRange;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\n\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -3951,10 +3763,10 @@
         "z": "ccbba8193508b160",
         "name": "",
         "url": "/bell2",
-        "method": "get",
+        "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 160,
+        "x": 170,
         "y": 520,
         "wires": [
             [
@@ -4071,14 +3883,15 @@
         "z": "ccbba8193508b160",
         "name": "",
         "url": "/heat1",
-        "method": "get",
+        "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 200,
+        "x": 170,
         "y": 740,
         "wires": [
             [
-                "5951339fb027f9bf"
+                "5951339fb027f9bf",
+                "6259ffcc4e0475cb"
             ]
         ]
     },
@@ -4100,7 +3913,7 @@
         "type": "function",
         "z": "ccbba8193508b160",
         "name": "",
-        "func": "var properties = global.get('properties');\n\n\n// msg.topic =`SELECT data FROM local_data\n// ORDER BY date ASC\n// LIMIT 10;`;\n\nmsg.topic = `SELECT data FROM local_data;`;\nreturn msg;",
+        "func": "var dates = msg.payload.dateRange;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\n\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -4173,7 +3986,7 @@
         "type": "debug",
         "z": "ccbba8193508b160",
         "name": "debug 168",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -4219,10 +4032,10 @@
         "z": "ccbba8193508b160",
         "name": "",
         "url": "/heat2",
-        "method": "get",
+        "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 200,
+        "x": 170,
         "y": 1040,
         "wires": [
             [
@@ -4248,7 +4061,7 @@
         "type": "function",
         "z": "ccbba8193508b160",
         "name": "",
-        "func": "var properties = global.get('properties');\n\n\n// msg.topic =`SELECT data FROM local_data\n// ORDER BY date ASC\n// LIMIT 10;`;\n\nmsg.topic = `SELECT data FROM local_data;`;\nreturn msg;",
+        "func": "var dates = msg.payload.dateRange;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\n\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -4608,6 +4421,22 @@
                 "3f07affd7205b45c"
             ]
         ]
+    },
+    {
+        "id": "6259ffcc4e0475cb",
+        "type": "debug",
+        "z": "ccbba8193508b160",
+        "name": "debug 172",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 820,
+        "wires": []
     },
     {
         "id": "e73b2e27b018880c",
@@ -7875,21 +7704,6 @@
         "wires": []
     },
     {
-        "id": "ceaad11cddbbd77f",
-        "type": "candump",
-        "z": "6a74f3eea392f98a",
-        "name": "candump",
-        "vconfig": "17817d0cf2f97b21",
-        "x": 200,
-        "y": 300,
-        "wires": [
-            [
-                "d4f8e3c3f5a07134",
-                "62321cdfe39d04ac"
-            ]
-        ]
-    },
-    {
         "id": "d4f8e3c3f5a07134",
         "type": "function",
         "z": "6a74f3eea392f98a",
@@ -8006,17 +7820,6 @@
                 "b1272024f2f469be"
             ]
         ]
-    },
-    {
-        "id": "b1272024f2f469be",
-        "type": "cansend",
-        "z": "6a74f3eea392f98a",
-        "config": "17817d0cf2f97b21",
-        "canid": "2005",
-        "payload": "",
-        "x": 980,
-        "y": 600,
-        "wires": []
     },
     {
         "id": "79b86d4717856136",
@@ -8440,6 +8243,32 @@
         "wires": [
             [
                 "b1272024f2f469be"
+            ]
+        ]
+    },
+    {
+        "id": "b1272024f2f469be",
+        "type": "cansend",
+        "z": "6a74f3eea392f98a",
+        "config": "17817d0cf2f97b21",
+        "canid": "2005",
+        "payload": "",
+        "x": 980,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "ceaad11cddbbd77f",
+        "type": "candump",
+        "z": "6a74f3eea392f98a",
+        "name": "candump",
+        "vconfig": "17817d0cf2f97b21",
+        "x": 200,
+        "y": 300,
+        "wires": [
+            [
+                "d4f8e3c3f5a07134",
+                "62321cdfe39d04ac"
             ]
         ]
     }
