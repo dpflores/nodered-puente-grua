@@ -93,7 +93,9 @@
             "ab7d8e0de922c171"
         ],
         "x": 94,
-        "y": 119
+        "y": 119,
+        "w": 632,
+        "h": 262
     },
     {
         "id": "6b7c1f4fbbe77c84",
@@ -114,7 +116,9 @@
             "aa1c36cde09fb4f4"
         ],
         "x": 94,
-        "y": 959
+        "y": 959,
+        "w": 752,
+        "h": 162
     },
     {
         "id": "65c598bb5234d69b",
@@ -135,7 +139,9 @@
             "c2403b842567b383"
         ],
         "x": 84,
-        "y": 419
+        "y": 419,
+        "w": 742,
+        "h": 182
     },
     {
         "id": "a5bc3a1930f09c8f",
@@ -160,7 +166,9 @@
             "124808048f0bda31"
         ],
         "x": 84,
-        "y": 639
+        "y": 639,
+        "w": 1142,
+        "h": 262
     },
     {
         "id": "39ddbe85a72ee0b3",
@@ -182,7 +190,9 @@
             "47371280d37afc93"
         ],
         "x": 74,
-        "y": 79
+        "y": 79,
+        "w": 1212,
+        "h": 242
     },
     {
         "id": "b7f9bad1da3f666b",
@@ -203,7 +213,9 @@
             "227c7884566505e1"
         ],
         "x": 54,
-        "y": 359
+        "y": 359,
+        "w": 1072,
+        "h": 182
     },
     {
         "id": "f2e2e6faa602b3b4",
@@ -229,7 +241,9 @@
             "c75c61cf2dd42916"
         ],
         "x": 54,
-        "y": 2199
+        "y": 2199,
+        "w": 1612,
+        "h": 342
     },
     {
         "id": "24d00d6b1a472a12",
@@ -256,7 +270,9 @@
             "4512bff38c8cd675"
         ],
         "x": 54,
-        "y": 1199
+        "y": 1199,
+        "w": 1712,
+        "h": 202
     },
     {
         "id": "1a0d550707f8cc4f",
@@ -275,7 +291,9 @@
             "75f7fd59086311fd"
         ],
         "x": 54,
-        "y": 1939
+        "y": 1939,
+        "w": 792,
+        "h": 202
     },
     {
         "id": "f3d20ca83e6edb3b",
@@ -294,7 +312,9 @@
             "e89cfe106f7515fa"
         ],
         "x": 54,
-        "y": 1739
+        "y": 1739,
+        "w": 932,
+        "h": 142
     },
     {
         "id": "1d1b1c227a0bc262",
@@ -310,7 +330,9 @@
             "0c617771a3bf80f9"
         ],
         "x": 54,
-        "y": 2659
+        "y": 2659,
+        "w": 572,
+        "h": 82
     },
     {
         "id": "a6e52991c91f4c94",
@@ -329,7 +351,9 @@
             "92118584c83a7087"
         ],
         "x": 54,
-        "y": 1479
+        "y": 1479,
+        "w": 972,
+        "h": 82
     },
     {
         "id": "2491dc44ba7072d1",
@@ -351,7 +375,9 @@
             "5a470f467d6d46dc"
         ],
         "x": 114,
-        "y": 579
+        "y": 579,
+        "w": 1012,
+        "h": 262
     },
     {
         "id": "4c1211b19890c008",
@@ -372,7 +398,9 @@
             "850fefbfc2e4e036"
         ],
         "x": 14,
-        "y": 379
+        "y": 379,
+        "w": 1252,
+        "h": 142
     },
     {
         "id": "bf106bc84bf8e0c1",
@@ -391,7 +419,9 @@
             "8062610a9d29681f"
         ],
         "x": 294,
-        "y": 1499
+        "y": 1499,
+        "w": 972,
+        "h": 242
     },
     {
         "id": "ae18bc9b3c821e25",
@@ -411,7 +441,9 @@
             "45822acf90a8bdd3"
         ],
         "x": 74,
-        "y": 1299
+        "y": 1299,
+        "w": 1152,
+        "h": 142
     },
     {
         "id": "8d53d2f17df7fbc4",
@@ -470,6 +502,18 @@
         "responsetimeout": "10000"
     },
     {
+        "id": "fe44fd7d63e74a2d",
+        "type": "canconfig",
+        "channel": "can1",
+        "bitrate": "125000"
+    },
+    {
+        "id": "d9499f45a78ec16d",
+        "type": "canconfig",
+        "channel": "can0",
+        "bitrate": "125000"
+    },
+    {
         "id": "49729f7479e52854",
         "type": "inject",
         "z": "0bd865dc83ec0d5a",
@@ -507,6 +551,7 @@
         "id": "c6b692f2e37d0319",
         "type": "change",
         "z": "0bd865dc83ec0d5a",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -532,6 +577,7 @@
         "id": "235910951843d19c",
         "type": "change",
         "z": "0bd865dc83ec0d5a",
+        "d": true,
         "name": "",
         "rules": [
             {
@@ -657,6 +703,7 @@
         "id": "fbadb31b0d03b579",
         "type": "random",
         "z": "0bd865dc83ec0d5a",
+        "d": true,
         "name": "",
         "low": "0",
         "high": "80",
@@ -674,6 +721,7 @@
         "id": "b86aa9499c0305b6",
         "type": "random",
         "z": "0bd865dc83ec0d5a",
+        "d": true,
         "name": "",
         "low": "0",
         "high": "40",
@@ -1735,7 +1783,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "1",
+        "repeat": "5",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
@@ -1780,7 +1828,7 @@
                 "vt": "str"
             }
         ],
-        "repeat": "1",
+        "repeat": "5",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
@@ -7644,7 +7692,7 @@
         "type": "function",
         "z": "6a74f3eea392f98a",
         "name": "encoder 2",
-        "func": "var data = msg.payload.data;\n\nlet out = data[6]*1000000 + data[4]*10000 + data[2]*100 + data[0];\n\nmsg.payload = out;\n\nreturn msg;",
+        "func": "var data = msg.payload.data;\n\nlet out = data[6]*1000000 + data[4]*10000 + data[2]*100 + data[0];\n\nmsg.payload = Math.round(out/100);\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -7655,7 +7703,8 @@
         "y": 220,
         "wires": [
             [
-                "aa5d262da2d5d3c6"
+                "aa5d262da2d5d3c6",
+                "6a5a1cca648cbc16"
             ]
         ]
     },
@@ -7664,7 +7713,7 @@
         "type": "debug",
         "z": "6a74f3eea392f98a",
         "name": "debug 132",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -7718,7 +7767,7 @@
         "type": "function",
         "z": "6a74f3eea392f98a",
         "name": "encoder 1",
-        "func": "var data = msg.payload.data;\n\nlet out = data[6]*1000000 + data[4]*10000 + data[2]*100 + data[0];\n\nmsg.payload = out;\n\nreturn msg;",
+        "func": "var data = msg.payload.data;\n\nlet out = data[6]*1000000 + data[4]*10000 + data[2]*100 + data[0];\n\nmsg.payload = Math.round(out/100);\n\n\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -7729,7 +7778,8 @@
         "y": 160,
         "wires": [
             [
-                "96f4a7f146108e7d"
+                "96f4a7f146108e7d",
+                "c07f211df4fd3fb3"
             ]
         ]
     },
@@ -7738,7 +7788,7 @@
         "type": "debug",
         "z": "6a74f3eea392f98a",
         "name": "debug 138",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -8055,7 +8105,7 @@
         "type": "debug",
         "z": "6a74f3eea392f98a",
         "name": "debug 141",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -8222,7 +8272,7 @@
         "id": "b1272024f2f469be",
         "type": "cansend",
         "z": "6a74f3eea392f98a",
-        "config": "17817d0cf2f97b21",
+        "config": "fe44fd7d63e74a2d",
         "canid": "2005",
         "payload": "",
         "x": 980,
@@ -8234,7 +8284,7 @@
         "type": "candump",
         "z": "6a74f3eea392f98a",
         "name": "candump",
-        "vconfig": "",
+        "vconfig": "fe44fd7d63e74a2d",
         "x": 200,
         "y": 300,
         "wires": [
@@ -8242,6 +8292,69 @@
                 "d4f8e3c3f5a07134",
                 "62321cdfe39d04ac"
             ]
+        ]
+    },
+    {
+        "id": "efecd6263a674b89",
+        "type": "catch",
+        "z": "6a74f3eea392f98a",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 520,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c07f211df4fd3fb3",
+        "type": "change",
+        "z": "6a74f3eea392f98a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gateway_data.data.rm9000.x_axis",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1070,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6a5a1cca648cbc16",
+        "type": "change",
+        "z": "6a74f3eea392f98a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gateway_data.data.rm9000.y_axis",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1090,
+        "y": 240,
+        "wires": [
+            []
         ]
     }
 ]
