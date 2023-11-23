@@ -3913,7 +3913,7 @@
         "type": "function",
         "z": "ccbba8193508b160",
         "name": "",
-        "func": "var dates = msg.payload.dateRange;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\n\nreturn msg;",
+        "func": "var dates = msg.payload.dateRange;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\nmsg.data = dates;\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
