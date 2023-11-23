@@ -4165,8 +4165,8 @@
         "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 180,
-        "y": 1400,
+        "x": 200,
+        "y": 1760,
         "wires": [
             [
                 "a5a250eed62aeaf6",
@@ -4183,8 +4183,8 @@
         "headers": {
             "content-type": "application/json"
         },
-        "x": 1080,
-        "y": 1400,
+        "x": 1100,
+        "y": 1760,
         "wires": []
     },
     {
@@ -4199,8 +4199,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1050,
-        "y": 1520,
+        "x": 1070,
+        "y": 1880,
         "wires": []
     },
     {
@@ -4215,8 +4215,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 360,
-        "y": 1400,
+        "x": 380,
+        "y": 1760,
         "wires": [
             [
                 "9b5adc928ce94899"
@@ -4229,8 +4229,8 @@
         "z": "ccbba8193508b160",
         "mydb": "45598baf2af77f76",
         "name": "",
-        "x": 500,
-        "y": 1400,
+        "x": 520,
+        "y": 1760,
         "wires": [
             [
                 "80dc667ae924a1aa"
@@ -4249,8 +4249,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 700,
-        "y": 1400,
+        "x": 720,
+        "y": 1760,
         "wires": [
             [
                 "da162258c7d03d69"
@@ -4269,8 +4269,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 910,
-        "y": 1400,
+        "x": 930,
+        "y": 1760,
         "wires": [
             [
                 "9f951d15a3c36ecd",
@@ -4328,8 +4328,8 @@
         "headers": {
             "content-type": "application/json"
         },
-        "x": 1060,
-        "y": 1700,
+        "x": 1080,
+        "y": 2060,
         "wires": []
     },
     {
@@ -4341,8 +4341,8 @@
         "method": "post",
         "upload": false,
         "swaggerDoc": "",
-        "x": 140,
-        "y": 1700,
+        "x": 160,
+        "y": 2060,
         "wires": [
             [
                 "334f1dc507ebc497"
@@ -4361,8 +4361,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 310,
-        "y": 1700,
+        "x": 330,
+        "y": 2060,
         "wires": [
             [
                 "dfc9a728ae933341"
@@ -4375,8 +4375,8 @@
         "z": "ccbba8193508b160",
         "mydb": "45598baf2af77f76",
         "name": "",
-        "x": 500,
-        "y": 1700,
+        "x": 520,
+        "y": 2060,
         "wires": [
             [
                 "23f41fa73df18c90"
@@ -4395,8 +4395,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 710,
-        "y": 1700,
+        "x": 730,
+        "y": 2060,
         "wires": [
             [
                 "b487682548ed1bfc"
@@ -4415,8 +4415,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 890,
-        "y": 1700,
+        "x": 910,
+        "y": 2060,
         "wires": [
             [
                 "3f07affd7205b45c"
@@ -4451,8 +4451,344 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 370,
+        "x": 390,
+        "y": 1680,
+        "wires": []
+    },
+    {
+        "id": "b5bb809dfcb98d78",
+        "type": "http in",
+        "z": "ccbba8193508b160",
+        "name": "",
+        "url": "/heat11",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
         "y": 1320,
+        "wires": [
+            [
+                "2522520c0f46499a",
+                "094440a74605a2ba"
+            ]
+        ]
+    },
+    {
+        "id": "4f97a8b816cc47eb",
+        "type": "http response",
+        "z": "ccbba8193508b160",
+        "name": "",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 1100,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "2522520c0f46499a",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "name": "",
+        "func": "var dates = msg.payload.dateRange;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 1320,
+        "wires": [
+            [
+                "fd151db8a614405e"
+            ]
+        ]
+    },
+    {
+        "id": "fd151db8a614405e",
+        "type": "mysql",
+        "z": "ccbba8193508b160",
+        "mydb": "45598baf2af77f76",
+        "name": "",
+        "x": 500,
+        "y": 1320,
+        "wires": [
+            [
+                "6d1434321a8eea5c"
+            ]
+        ]
+    },
+    {
+        "id": "6d1434321a8eea5c",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "name": "Process to json array",
+        "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = JSON.parse(msg.payload[i].data);\n}\n\nmsg.payload = array_out;\n\nmsg.columns = Object.keys(msg.payload[0]).toString();\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 1320,
+        "wires": [
+            [
+                "10d3e3d4b00df47e",
+                "1c43c1041fd55ad6"
+            ]
+        ]
+    },
+    {
+        "id": "10d3e3d4b00df47e",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "name": "to carga1",
+        "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = { \"g\": array_in[i].x_axis ,\n        \"l\": array_in[i].y_axis,\n        \"tmp\": array_in[i].carga1};\n\n    \n}\n\nmsg.payload = array_out;\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 1320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "11fe5d1a96ef3349",
+        "type": "debug",
+        "z": "ccbba8193508b160",
+        "name": "debug 174",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1150,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "65354564a76ab7d7",
+        "type": "inject",
+        "z": "ccbba8193508b160",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 1400,
+        "wires": [
+            [
+                "2522520c0f46499a"
+            ]
+        ]
+    },
+    {
+        "id": "f794bf1eaf8ad012",
+        "type": "http in",
+        "z": "ccbba8193508b160",
+        "name": "",
+        "url": "/heat22",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 170,
+        "y": 1620,
+        "wires": [
+            [
+                "317fcc495331ca17"
+            ]
+        ]
+    },
+    {
+        "id": "71a5360e7c0443cd",
+        "type": "http response",
+        "z": "ccbba8193508b160",
+        "name": "",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 1100,
+        "y": 1600,
+        "wires": []
+    },
+    {
+        "id": "317fcc495331ca17",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "name": "",
+        "func": "var dates = msg.payload.dateRange;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 1620,
+        "wires": [
+            [
+                "858db38c65486705"
+            ]
+        ]
+    },
+    {
+        "id": "858db38c65486705",
+        "type": "mysql",
+        "z": "ccbba8193508b160",
+        "mydb": "45598baf2af77f76",
+        "name": "",
+        "x": 500,
+        "y": 1620,
+        "wires": [
+            [
+                "daec64edf9a44722"
+            ]
+        ]
+    },
+    {
+        "id": "daec64edf9a44722",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "name": "Process to json array",
+        "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = JSON.parse(msg.payload[i].data);\n}\n\nmsg.payload = array_out;\n\nmsg.columns = Object.keys(msg.payload[0]).toString();\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 1620,
+        "wires": [
+            [
+                "b8624585356ffbd2",
+                "8d43ca39044d08ac"
+            ]
+        ]
+    },
+    {
+        "id": "8d43ca39044d08ac",
+        "type": "debug",
+        "z": "ccbba8193508b160",
+        "name": "debug 175",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "acfe7d373c73f538",
+        "type": "inject",
+        "z": "ccbba8193508b160",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 1700,
+        "wires": [
+            [
+                "317fcc495331ca17"
+            ]
+        ]
+    },
+    {
+        "id": "1c43c1041fd55ad6",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "name": "function 129",
+        "func": "const gridSize = 100;\nconst grid = new Array(gridSize).fill().map(() => new Array(gridSize).fill(0));\n\n// Supongamos que tienes una lista de miles de datos en el formato JSON dado\nconst datos = msg.payload;\n\n// Acumular la cantidad de veces que cada posición se repite en el grid\ndatos.forEach(({ x_axis, y_axis }) => {\n  if (x_axis >= 0 && x_axis < gridSize && y_axis >= 0 && y_axis < gridSize) {\n    grid[y_axis][x_axis]++;\n  }\n});\n\n// Convertir el grid a la estructura JSON deseada\nconst heatmapJSON = [];\n\nfor (let y = 0; y < gridSize; y++) {\n  for (let x = 0; x < gridSize; x++) {\n    if (grid[y][x] > 0) {\n      heatmapJSON.push({ g: x, l: y, tmp: grid[y][x] });\n    }\n  }\n}\n\nmsg.payload = heatmapJSON;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 1440,
+        "wires": [
+            [
+                "11fe5d1a96ef3349",
+                "4f97a8b816cc47eb"
+            ]
+        ]
+    },
+    {
+        "id": "b8624585356ffbd2",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "name": "function 130",
+        "func": "const gridSize = 100;\nconst grid = new Array(gridSize).fill().map(() => new Array(gridSize).fill(0));\n\n// Supongamos que tienes una lista de miles de datos en el formato JSON dado\nconst datos = msg.payload;\n\n// Acumular la cantidad de veces que cada posición se repite en el grid\ndatos.forEach(({ x_axis, y_axis }) => {\n  if (x_axis >= 0 && x_axis < gridSize && y_axis >= 0 && y_axis < gridSize) {\n    grid[y_axis][x_axis]++;\n  }\n});\n\n// Convertir el grid a la estructura JSON deseada\nconst heatmapJSON = [];\n\nfor (let y = 0; y < gridSize; y++) {\n  for (let x = 0; x < gridSize; x++) {\n    if (grid[y][x] > 0) {\n      heatmapJSON.push({ g: x, l: y, tmp: grid[y][x] });\n    }\n  }\n}\n\nmsg.payload = heatmapJSON;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 1680,
+        "wires": [
+            [
+                "71a5360e7c0443cd"
+            ]
+        ]
+    },
+    {
+        "id": "094440a74605a2ba",
+        "type": "debug",
+        "z": "ccbba8193508b160",
+        "name": "debug 176",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 430,
+        "y": 1400,
         "wires": []
     },
     {
