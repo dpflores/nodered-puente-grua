@@ -459,13 +459,12 @@
             "85d687a54ab1bb69",
             "dfab25eb1685e3fd",
             "f50ae07e870bba1d",
-            "d1b9fc067d561502",
-            "f91fd21ad72d5492"
+            "d1b9fc067d561502"
         ],
         "x": 74,
-        "y": 1559,
+        "y": 1579,
         "w": 1192,
-        "h": 802
+        "h": 782
     },
     {
         "id": "8d53d2f17df7fbc4",
@@ -4906,7 +4905,7 @@
         "wires": [
             [
                 "9322b940488539b7",
-                "f91fd21ad72d5492"
+                "41089387be0aa8e1"
             ]
         ]
     },
@@ -4930,10 +4929,10 @@
         "z": "ccbba8193508b160",
         "g": "0f65e2cc46720956",
         "name": "",
-        "func": "var dates = msg.payload.dateRange;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\nmsg.data = dates;\nreturn msg;",
+        "func": "var dates = msg.payload.filters.dateRange;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\nmsg.filters = ;\nreturn msg;",
         "outputs": 1,
         "timeout": "",
-        "noerr": 0,
+        "noerr": 1,
         "initialize": "",
         "finalize": "",
         "libs": [],
@@ -5636,20 +5635,6 @@
                 "6f7053caffda4349"
             ]
         ]
-    },
-    {
-        "id": "f91fd21ad72d5492",
-        "type": "http response",
-        "z": "ccbba8193508b160",
-        "g": "0f65e2cc46720956",
-        "name": "",
-        "statusCode": "200",
-        "headers": {
-            "content-type": "application/json"
-        },
-        "x": 380,
-        "y": 1600,
-        "wires": []
     },
     {
         "id": "e73b2e27b018880c",
