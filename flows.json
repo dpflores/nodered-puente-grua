@@ -432,7 +432,6 @@
             "fc6df4238a8d54a4",
             "2ea5abb5a98251d6",
             "4d418b1099fc572e",
-            "b4cac239337634e0",
             "1890182eab7fc0f5",
             "0cd4f79d2907c9e4",
             "ec21b782c27c719d",
@@ -442,7 +441,6 @@
             "9322b940488539b7",
             "b2218bf5f855785d",
             "86f9935189989498",
-            "970d56ae53f1dd02",
             "f36acc730e2b55e9",
             "295c047b3397ab45",
             "c7906c995b9e065a",
@@ -454,12 +452,14 @@
             "954e191e56175614",
             "dffa8e84e3b6663d",
             "6f7053caffda4349",
-            "a8dc6d2c38f80734",
             "5b6954223298ba22",
             "85d687a54ab1bb69",
             "dfab25eb1685e3fd",
             "f50ae07e870bba1d",
-            "d1b9fc067d561502"
+            "d1b9fc067d561502",
+            "b415ba751bc6e7d0",
+            "9d8d3f1069ca12c6",
+            "6b91e0c15cdb45c6"
         ],
         "x": 74,
         "y": 1579,
@@ -5062,7 +5062,7 @@
         "y": 1860,
         "wires": [
             [
-                "b4cac239337634e0"
+                "b415ba751bc6e7d0"
             ]
         ]
     },
@@ -5079,27 +5079,6 @@
         "x": 1100,
         "y": 1840,
         "wires": []
-    },
-    {
-        "id": "b4cac239337634e0",
-        "type": "function",
-        "z": "ccbba8193508b160",
-        "g": "0f65e2cc46720956",
-        "name": "",
-        "func": "var dates = msg.payload.dateRange;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 360,
-        "y": 1860,
-        "wires": [
-            [
-                "1890182eab7fc0f5"
-            ]
-        ]
     },
     {
         "id": "1890182eab7fc0f5",
@@ -5180,9 +5159,7 @@
         "x": 200,
         "y": 1940,
         "wires": [
-            [
-                "b4cac239337634e0"
-            ]
+            []
         ]
     },
     {
@@ -5259,8 +5236,8 @@
         "y": 2060,
         "wires": [
             [
-                "970d56ae53f1dd02",
-                "9d5f8f5c7d71b523"
+                "9d5f8f5c7d71b523",
+                "9d8d3f1069ca12c6"
             ]
         ]
     },
@@ -5277,27 +5254,6 @@
         "x": 1100,
         "y": 2040,
         "wires": []
-    },
-    {
-        "id": "970d56ae53f1dd02",
-        "type": "function",
-        "z": "ccbba8193508b160",
-        "g": "0f65e2cc46720956",
-        "name": "",
-        "func": "var dates = msg.payload.dateRange;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 360,
-        "y": 2060,
-        "wires": [
-            [
-                "f36acc730e2b55e9"
-            ]
-        ]
     },
     {
         "id": "f36acc730e2b55e9",
@@ -5398,9 +5354,7 @@
         "x": 200,
         "y": 2140,
         "wires": [
-            [
-                "970d56ae53f1dd02"
-            ]
+            []
         ]
     },
     {
@@ -5492,7 +5446,7 @@
         "y": 2240,
         "wires": [
             [
-                "a8dc6d2c38f80734"
+                "6b91e0c15cdb45c6"
             ]
         ]
     },
@@ -5509,27 +5463,6 @@
         "x": 1120,
         "y": 2220,
         "wires": []
-    },
-    {
-        "id": "a8dc6d2c38f80734",
-        "type": "function",
-        "z": "ccbba8193508b160",
-        "g": "0f65e2cc46720956",
-        "name": "",
-        "func": "var dates = msg.payload.dateRange;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\n\nreturn msg;",
-        "outputs": 1,
-        "timeout": "",
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 380,
-        "y": 2240,
-        "wires": [
-            [
-                "5b6954223298ba22"
-            ]
-        ]
     },
     {
         "id": "5b6954223298ba22",
@@ -5610,9 +5543,7 @@
         "x": 220,
         "y": 2320,
         "wires": [
-            [
-                "a8dc6d2c38f80734"
-            ]
+            []
         ]
     },
     {
@@ -5633,6 +5564,69 @@
         "wires": [
             [
                 "6f7053caffda4349"
+            ]
+        ]
+    },
+    {
+        "id": "b415ba751bc6e7d0",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
+        "name": "",
+        "func": "var dates = msg.payload.filters.dateRange;\nmsg.filters = msg.payload.filters;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 1860,
+        "wires": [
+            [
+                "1890182eab7fc0f5"
+            ]
+        ]
+    },
+    {
+        "id": "9d8d3f1069ca12c6",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
+        "name": "",
+        "func": "var dates = msg.payload.filters.dateRange;\nmsg.filters = msg.payload.filters;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 2060,
+        "wires": [
+            [
+                "f36acc730e2b55e9"
+            ]
+        ]
+    },
+    {
+        "id": "6b91e0c15cdb45c6",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
+        "name": "",
+        "func": "var dates = msg.payload.filters.dateRange;\nmsg.filters = msg.payload.filters;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 2240,
+        "wires": [
+            [
+                "5b6954223298ba22"
             ]
         ]
     },
