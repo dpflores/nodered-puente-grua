@@ -4929,7 +4929,7 @@
         "z": "ccbba8193508b160",
         "g": "0f65e2cc46720956",
         "name": "",
-        "func": "var dates = msg.payload.filters.dateRange;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\nmsg.filters = msg.payload.filters;\nreturn msg;",
+        "func": "var dates = msg.payload.filters.dateRange;\nmsg.filters = msg.payload.filters;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\n\nreturn msg;",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
