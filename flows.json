@@ -414,6 +414,59 @@
         "y": 1299
     },
     {
+        "id": "0f65e2cc46720956",
+        "type": "group",
+        "z": "ccbba8193508b160",
+        "name": "for more filters",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "0b394a621213edd0",
+            "1cd69cc8f1075b73",
+            "41089387be0aa8e1",
+            "c503b5fba2c0ce70",
+            "c3a9e08962d7433c",
+            "1081a367841fc471",
+            "916f4d12c2fcb39c",
+            "fc6df4238a8d54a4",
+            "2ea5abb5a98251d6",
+            "4d418b1099fc572e",
+            "b4cac239337634e0",
+            "1890182eab7fc0f5",
+            "0cd4f79d2907c9e4",
+            "ec21b782c27c719d",
+            "f4accf501080b692",
+            "02b846fca7432911",
+            "71ba3d8be1843e93",
+            "9322b940488539b7",
+            "b2218bf5f855785d",
+            "86f9935189989498",
+            "970d56ae53f1dd02",
+            "f36acc730e2b55e9",
+            "295c047b3397ab45",
+            "c7906c995b9e065a",
+            "0e08692084834d95",
+            "d75ac2947379beb1",
+            "73db361cc0b73832",
+            "9d5f8f5c7d71b523",
+            "fbd9f17a2f71057a",
+            "954e191e56175614",
+            "dffa8e84e3b6663d",
+            "6f7053caffda4349",
+            "a8dc6d2c38f80734",
+            "5b6954223298ba22",
+            "85d687a54ab1bb69",
+            "dfab25eb1685e3fd",
+            "f50ae07e870bba1d",
+            "d1b9fc067d561502"
+        ],
+        "x": 74,
+        "y": 1579,
+        "w": 1192,
+        "h": 782
+    },
+    {
         "id": "8d53d2f17df7fbc4",
         "type": "mqtt-broker",
         "name": "ACME_broker",
@@ -4608,6 +4661,7 @@
         "id": "f794bf1eaf8ad012",
         "type": "http in",
         "z": "ccbba8193508b160",
+        "d": true,
         "name": "",
         "url": "/heat22",
         "method": "post",
@@ -4625,6 +4679,7 @@
         "id": "71a5360e7c0443cd",
         "type": "http response",
         "z": "ccbba8193508b160",
+        "d": true,
         "name": "",
         "statusCode": "200",
         "headers": {
@@ -4638,6 +4693,7 @@
         "id": "317fcc495331ca17",
         "type": "function",
         "z": "ccbba8193508b160",
+        "d": true,
         "name": "",
         "func": "var dates = msg.payload.dateRange;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\n\nreturn msg;",
         "outputs": 1,
@@ -4658,6 +4714,7 @@
         "id": "858db38c65486705",
         "type": "mysql",
         "z": "ccbba8193508b160",
+        "d": true,
         "mydb": "45598baf2af77f76",
         "name": "",
         "x": 480,
@@ -4672,6 +4729,7 @@
         "id": "daec64edf9a44722",
         "type": "function",
         "z": "ccbba8193508b160",
+        "d": true,
         "name": "Process to json array",
         "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = JSON.parse(msg.payload[i].data);\n}\n\nmsg.payload = array_out;\n\nmsg.columns = Object.keys(msg.payload[0]).toString();\n\n\nreturn msg;\n",
         "outputs": 1,
@@ -4693,6 +4751,7 @@
         "id": "8d43ca39044d08ac",
         "type": "debug",
         "z": "ccbba8193508b160",
+        "d": true,
         "name": "debug 175",
         "active": false,
         "tosidebar": true,
@@ -4709,6 +4768,7 @@
         "id": "acfe7d373c73f538",
         "type": "inject",
         "z": "ccbba8193508b160",
+        "d": true,
         "name": "",
         "props": [
             {
@@ -4760,6 +4820,7 @@
         "id": "b8624585356ffbd2",
         "type": "function",
         "z": "ccbba8193508b160",
+        "d": true,
         "name": "function 130",
         "func": "const gridSize = 100;\nconst grid = Array.from({ length: gridSize }, () =>\n  Array.from({ length: gridSize }, () => ({ count: 0, total: 0 }))\n);\n\n// Supongamos que tienes una lista de miles de datos en el formato JSON dado\nconst datos = msg.payload;\n\n// Acumular la carga y contar la cantidad de datos en cada posición\ndatos.forEach(({ x_axis, y_axis, carga2 }) => {\n  if (x_axis >= 0 && x_axis < gridSize && y_axis >= 0 && y_axis < gridSize) {\n    grid[y_axis][x_axis].count++;\n    grid[y_axis][x_axis].total += carga2;\n  }\n});\n\n// Convertir el grid a la estructura JSON deseada con el promedio\nconst heatmapJSON = [];\n\nfor (let y = 0; y < gridSize; y++) {\n  for (let x = 0; x < gridSize; x++) {\n    const { count, total } = grid[y][x];\n    if (count > 0) {\n      const average = total / count;\n      heatmapJSON.push({ g: x, l: y, tmp: average });\n    }\n    else {\n      heatmapJSON.push({ g: x, l: y, tmp: 0 });\n    }\n  }\n}\n\n\n\nmsg.payload = heatmapJSON;\n// msg.payload = grid;\nreturn msg;",
         "outputs": 1,
@@ -4833,6 +4894,7 @@
         "id": "0b394a621213edd0",
         "type": "http in",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "",
         "url": "/heat1",
         "method": "post",
@@ -4851,6 +4913,7 @@
         "id": "1cd69cc8f1075b73",
         "type": "http response",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "",
         "statusCode": "200",
         "headers": {
@@ -4864,6 +4927,7 @@
         "id": "41089387be0aa8e1",
         "type": "function",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "",
         "func": "var dates = msg.payload.dateRange;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\nmsg.data = dates;\nreturn msg;",
         "outputs": 1,
@@ -4884,6 +4948,7 @@
         "id": "c503b5fba2c0ce70",
         "type": "mysql",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "mydb": "45598baf2af77f76",
         "name": "",
         "x": 500,
@@ -4899,6 +4964,7 @@
         "id": "c3a9e08962d7433c",
         "type": "function",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "Process to json array",
         "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = JSON.parse(msg.payload[i].data);\n}\n\nmsg.payload = array_out;\n\nmsg.columns = Object.keys(msg.payload[0]).toString();\n\n\nreturn msg;\n",
         "outputs": 1,
@@ -4920,6 +4986,7 @@
         "id": "1081a367841fc471",
         "type": "function",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "to carga1",
         "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = { \"g\": array_in[i].x_axis ,\n        \"l\": array_in[i].y_axis,\n        \"tmp\": array_in[i].carga1};\n\n    \n}\n\nmsg.payload = array_out;\n\n\nreturn msg;\n",
         "outputs": 1,
@@ -4938,6 +5005,7 @@
         "id": "916f4d12c2fcb39c",
         "type": "debug",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "debug 179",
         "active": false,
         "tosidebar": true,
@@ -4954,6 +5022,7 @@
         "id": "fc6df4238a8d54a4",
         "type": "inject",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "",
         "props": [
             {
@@ -4983,6 +5052,7 @@
         "id": "2ea5abb5a98251d6",
         "type": "http in",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "",
         "url": "/heat2",
         "method": "post",
@@ -5000,6 +5070,7 @@
         "id": "4d418b1099fc572e",
         "type": "http response",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "",
         "statusCode": "200",
         "headers": {
@@ -5013,6 +5084,7 @@
         "id": "b4cac239337634e0",
         "type": "function",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "",
         "func": "var dates = msg.payload.dateRange;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\n\nreturn msg;",
         "outputs": 1,
@@ -5033,6 +5105,7 @@
         "id": "1890182eab7fc0f5",
         "type": "mysql",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "mydb": "45598baf2af77f76",
         "name": "",
         "x": 500,
@@ -5047,6 +5120,7 @@
         "id": "0cd4f79d2907c9e4",
         "type": "function",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "Process to json array",
         "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = JSON.parse(msg.payload[i].data);\n}\n\nmsg.payload = array_out;\n\nmsg.columns = Object.keys(msg.payload[0]).toString();\n\n\nreturn msg;\n",
         "outputs": 1,
@@ -5068,6 +5142,7 @@
         "id": "ec21b782c27c719d",
         "type": "debug",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "debug 180",
         "active": false,
         "tosidebar": true,
@@ -5084,6 +5159,7 @@
         "id": "f4accf501080b692",
         "type": "inject",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "",
         "props": [
             {
@@ -5113,6 +5189,7 @@
         "id": "02b846fca7432911",
         "type": "function",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "function 131",
         "func": "const gridSize = 100;\nconst grid = new Array(gridSize).fill().map(() => new Array(gridSize).fill(0));\n\n// Supongamos que tienes una lista de miles de datos en el formato JSON dado\nconst datos = msg.payload;\n\n// Acumular la cantidad de veces que cada posición se repite en el grid\ndatos.forEach(({ x_axis, y_axis }) => {\n  if (x_axis >= 0 && x_axis < gridSize && y_axis >= 0 && y_axis < gridSize) {\n    grid[y_axis][x_axis]++;\n  }\n});\n\n// Convertir el grid a la estructura JSON deseada\nconst heatmapJSON = [];\n\nfor (let y = 0; y < gridSize; y++) {\n  for (let x = 0; x < gridSize; x++) {\n    if (grid[y][x] > 0) {\n      heatmapJSON.push({ g: x, l: y, tmp: grid[y][x] });\n    }\n  }\n}\n\nmsg.payload = heatmapJSON;\nreturn msg;",
         "outputs": 1,
@@ -5134,6 +5211,7 @@
         "id": "71ba3d8be1843e93",
         "type": "function",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "function 132",
         "func": "const gridSize = 100;\nconst grid = new Array(gridSize).fill().map(() => new Array(gridSize).fill(0));\n\n// Supongamos que tienes una lista de miles de datos en el formato JSON dado\nconst datos = msg.payload;\n\n// Acumular la cantidad de veces que cada posición se repite en el grid\ndatos.forEach(({ x_axis, y_axis }) => {\n  if (x_axis >= 0 && x_axis < gridSize && y_axis >= 0 && y_axis < gridSize) {\n    grid[y_axis][x_axis]++;\n  }\n});\n\n// Convertir el grid a la estructura JSON deseada\nconst heatmapJSON = [];\n\nfor (let y = 0; y < gridSize; y++) {\n  for (let x = 0; x < gridSize; x++) {\n    if (grid[y][x] > 0) {\n      heatmapJSON.push({ g: x, l: y, tmp: grid[y][x] });\n    }\n  }\n}\n\nmsg.payload = heatmapJSON;\nreturn msg;",
         "outputs": 1,
@@ -5154,6 +5232,7 @@
         "id": "9322b940488539b7",
         "type": "debug",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "debug 181",
         "active": false,
         "tosidebar": true,
@@ -5170,6 +5249,7 @@
         "id": "b2218bf5f855785d",
         "type": "http in",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "",
         "url": "/heat11",
         "method": "post",
@@ -5188,6 +5268,7 @@
         "id": "86f9935189989498",
         "type": "http response",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "",
         "statusCode": "200",
         "headers": {
@@ -5201,6 +5282,7 @@
         "id": "970d56ae53f1dd02",
         "type": "function",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "",
         "func": "var dates = msg.payload.dateRange;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\n\nreturn msg;",
         "outputs": 1,
@@ -5221,6 +5303,7 @@
         "id": "f36acc730e2b55e9",
         "type": "mysql",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "mydb": "45598baf2af77f76",
         "name": "",
         "x": 500,
@@ -5235,6 +5318,7 @@
         "id": "295c047b3397ab45",
         "type": "function",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "Process to json array",
         "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = JSON.parse(msg.payload[i].data);\n}\n\nmsg.payload = array_out;\n\nmsg.columns = Object.keys(msg.payload[0]).toString();\n\n\nreturn msg;\n",
         "outputs": 1,
@@ -5257,6 +5341,7 @@
         "id": "c7906c995b9e065a",
         "type": "function",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "to carga1",
         "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = { \"g\": array_in[i].x_axis ,\n        \"l\": array_in[i].y_axis,\n        \"tmp\": array_in[i].carga1};\n\n    \n}\n\nmsg.payload = array_out;\n\n\nreturn msg;\n",
         "outputs": 1,
@@ -5275,6 +5360,7 @@
         "id": "0e08692084834d95",
         "type": "debug",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "debug 182",
         "active": true,
         "tosidebar": true,
@@ -5291,6 +5377,7 @@
         "id": "d75ac2947379beb1",
         "type": "inject",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "",
         "props": [
             {
@@ -5320,6 +5407,7 @@
         "id": "73db361cc0b73832",
         "type": "function",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "function 133",
         "func": "const gridSize = 100;\nconst grid = Array.from({ length: gridSize }, () =>\n  Array.from({ length: gridSize }, () => ({ count: 0, total: 0 }))\n);\n\n// Supongamos que tienes una lista de miles de datos en el formato JSON dado\nconst datos = msg.payload;\n\n// Acumular la carga y contar la cantidad de datos en cada posición\ndatos.forEach(({ x_axis, y_axis, carga1 }) => {\n  if (x_axis >= 0 && x_axis < gridSize && y_axis >= 0 && y_axis < gridSize) {\n    grid[y_axis][x_axis].count++;\n    grid[y_axis][x_axis].total += carga1;\n  }\n});\n\n// Convertir el grid a la estructura JSON deseada con el promedio\nconst heatmapJSON = [];\n\nfor (let y = 0; y < gridSize; y++) {\n  for (let x = 0; x < gridSize; x++) {\n    const { count, total } = grid[y][x];\n    if (count > 0) {\n      const average = total / count;\n      heatmapJSON.push({ g: x, l: y, tmp: average });\n    }\n    else {\n      heatmapJSON.push({ g: x, l: y, tmp: 0 });\n    }\n  }\n}\n\n\n\nmsg.payload = heatmapJSON;\n// msg.payload = grid;\nreturn msg;",
         "outputs": 1,
@@ -5341,6 +5429,7 @@
         "id": "9d5f8f5c7d71b523",
         "type": "debug",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "debug 183",
         "active": true,
         "tosidebar": true,
@@ -5357,6 +5446,7 @@
         "id": "fbd9f17a2f71057a",
         "type": "debug",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "debug 184",
         "active": true,
         "tosidebar": true,
@@ -5374,6 +5464,7 @@
         "id": "954e191e56175614",
         "type": "debug",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "debug 185",
         "active": true,
         "tosidebar": true,
@@ -5386,6 +5477,164 @@
         "x": 670,
         "y": 1700,
         "wires": []
+    },
+    {
+        "id": "dffa8e84e3b6663d",
+        "type": "http in",
+        "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
+        "name": "",
+        "url": "/heat22",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 2240,
+        "wires": [
+            [
+                "a8dc6d2c38f80734"
+            ]
+        ]
+    },
+    {
+        "id": "6f7053caffda4349",
+        "type": "http response",
+        "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
+        "name": "",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 1120,
+        "y": 2220,
+        "wires": []
+    },
+    {
+        "id": "a8dc6d2c38f80734",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
+        "name": "",
+        "func": "var dates = msg.payload.dateRange;\nmsg.topic = `SELECT * FROM local_data WHERE \ndate >= FROM_UNIXTIME(${dates[0]}) AND date <= FROM_UNIXTIME(${dates[1]});\n`;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 2240,
+        "wires": [
+            [
+                "5b6954223298ba22"
+            ]
+        ]
+    },
+    {
+        "id": "5b6954223298ba22",
+        "type": "mysql",
+        "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
+        "mydb": "45598baf2af77f76",
+        "name": "",
+        "x": 520,
+        "y": 2240,
+        "wires": [
+            [
+                "85d687a54ab1bb69"
+            ]
+        ]
+    },
+    {
+        "id": "85d687a54ab1bb69",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
+        "name": "Process to json array",
+        "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = JSON.parse(msg.payload[i].data);\n}\n\nmsg.payload = array_out;\n\nmsg.columns = Object.keys(msg.payload[0]).toString();\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 2240,
+        "wires": [
+            [
+                "d1b9fc067d561502",
+                "dfab25eb1685e3fd"
+            ]
+        ]
+    },
+    {
+        "id": "dfab25eb1685e3fd",
+        "type": "debug",
+        "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
+        "name": "debug 186",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 2320,
+        "wires": []
+    },
+    {
+        "id": "f50ae07e870bba1d",
+        "type": "inject",
+        "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 220,
+        "y": 2320,
+        "wires": [
+            [
+                "a8dc6d2c38f80734"
+            ]
+        ]
+    },
+    {
+        "id": "d1b9fc067d561502",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
+        "name": "function 134",
+        "func": "const gridSize = 100;\nconst grid = Array.from({ length: gridSize }, () =>\n  Array.from({ length: gridSize }, () => ({ count: 0, total: 0 }))\n);\n\n// Supongamos que tienes una lista de miles de datos en el formato JSON dado\nconst datos = msg.payload;\n\n// Acumular la carga y contar la cantidad de datos en cada posición\ndatos.forEach(({ x_axis, y_axis, carga2 }) => {\n  if (x_axis >= 0 && x_axis < gridSize && y_axis >= 0 && y_axis < gridSize) {\n    grid[y_axis][x_axis].count++;\n    grid[y_axis][x_axis].total += carga2;\n  }\n});\n\n// Convertir el grid a la estructura JSON deseada con el promedio\nconst heatmapJSON = [];\n\nfor (let y = 0; y < gridSize; y++) {\n  for (let x = 0; x < gridSize; x++) {\n    const { count, total } = grid[y][x];\n    if (count > 0) {\n      const average = total / count;\n      heatmapJSON.push({ g: x, l: y, tmp: average });\n    }\n    else {\n      heatmapJSON.push({ g: x, l: y, tmp: 0 });\n    }\n  }\n}\n\n\n\nmsg.payload = heatmapJSON;\n// msg.payload = grid;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 2300,
+        "wires": [
+            [
+                "6f7053caffda4349"
+            ]
+        ]
     },
     {
         "id": "e73b2e27b018880c",
