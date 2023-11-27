@@ -5470,7 +5470,7 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "data",
+        "complete": "filters",
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
