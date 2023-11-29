@@ -5112,7 +5112,7 @@
         "z": "ccbba8193508b160",
         "g": "0f65e2cc46720956",
         "name": "Process to json array",
-        "func": "var array_in = msg.payload;\nvar array_out = [];\n\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = JSON.parse(msg.payload[i].data);\n}\n\nmsg.payload = array_out;\n\nmsg.columns = Object.keys(msg.payload[0]).toString();\n\nreturn [msg, error];\n\n\n\n\n\n",
+        "func": "var array_in = msg.payload;\nvar array_out = [];\n\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = JSON.parse(msg.payload[i].data);\n}\n\nmsg.payload = array_out;\n\nmsg.columns = Object.keys(msg.payload[0]).toString();\n\nreturn msg;\n\n\n\n\n\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
