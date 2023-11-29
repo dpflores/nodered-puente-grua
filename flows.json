@@ -190,9 +190,7 @@
             "47371280d37afc93"
         ],
         "x": 74,
-        "y": 79,
-        "w": 1212,
-        "h": 242
+        "y": 79
     },
     {
         "id": "b7f9bad1da3f666b",
@@ -213,9 +211,7 @@
             "227c7884566505e1"
         ],
         "x": 54,
-        "y": 359,
-        "w": 1072,
-        "h": 182
+        "y": 359
     },
     {
         "id": "f2e2e6faa602b3b4",
@@ -469,7 +465,6 @@
             "ec21b782c27c719d",
             "f4accf501080b692",
             "02b846fca7432911",
-            "71ba3d8be1843e93",
             "9322b940488539b7",
             "b2218bf5f855785d",
             "86f9935189989498",
@@ -478,9 +473,7 @@
             "c7906c995b9e065a",
             "0e08692084834d95",
             "d75ac2947379beb1",
-            "73db361cc0b73832",
             "9d5f8f5c7d71b523",
-            "fbd9f17a2f71057a",
             "954e191e56175614",
             "dffa8e84e3b6663d",
             "6f7053caffda4349",
@@ -488,11 +481,12 @@
             "85d687a54ab1bb69",
             "dfab25eb1685e3fd",
             "f50ae07e870bba1d",
-            "d1b9fc067d561502",
             "b415ba751bc6e7d0",
             "9d8d3f1069ca12c6",
             "6b91e0c15cdb45c6",
-            "16e4d2bbec239ae0"
+            "16e4d2bbec239ae0",
+            "a59bc75b1293cdc2",
+            "93df94edb5fd1fe2"
         ],
         "x": 74,
         "y": 1559,
@@ -5162,8 +5156,7 @@
         "y": 1860,
         "wires": [
             [
-                "71ba3d8be1843e93",
-                "ec21b782c27c719d"
+                "a59bc75b1293cdc2"
             ]
         ]
     },
@@ -5231,27 +5224,6 @@
             [
                 "916f4d12c2fcb39c",
                 "1cd69cc8f1075b73"
-            ]
-        ]
-    },
-    {
-        "id": "71ba3d8be1843e93",
-        "type": "function",
-        "z": "ccbba8193508b160",
-        "g": "0f65e2cc46720956",
-        "name": "function 132",
-        "func": "const gridSize = 100;\nconst grid = new Array(gridSize).fill().map(() => new Array(gridSize).fill(0));\n\n// Supongamos que tienes una lista de miles de datos en el formato JSON dado\nconst datos = msg.payload;\n\n// Acumular la cantidad de veces que cada posición se repite en el grid\ndatos.forEach(({ x_axis, y_axis }) => {\n  if (x_axis >= 0 && x_axis < gridSize && y_axis >= 0 && y_axis < gridSize) {\n    grid[y_axis][x_axis]++;\n  }\n});\n\n// Convertir el grid a la estructura JSON deseada\nconst heatmapJSON = [];\n\nfor (let y = 0; y < gridSize; y++) {\n  for (let x = 0; x < gridSize; x++) {\n    if (grid[y][x] > 0) {\n      heatmapJSON.push({ g: x, l: y, tmp: grid[y][x] });\n    }\n  }\n}\n\nmsg.payload = heatmapJSON;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 910,
-        "y": 1920,
-        "wires": [
-            [
-                "4d418b1099fc572e"
             ]
         ]
     },
@@ -5338,8 +5310,7 @@
         "wires": [
             [
                 "c7906c995b9e065a",
-                "73db361cc0b73832",
-                "fbd9f17a2f71057a"
+                "93df94edb5fd1fe2"
             ]
         ]
     },
@@ -5359,7 +5330,9 @@
         "x": 940,
         "y": 2060,
         "wires": [
-            []
+            [
+                "86f9935189989498"
+            ]
         ]
     },
     {
@@ -5408,28 +5381,6 @@
         ]
     },
     {
-        "id": "73db361cc0b73832",
-        "type": "function",
-        "z": "ccbba8193508b160",
-        "g": "0f65e2cc46720956",
-        "name": "function 133",
-        "func": "const gridSize = 100;\nconst grid = Array.from({ length: gridSize }, () =>\n  Array.from({ length: gridSize }, () => ({ count: 0, total: 0 }))\n);\n\n// Supongamos que tienes una lista de miles de datos en el formato JSON dado\nconst datos = msg.payload;\n\n// Acumular la carga y contar la cantidad de datos en cada posición\ndatos.forEach(({ x_axis, y_axis, carga1 }) => {\n  if (x_axis >= 0 && x_axis < gridSize && y_axis >= 0 && y_axis < gridSize) {\n    grid[y_axis][x_axis].count++;\n    grid[y_axis][x_axis].total += carga1;\n  }\n});\n\n// Convertir el grid a la estructura JSON deseada con el promedio\nconst heatmapJSON = [];\n\nfor (let y = 0; y < gridSize; y++) {\n  for (let x = 0; x < gridSize; x++) {\n    const { count, total } = grid[y][x];\n    if (count > 0) {\n      const average = total / count;\n      heatmapJSON.push({ g: x, l: y, tmp: average });\n    }\n    else {\n      heatmapJSON.push({ g: x, l: y, tmp: 0 });\n    }\n  }\n}\n\n\n\nmsg.payload = heatmapJSON;\n// msg.payload = grid;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 950,
-        "y": 2180,
-        "wires": [
-            [
-                "0e08692084834d95",
-                "86f9935189989498"
-            ]
-        ]
-    },
-    {
         "id": "9d5f8f5c7d71b523",
         "type": "debug",
         "z": "ccbba8193508b160",
@@ -5444,24 +5395,6 @@
         "statusType": "auto",
         "x": 430,
         "y": 2140,
-        "wires": []
-    },
-    {
-        "id": "fbd9f17a2f71057a",
-        "type": "debug",
-        "z": "ccbba8193508b160",
-        "g": "0f65e2cc46720956",
-        "name": "debug 184",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 930,
-        "y": 2220,
         "wires": []
     },
     {
@@ -5546,8 +5479,7 @@
         "y": 2240,
         "wires": [
             [
-                "d1b9fc067d561502",
-                "dfab25eb1685e3fd"
+                "aa2cdacf44e26ed1"
             ]
         ]
     },
@@ -5594,27 +5526,6 @@
         "y": 2320,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "d1b9fc067d561502",
-        "type": "function",
-        "z": "ccbba8193508b160",
-        "g": "0f65e2cc46720956",
-        "name": "function 134",
-        "func": "const gridSize = 100;\nconst grid = Array.from({ length: gridSize }, () =>\n  Array.from({ length: gridSize }, () => ({ count: 0, total: 0 }))\n);\n\n// Supongamos que tienes una lista de miles de datos en el formato JSON dado\nconst datos = msg.payload;\n\n// Acumular la carga y contar la cantidad de datos en cada posición\ndatos.forEach(({ x_axis, y_axis, carga2 }) => {\n  if (x_axis >= 0 && x_axis < gridSize && y_axis >= 0 && y_axis < gridSize) {\n    grid[y_axis][x_axis].count++;\n    grid[y_axis][x_axis].total += carga2;\n  }\n});\n\n// Convertir el grid a la estructura JSON deseada con el promedio\nconst heatmapJSON = [];\n\nfor (let y = 0; y < gridSize; y++) {\n  for (let x = 0; x < gridSize; x++) {\n    const { count, total } = grid[y][x];\n    if (count > 0) {\n      const average = total / count;\n      heatmapJSON.push({ g: x, l: y, tmp: average });\n    }\n    else {\n      heatmapJSON.push({ g: x, l: y, tmp: 0 });\n    }\n  }\n}\n\n\n\nmsg.payload = heatmapJSON;\n// msg.payload = grid;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 930,
-        "y": 2300,
-        "wires": [
-            [
-                "6f7053caffda4349"
-            ]
         ]
     },
     {
@@ -5696,6 +5607,69 @@
         "x": 910,
         "y": 1600,
         "wires": []
+    },
+    {
+        "id": "a59bc75b1293cdc2",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
+        "name": "function 135",
+        "func": "const gridSize = 100;\nconst grid = new Array(gridSize).fill().map(() => new Array(gridSize).fill(0));\n\nconst datos = msg.payload;\n\ndatos.forEach(({ x_axis, y_axis, carga1, z1_axis, state }) => {\n  const weightCheck = !msg.filters.weightRange || (carga1 >= msg.filters.weightRange[0] && carga1 <= msg.filters.weightRange[1]);\n  const heightCheck = !msg.filters.heightRange || (z1_axis >= msg.filters.heightRange[0] && z1_axis <= msg.filters.heightRange[1]);\n  const stateCheck = !msg.filters.stateFilter || state === msg.filters.stateFilter;\n\n  if (weightCheck && heightCheck && stateCheck) {\n    const withinBounds = x_axis >= 0 && x_axis < gridSize && y_axis >= 0 && y_axis < gridSize;\n    if (withinBounds) {\n      grid[y_axis][x_axis]++;\n    }\n  }\n});\n\nconst heatmapJSON = [];\n\nfor (let y = 0; y < gridSize; y++) {\n  for (let x = 0; x < gridSize; x++) {\n    if (grid[y][x] > 0) {\n      heatmapJSON.push({ g: x, l: y, tmp: grid[y][x] });\n    }\n  }\n}\n\nmsg.payload = heatmapJSON;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 1920,
+        "wires": [
+            [
+                "4d418b1099fc572e",
+                "ec21b782c27c719d"
+            ]
+        ]
+    },
+    {
+        "id": "93df94edb5fd1fe2",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
+        "name": "function 136",
+        "func": "const gridSize = 100;\nconst grid = new Array(gridSize).fill().map(() => new Array(gridSize).fill(0));\n\nconst datos = msg.payload;\n\ndatos.forEach(({ x_axis, y_axis, carga1, z1_axis, state }) => {\n  const weightCheck = !msg.filters.weightRange || (carga1 >= msg.filters.weightRange[0] && carga1 <= msg.filters.weightRange[1]);\n  const heightCheck = !msg.filters.heightRange || (z1_axis >= msg.filters.heightRange[0] && z1_axis <= msg.filters.heightRange[1]);\n  const stateCheck = !msg.filters.stateFilter || state === msg.filters.stateFilter;\n\n  if (weightCheck && heightCheck && stateCheck) {\n    const withinBounds = x_axis >= 0 && x_axis < gridSize && y_axis >= 0 && y_axis < gridSize;\n    if (withinBounds) {\n      grid[y_axis][x_axis]++;\n    }\n  }\n});\n\nconst heatmapJSON = [];\n\nfor (let y = 0; y < gridSize; y++) {\n  for (let x = 0; x < gridSize; x++) {\n    if (grid[y][x] > 0) {\n      heatmapJSON.push({ g: x, l: y, tmp: grid[y][x] });\n    }\n  }\n}\n\nmsg.payload = heatmapJSON;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 2140,
+        "wires": [
+            [
+                "86f9935189989498"
+            ]
+        ]
+    },
+    {
+        "id": "aa2cdacf44e26ed1",
+        "type": "function",
+        "z": "ccbba8193508b160",
+        "name": "function 137",
+        "func": "const gridSize = 100;\nconst grid = new Array(gridSize).fill().map(() => new Array(gridSize).fill(0));\n\nconst datos = msg.payload;\n\ndatos.forEach(({ x_axis, y_axis, carga1, z1_axis, state }) => {\n  const weightCheck = !msg.filters.weightRange || (carga1 >= msg.filters.weightRange[0] && carga1 <= msg.filters.weightRange[1]);\n  const heightCheck = !msg.filters.heightRange || (z1_axis >= msg.filters.heightRange[0] && z1_axis <= msg.filters.heightRange[1]);\n  const stateCheck = !msg.filters.stateFilter || state === msg.filters.stateFilter;\n\n  if (weightCheck && heightCheck && stateCheck) {\n    const withinBounds = x_axis >= 0 && x_axis < gridSize && y_axis >= 0 && y_axis < gridSize;\n    if (withinBounds) {\n      grid[y_axis][x_axis]++;\n    }\n  }\n});\n\nconst heatmapJSON = [];\n\nfor (let y = 0; y < gridSize; y++) {\n  for (let x = 0; x < gridSize; x++) {\n    if (grid[y][x] > 0) {\n      heatmapJSON.push({ g: x, l: y, tmp: grid[y][x] });\n    }\n  }\n}\n\nmsg.payload = heatmapJSON;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 939,
+        "y": 2311,
+        "wires": [
+            [
+                "6f7053caffda4349"
+            ]
+        ]
     },
     {
         "id": "e73b2e27b018880c",
