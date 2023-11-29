@@ -491,12 +491,14 @@
             "16e4d2bbec239ae0",
             "a59bc75b1293cdc2",
             "93df94edb5fd1fe2",
-            "0999d63c9a341a1f"
+            "0999d63c9a341a1f",
+            "a1d69c91f8c4de80",
+            "c4860562187e230f"
         ],
         "x": 74,
         "y": 1559,
         "w": 1192,
-        "h": 802
+        "h": 822
     },
     {
         "id": "4ef7ae3b6b08272a",
@@ -5110,7 +5112,7 @@
         "z": "ccbba8193508b160",
         "g": "0f65e2cc46720956",
         "name": "Process to json array",
-        "func": "var array_in = msg.payload;\nvar array_out = [];\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = JSON.parse(msg.payload[i].data);\n}\n\nmsg.payload = array_out;\n\nmsg.columns = Object.keys(msg.payload[0]).toString();\n\n\nreturn msg;\n",
+        "func": "var array_in = msg.payload;\nvar array_out = [];\n\n\nfor (var i = 0; i < array_in.length; i++) {\n    \n    array_out[i] = JSON.parse(msg.payload[i].data);\n}\n\nmsg.payload = array_out;\n\nmsg.columns = Object.keys(msg.payload[0]).toString();\n\nreturn [msg, error];\n\n\n\n\n\n",
         "outputs": 1,
         "timeout": "",
         "noerr": 0,
@@ -5770,6 +5772,36 @@
                 "6f7053caffda4349"
             ]
         ]
+    },
+    {
+        "id": "c4860562187e230f",
+        "type": "catch",
+        "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
+        "name": "",
+        "scope": "group",
+        "uncaught": false,
+        "x": 550,
+        "y": 2340,
+        "wires": [
+            [
+                "a1d69c91f8c4de80"
+            ]
+        ]
+    },
+    {
+        "id": "a1d69c91f8c4de80",
+        "type": "http response",
+        "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
+        "name": "",
+        "statusCode": "500",
+        "headers": {
+            "content-type": "application/json"
+        },
+        "x": 720,
+        "y": 2340,
+        "wires": []
     },
     {
         "id": "e73b2e27b018880c",
