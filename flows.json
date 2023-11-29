@@ -580,14 +580,14 @@
                 "vt": "str"
             }
         ],
-        "repeat": "1",
+        "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 130,
+        "x": 120,
         "y": 220,
         "wires": [
             [
@@ -619,8 +619,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 570,
-        "y": 120,
+        "x": 590,
+        "y": 160,
         "wires": [
             []
         ]
@@ -759,8 +759,8 @@
         "high": "80",
         "inte": "true",
         "property": "payload",
-        "x": 280,
-        "y": 120,
+        "x": 300,
+        "y": 160,
         "wires": [
             [
                 "c6b692f2e37d0319"
@@ -1015,14 +1015,14 @@
                 "vt": "str"
             }
         ],
-        "repeat": "300",
+        "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 150,
+        "x": 140,
         "y": 560,
         "wires": [
             [
@@ -1877,14 +1877,14 @@
                 "vt": "str"
             }
         ],
-        "repeat": "5",
+        "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 210,
+        "x": 200,
         "y": 340,
         "wires": [
             [
