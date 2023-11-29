@@ -190,7 +190,9 @@
             "47371280d37afc93"
         ],
         "x": 74,
-        "y": 79
+        "y": 79,
+        "w": 1212,
+        "h": 242
     },
     {
         "id": "b7f9bad1da3f666b",
@@ -211,7 +213,9 @@
             "227c7884566505e1"
         ],
         "x": 54,
-        "y": 359
+        "y": 359,
+        "w": 1072,
+        "h": 182
     },
     {
         "id": "f2e2e6faa602b3b4",
@@ -486,7 +490,8 @@
             "6b91e0c15cdb45c6",
             "16e4d2bbec239ae0",
             "a59bc75b1293cdc2",
-            "93df94edb5fd1fe2"
+            "93df94edb5fd1fe2",
+            "0999d63c9a341a1f"
         ],
         "x": 74,
         "y": 1559,
@@ -5269,8 +5274,8 @@
         "headers": {
             "content-type": "application/json"
         },
-        "x": 1100,
-        "y": 2040,
+        "x": 1140,
+        "y": 2060,
         "wires": []
     },
     {
@@ -5326,9 +5331,7 @@
         "x": 940,
         "y": 2060,
         "wires": [
-            [
-                "86f9935189989498"
-            ]
+            []
         ]
     },
     {
@@ -5475,7 +5478,7 @@
         "y": 2240,
         "wires": [
             [
-                "aa2cdacf44e26ed1"
+                "0999d63c9a341a1f"
             ]
         ]
     },
@@ -5610,7 +5613,7 @@
         "z": "ccbba8193508b160",
         "g": "0f65e2cc46720956",
         "name": "function 135",
-        "func": "const gridSize = 100;\nconst grid = new Array(gridSize).fill().map(() => new Array(gridSize).fill(0));\n\nconst datos = msg.payload;\n\ndatos.forEach(({ x_axis, y_axis, carga1, z1_axis, state }) => {\n  const weightCheck = !msg.filters.weightRange || (carga1 >= msg.filters.weightRange[0] && carga1 <= msg.filters.weightRange[1]);\n  const heightCheck = !msg.filters.heightRange || (z1_axis >= msg.filters.heightRange[0] && z1_axis <= msg.filters.heightRange[1]);\n  const stateCheck = !msg.filters.stateFilter || state === msg.filters.stateFilter;\n\n  if (weightCheck && heightCheck && stateCheck) {\n    const withinBounds = x_axis >= 0 && x_axis < gridSize && y_axis >= 0 && y_axis < gridSize;\n    if (withinBounds) {\n      grid[y_axis][x_axis]++;\n    }\n  }\n});\n\nconst heatmapJSON = [];\n\nfor (let y = 0; y < gridSize; y++) {\n  for (let x = 0; x < gridSize; x++) {\n    if (grid[y][x] > 0) {\n      heatmapJSON.push({ g: x, l: y, tmp: grid[y][x] });\n    }\n  }\n}\n\nmsg.payload = heatmapJSON;\nreturn msg;",
+        "func": "const gridSize = 100;\nconst grid = new Array(gridSize).fill().map(() => new Array(gridSize).fill(0));\n\nconst datos = msg.payload;\n\ndatos.forEach(({ x_axis, y_axis, carga2, z2_axis, state }) => {\n  const weightCheck = !msg.filters.weightRange || (carga2 >= msg.filters.weightRange[0] && carga2 <= msg.filters.weightRange[1]);\n  const heightCheck = !msg.filters.heightRange || (z2_axis >= msg.filters.heightRange[0] && z2_axis <= msg.filters.heightRange[1]);\n  const stateCheck = !msg.filters.stateFilter || state === msg.filters.stateFilter;\n\n  if (weightCheck && heightCheck && stateCheck) {\n    const withinBounds = x_axis >= 0 && x_axis < gridSize && y_axis >= 0 && y_axis < gridSize;\n    if (withinBounds) {\n      grid[y_axis][x_axis]++;\n    }\n  }\n});\n\nconst heatmapJSON = [];\n\nfor (let y = 0; y < gridSize; y++) {\n  for (let x = 0; x < gridSize; x++) {\n    if (grid[y][x] > 0) {\n      heatmapJSON.push({ g: x, l: y, tmp: grid[y][x] });\n    }\n  }\n}\n\nmsg.payload = heatmapJSON;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -5632,7 +5635,7 @@
         "z": "ccbba8193508b160",
         "g": "0f65e2cc46720956",
         "name": "function 136",
-        "func": "const gridSize = 100;\nconst grid = new Array(gridSize).fill().map(() => new Array(gridSize).fill(0));\n\nconst datos = msg.payload;\n\ndatos.forEach(({ x_axis, y_axis, carga1, z1_axis, state }) => {\n  const weightCheck = !msg.filters.weightRange || (carga1 >= msg.filters.weightRange[0] && carga1 <= msg.filters.weightRange[1]);\n  const heightCheck = !msg.filters.heightRange || (z1_axis >= msg.filters.heightRange[0] && z1_axis <= msg.filters.heightRange[1]);\n  const stateCheck = !msg.filters.stateFilter || state === msg.filters.stateFilter;\n\n  if (weightCheck && heightCheck && stateCheck) {\n    const withinBounds = x_axis >= 0 && x_axis < gridSize && y_axis >= 0 && y_axis < gridSize;\n    if (withinBounds) {\n      grid[y_axis][x_axis]++;\n    }\n  }\n});\n\nconst heatmapJSON = [];\n\nfor (let y = 0; y < gridSize; y++) {\n  for (let x = 0; x < gridSize; x++) {\n    if (grid[y][x] > 0) {\n      heatmapJSON.push({ g: x, l: y, tmp: grid[y][x] });\n    }\n  }\n}\n\nmsg.payload = heatmapJSON;\nreturn msg;",
+        "func": "const gridSize = 100;\nconst grid = Array.from({ length: gridSize }, () =>\n  Array.from({ length: gridSize }, () => ({ count: 0, total: 0 }))\n);\n\nconst datos = msg.payload;\n\ndatos.forEach(({ x_axis, y_axis, carga1, z1_axis, state }) => {\n  const weightCheck = !msg.filters.weightRange || (carga1 >= msg.filters.weightRange[0] && carga1 <= msg.filters.weightRange[1]);\n  const heightCheck = !msg.filters.heightRange || (z1_axis >= msg.filters.heightRange[0] && z1_axis <= msg.filters.heightRange[1]);\n  const stateCheck = !msg.filters.stateFilter || state === msg.filters.stateFilter;\n\n  if (weightCheck && heightCheck && stateCheck) {\n    const withinBounds = x_axis >= 0 && x_axis < gridSize && y_axis >= 0 && y_axis < gridSize;\n    if (withinBounds) {\n      grid[y_axis][x_axis].count++;\n      grid[y_axis][x_axis].total += carga1;\n    }\n  }\n});\n\nconst heatmapJSON = [];\n\n\nfor (let y = 0; y < gridSize; y++) {\n  for (let x = 0; x < gridSize; x++) {\n    const { count, total } = grid[y][x];\n    if (count > 0) {\n      const average = total / count;\n      heatmapJSON.push({ g: x, l: y, tmp: average });\n    }\n    else {\n      heatmapJSON.push({ g: x, l: y, tmp: 0 });\n    }\n  }\n}\n\nmsg.payload = heatmapJSON;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -5648,19 +5651,20 @@
         ]
     },
     {
-        "id": "aa2cdacf44e26ed1",
+        "id": "0999d63c9a341a1f",
         "type": "function",
         "z": "ccbba8193508b160",
+        "g": "0f65e2cc46720956",
         "name": "function 137",
-        "func": "const gridSize = 100;\nconst grid = new Array(gridSize).fill().map(() => new Array(gridSize).fill(0));\n\nconst datos = msg.payload;\n\ndatos.forEach(({ x_axis, y_axis, carga1, z1_axis, state }) => {\n  const weightCheck = !msg.filters.weightRange || (carga1 >= msg.filters.weightRange[0] && carga1 <= msg.filters.weightRange[1]);\n  const heightCheck = !msg.filters.heightRange || (z1_axis >= msg.filters.heightRange[0] && z1_axis <= msg.filters.heightRange[1]);\n  const stateCheck = !msg.filters.stateFilter || state === msg.filters.stateFilter;\n\n  if (weightCheck && heightCheck && stateCheck) {\n    const withinBounds = x_axis >= 0 && x_axis < gridSize && y_axis >= 0 && y_axis < gridSize;\n    if (withinBounds) {\n      grid[y_axis][x_axis]++;\n    }\n  }\n});\n\nconst heatmapJSON = [];\n\nfor (let y = 0; y < gridSize; y++) {\n  for (let x = 0; x < gridSize; x++) {\n    if (grid[y][x] > 0) {\n      heatmapJSON.push({ g: x, l: y, tmp: grid[y][x] });\n    }\n  }\n}\n\nmsg.payload = heatmapJSON;\nreturn msg;",
+        "func": "const gridSize = 100;\nconst grid = Array.from({ length: gridSize }, () =>\n  Array.from({ length: gridSize }, () => ({ count: 0, total: 0 }))\n);\n\nconst datos = msg.payload;\n\ndatos.forEach(({ x_axis, y_axis, carga2, z2_axis, state }) => {\n  const weightCheck = !msg.filters.weightRange || (carga2 >= msg.filters.weightRange[0] && carga2 <= msg.filters.weightRange[1]);\n  const heightCheck = !msg.filters.heightRange || (z2_axis >= msg.filters.heightRange[0] && z2_axis <= msg.filters.heightRange[1]);\n  const stateCheck = !msg.filters.stateFilter || state === msg.filters.stateFilter;\n\n  if (weightCheck && heightCheck && stateCheck) {\n    const withinBounds = x_axis >= 0 && x_axis < gridSize && y_axis >= 0 && y_axis < gridSize;\n    if (withinBounds) {\n      grid[y_axis][x_axis].count++;\n      grid[y_axis][x_axis].total += carga2;\n    }\n  }\n});\n\nconst heatmapJSON = [];\n\n\nfor (let y = 0; y < gridSize; y++) {\n  for (let x = 0; x < gridSize; x++) {\n    const { count, total } = grid[y][x];\n    if (count > 0) {\n      const average = total / count;\n      heatmapJSON.push({ g: x, l: y, tmp: average });\n    }\n    else {\n      heatmapJSON.push({ g: x, l: y, tmp: 0 });\n    }\n  }\n}\n\nmsg.payload = heatmapJSON;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 939,
-        "y": 2311,
+        "x": 910,
+        "y": 2300,
         "wires": [
             [
                 "6f7053caffda4349"
