@@ -599,7 +599,6 @@
         "id": "c6b692f2e37d0319",
         "type": "change",
         "z": "0bd865dc83ec0d5a",
-        "d": true,
         "name": "",
         "rules": [
             {
@@ -625,7 +624,6 @@
         "id": "235910951843d19c",
         "type": "change",
         "z": "0bd865dc83ec0d5a",
-        "d": true,
         "name": "",
         "rules": [
             {
@@ -751,7 +749,6 @@
         "id": "fbadb31b0d03b579",
         "type": "random",
         "z": "0bd865dc83ec0d5a",
-        "d": true,
         "name": "",
         "low": "0",
         "high": "80",
@@ -769,7 +766,6 @@
         "id": "b86aa9499c0305b6",
         "type": "random",
         "z": "0bd865dc83ec0d5a",
-        "d": true,
         "name": "",
         "low": "0",
         "high": "40",
