@@ -832,13 +832,6 @@
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "gateway_data",
-                "tot": "global"
             }
         ],
         "action": "",
@@ -846,13 +839,13 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 360,
+        "x": 400,
         "y": 140,
         "wires": [
             [
                 "bdbcbf2604da944c",
                 "a42669cc56ec8c6f",
-                "33150fbb9a1d73c2"
+                "4db00823342cc52e"
             ]
         ]
     },
@@ -886,7 +879,7 @@
         "type": "subflow:63965d808ff1bb6e",
         "z": "48d20ef5a22489eb",
         "name": "",
-        "x": 660,
+        "x": 700,
         "y": 140,
         "wires": [
             [
@@ -906,147 +899,9 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 630,
-        "y": 180,
+        "x": 710,
+        "y": 200,
         "wires": []
-    },
-    {
-        "id": "33150fbb9a1d73c2",
-        "type": "rbe",
-        "z": "48d20ef5a22489eb",
-        "name": "x changed",
-        "func": "rbei",
-        "gap": "0",
-        "start": "",
-        "inout": "in",
-        "septopics": true,
-        "property": "payload.data.rm9000.x_axis",
-        "topi": "topic",
-        "x": 610,
-        "y": 300,
-        "wires": [
-            [
-                "b4bf51e68e6fe09c"
-            ]
-        ]
-    },
-    {
-        "id": "98bede7e0662e547",
-        "type": "rbe",
-        "z": "48d20ef5a22489eb",
-        "name": "y changed",
-        "func": "rbei",
-        "gap": "0",
-        "start": "",
-        "inout": "in",
-        "septopics": true,
-        "property": "payload.data.rm9000.y_axis",
-        "topi": "topic",
-        "x": 790,
-        "y": 300,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e27eea2420cdd641",
-        "type": "rbe",
-        "z": "48d20ef5a22489eb",
-        "name": "z1 changed",
-        "func": "rbei",
-        "gap": "0",
-        "start": "",
-        "inout": "in",
-        "septopics": true,
-        "property": "payload.data.rm9000.z1_axis",
-        "topi": "topic",
-        "x": 970,
-        "y": 300,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b57b9e681952e316",
-        "type": "rbe",
-        "z": "48d20ef5a22489eb",
-        "name": "z2 changed",
-        "func": "rbei",
-        "gap": "0",
-        "start": "",
-        "inout": "in",
-        "septopics": true,
-        "property": "payload.data.rm9000.z2_axis",
-        "topi": "topic",
-        "x": 1150,
-        "y": 300,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b4bf51e68e6fe09c",
-        "type": "debug",
-        "z": "48d20ef5a22489eb",
-        "name": "debug 180",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 790,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "c71688623cca3d5f",
-        "type": "switch",
-        "z": "48d20ef5a22489eb",
-        "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 450,
-        "y": 540,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "357cda868bf73213",
-        "type": "change",
-        "z": "48d20ef5a22489eb",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 400,
-        "y": 620,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "6ec19fc7.a32ae",
@@ -1263,6 +1118,173 @@
                 "1644e138.f8d1ef"
             ]
         ]
+    },
+    {
+        "id": "4db00823342cc52e",
+        "type": "function",
+        "z": "48d20ef5a22489eb",
+        "name": "function 1",
+        "func": "const current_data = global.get(\"gateway_data\");\nconst previous_data = global.get(\"sample_data\");\n\nconst dx = current_data.data.rm9000.x_axis - previous_data.data.rm9000.x_axis;\nconst dy = current_data.data.rm9000.y_axis - previous_data.data.rm9000.y_axis;\nconst dz1 = current_data.data.rm9000.z1_axis - previous_data.data.rm9000.z1_axis;\nconst dz2 = current_data.data.rm9000.z2_axis - previous_data.data.rm9000.z2_axis;\nconst load1 = current_data.data.load_cell.load1;\nconst load2 = current_data.data.load_cell.load2;\n\nif((dx!==0 || dy !==0) && (dz1 === 0 || dz2 === 0) && (load1<1000 || load2<1000) ){\n    \n}\n\n// Checking statuses\n\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1db4fec9be37d4de",
+        "type": "trigger",
+        "z": "48d20ef5a22489eb",
+        "name": "",
+        "op1": "1",
+        "op2": "0",
+        "op1type": "num",
+        "op2type": "str",
+        "duration": "250",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 720,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "33150fbb9a1d73c2",
+        "type": "rbe",
+        "z": "48d20ef5a22489eb",
+        "name": "x changed",
+        "func": "rbei",
+        "gap": "0",
+        "start": "",
+        "inout": "in",
+        "septopics": true,
+        "property": "payload.data.rm9000.x_axis",
+        "topi": "topic",
+        "x": 890,
+        "y": 360,
+        "wires": [
+            [
+                "b4bf51e68e6fe09c"
+            ]
+        ]
+    },
+    {
+        "id": "98bede7e0662e547",
+        "type": "rbe",
+        "z": "48d20ef5a22489eb",
+        "name": "y changed",
+        "func": "rbei",
+        "gap": "0",
+        "start": "",
+        "inout": "in",
+        "septopics": true,
+        "property": "payload.data.rm9000.y_axis",
+        "topi": "topic",
+        "x": 890,
+        "y": 400,
+        "wires": [
+            [
+                "26412c91ba7538fe"
+            ]
+        ]
+    },
+    {
+        "id": "e27eea2420cdd641",
+        "type": "rbe",
+        "z": "48d20ef5a22489eb",
+        "name": "z1 changed",
+        "func": "rbei",
+        "gap": "0",
+        "start": "",
+        "inout": "in",
+        "septopics": true,
+        "property": "payload.data.rm9000.z1_axis",
+        "topi": "topic",
+        "x": 890,
+        "y": 440,
+        "wires": [
+            [
+                "8765c0fcb2c492c0"
+            ]
+        ]
+    },
+    {
+        "id": "b57b9e681952e316",
+        "type": "rbe",
+        "z": "48d20ef5a22489eb",
+        "name": "z2 changed",
+        "func": "rbei",
+        "gap": "0",
+        "start": "",
+        "inout": "in",
+        "septopics": true,
+        "property": "payload.data.rm9000.z2_axis",
+        "topi": "topic",
+        "x": 890,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b4bf51e68e6fe09c",
+        "type": "debug",
+        "z": "48d20ef5a22489eb",
+        "name": "debug 180",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1150,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "26412c91ba7538fe",
+        "type": "debug",
+        "z": "48d20ef5a22489eb",
+        "name": "debug 181",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "8765c0fcb2c492c0",
+        "type": "debug",
+        "z": "48d20ef5a22489eb",
+        "name": "debug 182",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 440,
+        "wires": []
     },
     {
         "id": "873bfdb3ebe73b42",
