@@ -280,7 +280,8 @@
         "y": 80,
         "wires": [
             [
-                "ddbb5677344f19e5"
+                "ddbb5677344f19e5",
+                "b4c473895a61af66"
             ]
         ]
     },
@@ -305,6 +306,31 @@
         "reg": false,
         "x": 410,
         "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b4c473895a61af66",
+        "type": "change",
+        "z": "7e745af8071944c2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "sample_data",
+                "pt": "global",
+                "to": "{\"gateway_key\":\"AXOKPG\",\"timestamp\":0,\"data\":{\"gateway_info\":{\"eth_ip\":\"-\",\"vpn_ip\":\"-\",\"ping_acme\":\"-\",\"total_space\":\"-\",\"free_space\":\"-\",\"temperature\":0,\"vbat\":0,\"num_gps_sat\":0},\"gps\":{\"pos_valid\":0,\"latitude\":0,\"longitude\":0,\"altitude\":0,\"haccuracy\":0,\"speed\":0,\"course\":0}}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 140,
         "wires": [
             []
         ]
@@ -617,6 +643,41 @@
         "payload": "",
         "payloadType": "date",
         "x": 210,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bdff64390cff8fd2",
+        "type": "comment",
+        "z": "48d20ef5a22489eb",
+        "name": "Muestreo de data",
+        "info": "",
+        "x": 160,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "b670eb2616d4f9a5",
+        "type": "change",
+        "z": "48d20ef5a22489eb",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
         "y": 120,
         "wires": [
             []
