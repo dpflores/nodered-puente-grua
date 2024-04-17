@@ -339,7 +339,6 @@
         "id": "6e0649b87bd9c7fc",
         "type": "change",
         "z": "42897ad46e77c19c",
-        "d": true,
         "name": "",
         "rules": [
             {
@@ -355,8 +354,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 570,
-        "y": 120,
+        "x": 590,
+        "y": 160,
         "wires": [
             []
         ]
@@ -365,7 +364,6 @@
         "id": "0f83dec6719ccaf9",
         "type": "change",
         "z": "42897ad46e77c19c",
-        "d": true,
         "name": "",
         "rules": [
             {
@@ -391,7 +389,6 @@
         "id": "1ce259bba990de95",
         "type": "change",
         "z": "42897ad46e77c19c",
-        "d": true,
         "name": "",
         "rules": [
             {
@@ -417,7 +414,6 @@
         "id": "d16f5d311146fef2",
         "type": "change",
         "z": "42897ad46e77c19c",
-        "d": true,
         "name": "",
         "rules": [
             {
@@ -440,69 +436,16 @@
         ]
     },
     {
-        "id": "f1d232d607420e82",
-        "type": "change",
-        "z": "42897ad46e77c19c",
-        "d": true,
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "gateway_data.data.carga_grua.carga1",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 600,
-        "y": 400,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "9edf6e794b70ac28",
-        "type": "change",
-        "z": "42897ad46e77c19c",
-        "d": true,
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "gateway_data.data.carga_grua.carga2",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 600,
-        "y": 460,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "1413e12e5d9080b4",
         "type": "random",
         "z": "42897ad46e77c19c",
-        "d": true,
         "name": "",
         "low": "0",
         "high": "80",
         "inte": "true",
         "property": "payload",
-        "x": 280,
-        "y": 120,
+        "x": 300,
+        "y": 160,
         "wires": [
             [
                 "6e0649b87bd9c7fc"
@@ -513,7 +456,6 @@
         "id": "0e56da427826ac01",
         "type": "random",
         "z": "42897ad46e77c19c",
-        "d": true,
         "name": "",
         "low": "0",
         "high": "40",
@@ -531,7 +473,6 @@
         "id": "53b8d96c72cd1df7",
         "type": "random",
         "z": "42897ad46e77c19c",
-        "d": true,
         "name": "",
         "low": 1,
         "high": 10,
@@ -549,7 +490,6 @@
         "id": "e707f89f375f0cb9",
         "type": "random",
         "z": "42897ad46e77c19c",
-        "d": true,
         "name": "",
         "low": 1,
         "high": 10,
@@ -567,7 +507,6 @@
         "id": "a27a3351d6d908b3",
         "type": "random",
         "z": "42897ad46e77c19c",
-        "d": true,
         "name": "",
         "low": "90",
         "high": "120",
@@ -577,7 +516,7 @@
         "y": 400,
         "wires": [
             [
-                "f1d232d607420e82"
+                "ef1d21386f04a4cf"
             ]
         ]
     },
@@ -585,7 +524,6 @@
         "id": "a70b679d8c449d78",
         "type": "random",
         "z": "42897ad46e77c19c",
-        "d": true,
         "name": "",
         "low": "100",
         "high": "140",
@@ -595,7 +533,7 @@
         "y": 460,
         "wires": [
             [
-                "9edf6e794b70ac28"
+                "e22188b9c2dae426"
             ]
         ]
     },
@@ -775,6 +713,56 @@
             [
                 "78436e1b42d4fbd3"
             ]
+        ]
+    },
+    {
+        "id": "ef1d21386f04a4cf",
+        "type": "change",
+        "z": "42897ad46e77c19c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gateway_data.data.load_cell.load1",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 590,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e22188b9c2dae426",
+        "type": "change",
+        "z": "42897ad46e77c19c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gateway_data.data.load_cell.load2",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 590,
+        "y": 460,
+        "wires": [
+            []
         ]
     },
     {
@@ -1880,10 +1868,7 @@
                 "11df43a0ed4a4619",
                 "763cb188ae368a92"
             ],
-            [
-                "dc6f647d92c6e35b",
-                "3d558644b4a48809"
-            ],
+            [],
             []
         ]
     },
@@ -1904,30 +1889,8 @@
         "wires": [
             [
                 "ff7d0db7e7c88614",
-                "9d536593c74672e4",
-                "6c93f9cb6606d7fc"
-            ]
-        ]
-    },
-    {
-        "id": "dc6f647d92c6e35b",
-        "type": "function",
-        "z": "f24bebacdb4e3198",
-        "name": "carga 387",
-        "func": "var data = msg.payload.data;\n\nlet out = data[4]*100 + data[3];\n\nmsg.payload = out\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 700,
-        "y": 740,
-        "wires": [
-            [
-                "3664e342ca4c4994",
-                "b8d8e40cb87121e2",
-                "2b51f72f4490dde3"
+                "6c93f9cb6606d7fc",
+                "b8d8e40cb87121e2"
             ]
         ]
     },
@@ -1943,24 +1906,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 870,
-        "y": 700,
-        "wires": []
-    },
-    {
-        "id": "3664e342ca4c4994",
-        "type": "debug",
-        "z": "f24bebacdb4e3198",
-        "name": "debug 175",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 850,
-        "y": 740,
+        "x": 1010,
+        "y": 560,
         "wires": []
     },
     {
@@ -1977,22 +1924,6 @@
         "statusType": "auto",
         "x": 710,
         "y": 580,
-        "wires": []
-    },
-    {
-        "id": "3d558644b4a48809",
-        "type": "debug",
-        "z": "f24bebacdb4e3198",
-        "name": "debug 177",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 710,
-        "y": 800,
         "wires": []
     },
     {
@@ -2044,7 +1975,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 970,
+        "x": 1030,
         "y": 660,
         "wires": [
             []
@@ -2069,8 +2000,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 970,
-        "y": 760,
+        "x": 1030,
+        "y": 700,
         "wires": [
             []
         ]
@@ -2176,7 +2107,8 @@
         "y": 660,
         "wires": [
             [
-                "9722d4f978bc4289"
+                "9722d4f978bc4289",
+                "9d536593c74672e4"
             ]
         ]
     },
@@ -2193,6 +2125,10 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
         "x": 930,
         "y": 620,
         "wires": []
@@ -2210,25 +2146,8 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
-        "x": 1090,
-        "y": 720,
-        "wires": []
-    },
-    {
-        "id": "2b51f72f4490dde3",
-        "type": "ui_text",
-        "z": "f24bebacdb4e3198",
-        "group": "edfb2eacc3a17b91",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "CAN ID 387 (verificar que gancho es):",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "x": 950,
-        "y": 800,
+        "x": 990,
+        "y": 740,
         "wires": []
     },
     {
