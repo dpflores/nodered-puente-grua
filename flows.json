@@ -16,6 +16,14 @@
         "env": []
     },
     {
+        "id": "48d20ef5a22489eb",
+        "type": "tab",
+        "label": "DATA",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "0e59410b16d8c0d1",
         "type": "tab",
         "label": "CONNECTIVITY & MONITORING",
