@@ -1877,7 +1877,7 @@
         "type": "function",
         "z": "f24bebacdb4e3198",
         "name": "carga 287",
-        "func": "var data = msg.payload.data;\n\nlet out = data[4]<<8 + data[3];\n\nmsg.payload = out\nreturn msg;",
+        "func": "var data = msg.payload.data;\n\nlet out = data[1]<<8 + data[0];\n\nmsg.payload = out\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
