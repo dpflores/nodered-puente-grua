@@ -336,6 +336,26 @@
         ]
     },
     {
+        "id": "ccdc261f3c80f87d",
+        "type": "comment",
+        "z": "7e745af8071944c2",
+        "name": "data en tiempo real",
+        "info": "",
+        "x": 650,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "86dc7b2a95801826",
+        "type": "comment",
+        "z": "7e745af8071944c2",
+        "name": "muestreo de la data en tiempo real",
+        "info": "",
+        "x": 700,
+        "y": 140,
+        "wires": []
+    },
+    {
         "id": "2eb28a4d1524ee51",
         "type": "inject",
         "z": "42897ad46e77c19c",
@@ -645,7 +665,9 @@
         "x": 210,
         "y": 120,
         "wires": [
-            []
+            [
+                "b670eb2616d4f9a5"
+            ]
         ]
     },
     {
@@ -654,8 +676,8 @@
         "z": "48d20ef5a22489eb",
         "name": "Muestreo de data",
         "info": "",
-        "x": 160,
-        "y": 40,
+        "x": 180,
+        "y": 60,
         "wires": []
     },
     {
@@ -668,8 +690,8 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "",
-                "tot": "str"
+                "to": "gateway_data",
+                "tot": "global"
             }
         ],
         "action": "",
