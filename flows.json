@@ -717,8 +717,8 @@
                 "t": "set",
                 "p": "sample_data",
                 "pt": "global",
-                "to": "",
-                "tot": "str"
+                "to": "gateway_data",
+                "tot": "global"
             }
         ],
         "action": "",
