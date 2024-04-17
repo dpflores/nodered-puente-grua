@@ -335,8 +335,8 @@
         "septopics": true,
         "property": "payload.data.rm9000.x_axis",
         "topi": "topic",
-        "x": 410,
-        "y": 400,
+        "x": 370,
+        "y": 420,
         "wires": [
             []
         ]
@@ -353,8 +353,8 @@
         "septopics": true,
         "property": "payload.data.rm9000.y_axis",
         "topi": "topic",
-        "x": 410,
-        "y": 460,
+        "x": 550,
+        "y": 420,
         "wires": [
             []
         ]
@@ -851,7 +851,8 @@
         "wires": [
             [
                 "bdbcbf2604da944c",
-                "a42669cc56ec8c6f"
+                "a42669cc56ec8c6f",
+                "33150fbb9a1d73c2"
             ]
         ]
     },
@@ -907,6 +908,96 @@
         "statusType": "auto",
         "x": 630,
         "y": 180,
+        "wires": []
+    },
+    {
+        "id": "33150fbb9a1d73c2",
+        "type": "rbe",
+        "z": "48d20ef5a22489eb",
+        "name": "x changed",
+        "func": "rbei",
+        "gap": "0",
+        "start": "",
+        "inout": "in",
+        "septopics": true,
+        "property": "payload.data.rm9000.x_axis",
+        "topi": "topic",
+        "x": 610,
+        "y": 300,
+        "wires": [
+            [
+                "b4bf51e68e6fe09c"
+            ]
+        ]
+    },
+    {
+        "id": "98bede7e0662e547",
+        "type": "rbe",
+        "z": "48d20ef5a22489eb",
+        "name": "y changed",
+        "func": "rbei",
+        "gap": "0",
+        "start": "",
+        "inout": "in",
+        "septopics": true,
+        "property": "payload.data.rm9000.y_axis",
+        "topi": "topic",
+        "x": 790,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e27eea2420cdd641",
+        "type": "rbe",
+        "z": "48d20ef5a22489eb",
+        "name": "z1 changed",
+        "func": "rbei",
+        "gap": "0",
+        "start": "",
+        "inout": "in",
+        "septopics": true,
+        "property": "payload.data.rm9000.z1_axis",
+        "topi": "topic",
+        "x": 970,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b57b9e681952e316",
+        "type": "rbe",
+        "z": "48d20ef5a22489eb",
+        "name": "z2 changed",
+        "func": "rbei",
+        "gap": "0",
+        "start": "",
+        "inout": "in",
+        "septopics": true,
+        "property": "payload.data.rm9000.z2_axis",
+        "topi": "topic",
+        "x": 1150,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b4bf51e68e6fe09c",
+        "type": "debug",
+        "z": "48d20ef5a22489eb",
+        "name": "debug 180",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 360,
         "wires": []
     },
     {
