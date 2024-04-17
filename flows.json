@@ -324,6 +324,49 @@
         ]
     },
     {
+        "id": "edeab3c3d9d6daba",
+        "type": "rbe",
+        "z": "63965d808ff1bb6e",
+        "name": "",
+        "func": "deadbandEq",
+        "gap": "",
+        "start": "",
+        "inout": "in",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 400,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4bdee61a012b6296",
+        "type": "change",
+        "z": "63965d808ff1bb6e",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 220,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
         "id": "7e73167df8a5611c",
         "type": "inject",
         "z": "7e745af8071944c2",
@@ -744,8 +787,8 @@
         "z": "48d20ef5a22489eb",
         "name": "Muestreo de data",
         "info": "",
-        "x": 180,
-        "y": 60,
+        "x": 140,
+        "y": 80,
         "wires": []
     },
     {
@@ -760,6 +803,13 @@
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "gateway_data",
+                "tot": "global"
             }
         ],
         "action": "",
@@ -767,7 +817,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 420,
+        "x": 360,
         "y": 140,
         "wires": [
             [
@@ -794,7 +844,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1010,
+        "x": 1150,
         "y": 140,
         "wires": [
             []
@@ -805,7 +855,7 @@
         "type": "subflow:63965d808ff1bb6e",
         "z": "48d20ef5a22489eb",
         "name": "",
-        "x": 720,
+        "x": 660,
         "y": 140,
         "wires": [
             [
