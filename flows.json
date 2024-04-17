@@ -688,7 +688,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "timestamp",
+                "p": "gateway_data.timestamp",
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
@@ -699,7 +699,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 440,
+        "x": 480,
         "y": 120,
         "wires": [
             [
@@ -726,7 +726,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 710,
+        "x": 1070,
         "y": 120,
         "wires": [
             []
