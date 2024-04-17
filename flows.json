@@ -1,5 +1,13 @@
 [
     {
+        "id": "7e745af8071944c2",
+        "type": "tab",
+        "label": "INIT",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "42897ad46e77c19c",
         "type": "tab",
         "label": "GET DATA",
@@ -182,9 +190,7 @@
             "f82eba84d7d53d1b"
         ],
         "x": 74,
-        "y": 79,
-        "w": 1212,
-        "h": 242
+        "y": 79
     },
     {
         "id": "5179124c0369cae1",
@@ -205,9 +211,7 @@
             "01c93927a286229b"
         ],
         "x": 54,
-        "y": 359,
-        "w": 1072,
-        "h": 182
+        "y": 359
     },
     {
         "id": "8955c8ae76354b57",
@@ -652,6 +656,60 @@
         "width": "4",
         "collapse": false,
         "className": ""
+    },
+    {
+        "id": "7e73167df8a5611c",
+        "type": "inject",
+        "z": "7e745af8071944c2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 80,
+        "wires": [
+            [
+                "ddbb5677344f19e5"
+            ]
+        ]
+    },
+    {
+        "id": "ddbb5677344f19e5",
+        "type": "change",
+        "z": "7e745af8071944c2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gateway_data",
+                "pt": "global",
+                "to": "{\"gateway_key\":\"AXOKPG\",\"timestamp\":0,\"data\":{\"gateway_info\":{\"eth_ip\":\"-\",\"vpn_ip\":\"-\",\"ping_acme\":\"-\",\"total_space\":\"-\",\"free_space\":\"-\",\"temperature\":0,\"vbat\":0,\"num_gps_sat\":0},\"gps\":{\"pos_valid\":0,\"latitude\":0,\"longitude\":0,\"altitude\":0,\"haccuracy\":0,\"speed\":0,\"course\":0}}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 80,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "2eb28a4d1524ee51",
@@ -1128,78 +1186,6 @@
                 "78436e1b42d4fbd3"
             ]
         ]
-    },
-    {
-        "id": "8921c1307bf4b42c",
-        "type": "inject",
-        "z": "88710bd4abef8c71",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 40,
-        "wires": [
-            [
-                "c5283950d5c4e44b"
-            ]
-        ]
-    },
-    {
-        "id": "c5283950d5c4e44b",
-        "type": "change",
-        "z": "88710bd4abef8c71",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "gateway_data",
-                "pt": "global",
-                "to": "{\"gateway_key\":\"AXOGRUA\",\"timestamp\":0,\"data\":{\"gateway_info\":{\"eth_ip\":\"-\",\"vpn_ip\":\"-\",\"ping_acme\":\"-\",\"total_space\":0,\"used_space\":0,\"used_space_percent\":0,\"free_space\":0,\"num_gps_sat\":0,\"memory_usage_percent\":0,\"temperature\":0,\"vbat\":0},\"gps\":{\"pos_valid\":0,\"old_pos\":1,\"total\":0,\"nav_status\":0,\"latitude\":0,\"longitude\":0,\"altitude\":0,\"haccuracy\":0,\"vaccuracy\":0,\"speed\":0,\"course\":0,\"hdop\":0,\"vdop\":0,\"tdop\":0,\"num_sat\":0},\"jd2120\":{\"x_angle\":0,\"y_angle\":0},\"imu\":{\"accel_x\":0,\"accel_y\":0,\"accel_z\":0},\"rm900\":{\"x_axis\":0,\"y_axis\":0,\"z1_axis\":0,\"z2_axis\":0},\"carga_grua\":{\"carga1\":0,\"carga2\":0},\"sensor_estado\":{\"state\":\"init\"}}}",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 350,
-        "y": 40,
-        "wires": [
-            [
-                "7132d1490e47170b"
-            ]
-        ]
-    },
-    {
-        "id": "7132d1490e47170b",
-        "type": "debug",
-        "z": "88710bd4abef8c71",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 590,
-        "y": 40,
-        "wires": []
     },
     {
         "id": "46d605c846712a1c",
