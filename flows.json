@@ -295,7 +295,7 @@
                 "t": "set",
                 "p": "gateway_data",
                 "pt": "global",
-                "to": "{\"gateway_key\":\"AXOKPG\",\"timestamp\":0,\"data\":{\"gateway_info\":{\"eth_ip\":\"-\",\"vpn_ip\":\"-\",\"ping_acme\":\"-\",\"total_space\":\"-\",\"free_space\":\"-\",\"temperature\":0,\"vbat\":0,\"num_gps_sat\":0},\"gps\":{\"pos_valid\":0,\"latitude\":0,\"longitude\":0,\"altitude\":0,\"haccuracy\":0,\"speed\":0,\"course\":0}}}",
+                "to": "{\"gateway_key\":\"AXOKPG\",\"timestamp\":0,\"data\":{\"gateway_info\":{\"eth_ip\":\"-\",\"vpn_ip\":\"-\",\"ping_acme\":\"-\",\"total_space\":\"-\",\"free_space\":\"-\",\"temperature\":0,\"vbat\":0,\"num_gps_sat\":0},\"gps\":{\"pos_valid\":0,\"latitude\":0,\"longitude\":0,\"altitude\":0,\"haccuracy\":0,\"speed\":0,\"course\":0},\"status\":-1,\"substatus\":-1}}",
                 "tot": "json"
             }
         ],
@@ -320,7 +320,7 @@
                 "t": "set",
                 "p": "sample_data",
                 "pt": "global",
-                "to": "{\"gateway_key\":\"AXOKPG\",\"timestamp\":0,\"data\":{\"gateway_info\":{\"eth_ip\":\"-\",\"vpn_ip\":\"-\",\"ping_acme\":\"-\",\"total_space\":\"-\",\"free_space\":\"-\",\"temperature\":0,\"vbat\":0,\"num_gps_sat\":0},\"gps\":{\"pos_valid\":0,\"latitude\":0,\"longitude\":0,\"altitude\":0,\"haccuracy\":0,\"speed\":0,\"course\":0}}}",
+                "to": "{\"gateway_key\":\"AXOKPG\",\"timestamp\":0,\"data\":{\"gateway_info\":{\"eth_ip\":\"-\",\"vpn_ip\":\"-\",\"ping_acme\":\"-\",\"total_space\":\"-\",\"free_space\":\"-\",\"temperature\":0,\"vbat\":0,\"num_gps_sat\":0},\"gps\":{\"pos_valid\":0,\"latitude\":0,\"longitude\":0,\"altitude\":0,\"haccuracy\":0,\"speed\":0,\"course\":0},\"status\":-1,\"substatus\":-1}}",
                 "tot": "json"
             }
         ],
@@ -688,10 +688,10 @@
         "rules": [
             {
                 "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "gateway_data",
-                "tot": "global"
+                "p": "timestamp",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
             }
         ],
         "action": "",
@@ -699,7 +699,34 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 420,
+        "x": 440,
+        "y": 120,
+        "wires": [
+            [
+                "3bc0260eb444a18b"
+            ]
+        ]
+    },
+    {
+        "id": "3bc0260eb444a18b",
+        "type": "change",
+        "z": "48d20ef5a22489eb",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "sample_data",
+                "pt": "global",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
         "y": 120,
         "wires": [
             []
