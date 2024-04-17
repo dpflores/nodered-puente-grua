@@ -2033,7 +2033,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "gateway_data.data.carga_grua.carga1",
+                "p": "gateway_data.data.load_cell.load1",
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
@@ -2044,7 +2044,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 990,
+        "x": 970,
         "y": 660,
         "wires": [
             []
@@ -2058,7 +2058,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "gateway_data.data.carga_grua.carga2",
+                "p": "gateway_data.data.load_cell.load2",
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
@@ -2069,7 +2069,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 990,
+        "x": 970,
         "y": 760,
         "wires": [
             []
