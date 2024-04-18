@@ -2485,7 +2485,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "gateway_data.data.load_cell.load1",
+                "p": "gateway_data.data.load_cell.load2",
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
@@ -2510,7 +2510,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "gateway_data.data.load_cell.load2",
+                "p": "gateway_data.data.load_cell.load1",
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
@@ -2827,5 +2827,15 @@
                 "414ae3071624c335"
             ]
         ]
+    },
+    {
+        "id": "67055db560fbdef8",
+        "type": "comment",
+        "z": "f24bebacdb4e3198",
+        "name": "gancho1 (25 Ton); gancho 2 (5 Ton)",
+        "info": "",
+        "x": 1260,
+        "y": 600,
+        "wires": []
     }
 ]
