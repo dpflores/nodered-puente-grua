@@ -657,35 +657,35 @@
             {
                 "t": "set",
                 "p": "gateway_data.data.rm9000.y_axis",
-                "pt": "msg",
+                "pt": "global",
                 "to": "y",
                 "tot": "msg"
             },
             {
                 "t": "set",
                 "p": "gateway_data.data.rm9000.z1_axis",
-                "pt": "msg",
+                "pt": "global",
                 "to": "z1",
                 "tot": "msg"
             },
             {
                 "t": "set",
                 "p": "gateway_data.data.rm9000.z2_axis",
-                "pt": "msg",
+                "pt": "global",
                 "to": "z2",
                 "tot": "msg"
             },
             {
                 "t": "set",
                 "p": "gateway_data.data.load_cell.load1",
-                "pt": "msg",
+                "pt": "global",
                 "to": "l1",
                 "tot": "msg"
             },
             {
                 "t": "set",
                 "p": "gateway_data.data.load_cell.load2",
-                "pt": "msg",
+                "pt": "global",
                 "to": "l2",
                 "tot": "msg"
             }
