@@ -977,6 +977,61 @@
         ]
     },
     {
+        "id": "153badb2a11c9be4",
+        "type": "inject",
+        "z": "42897ad46e77c19c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "x",
+                "v": "11",
+                "vt": "num"
+            },
+            {
+                "p": "y",
+                "v": "15",
+                "vt": "num"
+            },
+            {
+                "p": "z1",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "p": "z2",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "p": "l1",
+                "v": "1100",
+                "vt": "num"
+            },
+            {
+                "p": "l2",
+                "v": "900",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 440,
+        "y": 780,
+        "wires": [
+            [
+                "10c65af94a05d4b8"
+            ]
+        ]
+    },
+    {
         "id": "8856f4bca18235c6",
         "type": "inject",
         "z": "48d20ef5a22489eb",
