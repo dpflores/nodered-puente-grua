@@ -295,7 +295,7 @@
                 "t": "set",
                 "p": "gateway_data",
                 "pt": "global",
-                "to": "{\"gateway_key\":\"AXOKPG\",\"timestamp\":0,\"data\":{\"gateway_info\":{\"eth_ip\":\"-\",\"vpn_ip\":\"-\",\"ping_acme\":\"-\",\"total_space\":\"-\",\"free_space\":\"-\",\"temperature\":0,\"vbat\":0,\"num_gps_sat\":0},\"gps\":{\"pos_valid\":0,\"latitude\":0,\"longitude\":0,\"altitude\":0,\"haccuracy\":0,\"speed\":0,\"course\":0},\"state\":-1,\"substate\":-1}}",
+                "to": "{\"gateway_key\":\"AXOKPG\",\"timestamp\":0,\"data\":{\"gateway_info\":{\"eth_ip\":\"\",\"vpn_ip\":\"\",\"ping_acme\":\"-\",\"total_space\":\"\",\"free_space\":\"\",\"temperature\":\"\",\"vbat\":0,\"num_gps_sat\":0},\"gps\":{\"pos_valid\":0,\"latitude\":0,\"longitude\":0,\"altitude\":0,\"haccuracy\":0,\"speed\":0,\"course\":0},\"rm9000\":{\"x_axis\":0,\"y_axis\":0,\"z1_axis\":0,\"z2_axis\":0},\"load_cell\":{\"load2\":0,\"load1\":0},\"state\":-1,\"substate\":-1}}",
                 "tot": "json"
             }
         ],
@@ -320,7 +320,7 @@
                 "t": "set",
                 "p": "sample_data",
                 "pt": "global",
-                "to": "{\"gateway_key\":\"AXOKPG\",\"timestamp\":0,\"data\":{\"gateway_info\":{\"eth_ip\":\"-\",\"vpn_ip\":\"-\",\"ping_acme\":\"-\",\"total_space\":\"-\",\"free_space\":\"-\",\"temperature\":0,\"vbat\":0,\"num_gps_sat\":0},\"gps\":{\"pos_valid\":0,\"latitude\":0,\"longitude\":0,\"altitude\":0,\"haccuracy\":0,\"speed\":0,\"course\":0},\"state\":-1,\"substate\":-1}}",
+                "to": "{\"gateway_key\":\"AXOKPG\",\"timestamp\":0,\"data\":{\"gateway_info\":{\"eth_ip\":\"\",\"vpn_ip\":\"\",\"ping_acme\":\"-\",\"total_space\":\"\",\"free_space\":\"\",\"temperature\":\"\",\"vbat\":0,\"num_gps_sat\":0},\"gps\":{\"pos_valid\":0,\"latitude\":0,\"longitude\":0,\"altitude\":0,\"haccuracy\":0,\"speed\":0,\"course\":0},\"rm9000\":{\"x_axis\":0,\"y_axis\":0,\"z1_axis\":0,\"z2_axis\":0},\"load_cell\":{\"load2\":0,\"load1\":0},\"state\":-1,\"substate\":-1}}",
                 "tot": "json"
             }
         ],
