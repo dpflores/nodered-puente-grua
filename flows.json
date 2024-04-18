@@ -435,7 +435,7 @@
                 "t": "set",
                 "p": "gateway_data",
                 "pt": "global",
-                "to": "{\"gateway_key\":\"AXOKPG\",\"timestamp\":0,\"data\":{\"gateway_info\":{\"eth_ip\":\"-\",\"vpn_ip\":\"-\",\"ping_acme\":\"-\",\"total_space\":\"-\",\"free_space\":\"-\",\"temperature\":0,\"vbat\":0,\"num_gps_sat\":0},\"gps\":{\"pos_valid\":0,\"latitude\":0,\"longitude\":0,\"altitude\":0,\"haccuracy\":0,\"speed\":0,\"course\":0},\"status\":-1,\"substatus\":-1}}",
+                "to": "{\"gateway_key\":\"AXOKPG\",\"timestamp\":0,\"data\":{\"gateway_info\":{\"eth_ip\":\"-\",\"vpn_ip\":\"-\",\"ping_acme\":\"-\",\"total_space\":\"-\",\"free_space\":\"-\",\"temperature\":0,\"vbat\":0,\"num_gps_sat\":0},\"gps\":{\"pos_valid\":0,\"latitude\":0,\"longitude\":0,\"altitude\":0,\"haccuracy\":0,\"speed\":0,\"course\":0},\"state\":-1,\"substate\":-1}}",
                 "tot": "json"
             }
         ],
@@ -460,7 +460,7 @@
                 "t": "set",
                 "p": "sample_data",
                 "pt": "global",
-                "to": "{\"gateway_key\":\"AXOKPG\",\"timestamp\":0,\"data\":{\"gateway_info\":{\"eth_ip\":\"-\",\"vpn_ip\":\"-\",\"ping_acme\":\"-\",\"total_space\":\"-\",\"free_space\":\"-\",\"temperature\":0,\"vbat\":0,\"num_gps_sat\":0},\"gps\":{\"pos_valid\":0,\"latitude\":0,\"longitude\":0,\"altitude\":0,\"haccuracy\":0,\"speed\":0,\"course\":0},\"status\":-1,\"substatus\":-1}}",
+                "to": "{\"gateway_key\":\"AXOKPG\",\"timestamp\":0,\"data\":{\"gateway_info\":{\"eth_ip\":\"-\",\"vpn_ip\":\"-\",\"ping_acme\":\"-\",\"total_space\":\"-\",\"free_space\":\"-\",\"temperature\":0,\"vbat\":0,\"num_gps_sat\":0},\"gps\":{\"pos_valid\":0,\"latitude\":0,\"longitude\":0,\"altitude\":0,\"haccuracy\":0,\"speed\":0,\"course\":0},\"state\":-1,\"substate\":-1}}",
                 "tot": "json"
             }
         ],
@@ -1267,6 +1267,22 @@
         "statusType": "auto",
         "x": 1170,
         "y": 440,
+        "wires": []
+    },
+    {
+        "id": "de8fdfaf236cf9e0",
+        "type": "debug",
+        "z": "48d20ef5a22489eb",
+        "name": "debug 183",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 220,
         "wires": []
     },
     {
