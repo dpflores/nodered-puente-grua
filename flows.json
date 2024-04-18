@@ -40,49 +40,6 @@
         "env": []
     },
     {
-        "id": "63965d808ff1bb6e",
-        "type": "subflow",
-        "name": "system status ",
-        "info": "",
-        "category": "",
-        "in": [
-            {
-                "x": 220,
-                "y": 180,
-                "wires": [
-                    {
-                        "id": "179789ad6c1d78cc"
-                    }
-                ]
-            }
-        ],
-        "out": [
-            {
-                "x": 1140,
-                "y": 280,
-                "wires": [
-                    {
-                        "id": "63965d808ff1bb6e",
-                        "port": 0
-                    }
-                ]
-            }
-        ],
-        "env": [],
-        "meta": {},
-        "color": "#DDAA99",
-        "status": {
-            "x": 1120,
-            "y": 40,
-            "wires": [
-                {
-                    "id": "179789ad6c1d78cc",
-                    "port": 0
-                }
-            ]
-        }
-    },
-    {
         "id": "8d53d2f17df7fbc4",
         "type": "mqtt-broker",
         "name": "ACME_broker",
@@ -297,103 +254,6 @@
         "width": "4",
         "collapse": false,
         "className": ""
-    },
-    {
-        "id": "179789ad6c1d78cc",
-        "type": "change",
-        "z": "63965d808ff1bb6e",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "error",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 620,
-        "y": 100,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "edeab3c3d9d6daba",
-        "type": "rbe",
-        "z": "63965d808ff1bb6e",
-        "name": "x changed",
-        "func": "rbei",
-        "gap": "0",
-        "start": "",
-        "inout": "in",
-        "septopics": true,
-        "property": "payload.data.rm9000.x_axis",
-        "topi": "topic",
-        "x": 370,
-        "y": 420,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e8885b7cd59db170",
-        "type": "rbe",
-        "z": "63965d808ff1bb6e",
-        "name": "y changed",
-        "func": "rbei",
-        "gap": "0",
-        "start": "",
-        "inout": "in",
-        "septopics": true,
-        "property": "payload.data.rm9000.y_axis",
-        "topi": "topic",
-        "x": 550,
-        "y": 420,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e9ebac6829909a46",
-        "type": "rbe",
-        "z": "63965d808ff1bb6e",
-        "name": "z1 changed",
-        "func": "rbei",
-        "gap": "0",
-        "start": "",
-        "inout": "in",
-        "septopics": true,
-        "property": "payload.data.rm9000.z1_axis",
-        "topi": "topic",
-        "x": 410,
-        "y": 520,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "86942752ca6ceee3",
-        "type": "rbe",
-        "z": "63965d808ff1bb6e",
-        "name": "z2 changed",
-        "func": "rbei",
-        "gap": "0",
-        "start": "",
-        "inout": "in",
-        "septopics": true,
-        "property": "payload.data.rm9000.z2_axis",
-        "topi": "topic",
-        "x": 410,
-        "y": 580,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "7e73167df8a5611c",
@@ -850,7 +710,6 @@
         "y": 140,
         "wires": [
             [
-                "bdbcbf2604da944c",
                 "4db00823342cc52e"
             ]
         ]
@@ -865,8 +724,8 @@
                 "t": "set",
                 "p": "sample_data",
                 "pt": "global",
-                "to": "gateway_data",
-                "tot": "global"
+                "to": "payload",
+                "tot": "msg"
             }
         ],
         "action": "",
@@ -878,19 +737,6 @@
         "y": 140,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "bdbcbf2604da944c",
-        "type": "subflow:63965d808ff1bb6e",
-        "z": "48d20ef5a22489eb",
-        "name": "",
-        "x": 700,
-        "y": 140,
-        "wires": [
-            [
-                "3bc0260eb444a18b"
-            ]
         ]
     },
     {
@@ -1121,11 +967,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
-        "y": 220,
+        "x": 700,
+        "y": 140,
         "wires": [
             [
-                "de8fdfaf236cf9e0"
+                "3bc0260eb444a18b"
             ]
         ]
     },
@@ -1151,22 +997,6 @@
         "wires": [
             []
         ]
-    },
-    {
-        "id": "de8fdfaf236cf9e0",
-        "type": "debug",
-        "z": "48d20ef5a22489eb",
-        "name": "debug 183",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 870,
-        "y": 220,
-        "wires": []
     },
     {
         "id": "873bfdb3ebe73b42",
