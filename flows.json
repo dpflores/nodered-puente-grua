@@ -859,62 +859,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 440,
-        "y": 940,
-        "wires": [
-            [
-                "10c65af94a05d4b8"
-            ]
-        ]
-    },
-    {
-        "id": "92cf13a611ecb436",
-        "type": "inject",
-        "z": "42897ad46e77c19c",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "x",
-                "v": "11",
-                "vt": "num"
-            },
-            {
-                "p": "y",
-                "v": "11",
-                "vt": "num"
-            },
-            {
-                "p": "z1",
-                "v": "10",
-                "vt": "num"
-            },
-            {
-                "p": "z2",
-                "v": "10",
-                "vt": "num"
-            },
-            {
-                "p": "l1",
-                "v": "1100",
-                "vt": "num"
-            },
-            {
-                "p": "l2",
-                "v": "1100",
-                "vt": "num"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 440,
-        "y": 1060,
+        "y": 900,
         "wires": [
             [
                 "10c65af94a05d4b8"
