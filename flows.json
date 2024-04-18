@@ -692,13 +692,6 @@
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "gateway_data",
-                "tot": "global"
             }
         ],
         "action": "",
@@ -706,11 +699,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 340,
+        "x": 400,
         "y": 140,
         "wires": [
             [
-                "4db00823342cc52e"
+                "c4c3015e32f43573"
             ]
         ]
     },
@@ -967,7 +960,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 700,
+        "x": 820,
         "y": 140,
         "wires": [
             [
@@ -996,6 +989,33 @@
         "y": 600,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "c4c3015e32f43573",
+        "type": "change",
+        "z": "48d20ef5a22489eb",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "gateway_data",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 140,
+        "wires": [
+            [
+                "4db00823342cc52e"
+            ]
         ]
     },
     {
