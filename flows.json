@@ -369,14 +369,14 @@
                 "vt": "str"
             }
         ],
-        "repeat": "1",
+        "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 130,
+        "x": 120,
         "y": 220,
         "wires": [
             [
@@ -639,6 +639,190 @@
         "y": 460,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "10c65af94a05d4b8",
+        "type": "change",
+        "z": "42897ad46e77c19c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gateway_data.data.rm9000.x_axis",
+                "pt": "global",
+                "to": "10",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 590,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "41d535094224f403",
+        "type": "change",
+        "z": "42897ad46e77c19c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gateway_data.data.rm9000.y_axis",
+                "pt": "global",
+                "to": "10",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 590,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "44677bc6f2290a51",
+        "type": "change",
+        "z": "42897ad46e77c19c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gateway_data.data.rm9000.z1_axis",
+                "pt": "global",
+                "to": "10",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c65c162b1660a399",
+        "type": "change",
+        "z": "42897ad46e77c19c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gateway_data.data.rm9000.z2_axis",
+                "pt": "global",
+                "to": "10",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "88469f597d73d935",
+        "type": "change",
+        "z": "42897ad46e77c19c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gateway_data.data.load_cell.load1",
+                "pt": "global",
+                "to": "1100",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 590,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1d30c943b0ac3343",
+        "type": "change",
+        "z": "42897ad46e77c19c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gateway_data.data.load_cell.load2",
+                "pt": "global",
+                "to": "1100",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 590,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f8e1b8bdf6f02ba0",
+        "type": "inject",
+        "z": "42897ad46e77c19c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 760,
+        "wires": [
+            [
+                "10c65af94a05d4b8",
+                "41d535094224f403",
+                "44677bc6f2290a51",
+                "c65c162b1660a399",
+                "88469f597d73d935",
+                "1d30c943b0ac3343"
+            ]
         ]
     },
     {
