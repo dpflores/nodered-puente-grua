@@ -651,133 +651,43 @@
                 "t": "set",
                 "p": "gateway_data.data.rm9000.x_axis",
                 "pt": "global",
-                "to": "10",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 590,
-        "y": 600,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "41d535094224f403",
-        "type": "change",
-        "z": "42897ad46e77c19c",
-        "name": "",
-        "rules": [
+                "to": "x",
+                "tot": "msg"
+            },
             {
                 "t": "set",
                 "p": "gateway_data.data.rm9000.y_axis",
-                "pt": "global",
-                "to": "10",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 590,
-        "y": 660,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "44677bc6f2290a51",
-        "type": "change",
-        "z": "42897ad46e77c19c",
-        "name": "",
-        "rules": [
+                "pt": "msg",
+                "to": "y",
+                "tot": "msg"
+            },
             {
                 "t": "set",
                 "p": "gateway_data.data.rm9000.z1_axis",
-                "pt": "global",
-                "to": "10",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 600,
-        "y": 720,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c65c162b1660a399",
-        "type": "change",
-        "z": "42897ad46e77c19c",
-        "name": "",
-        "rules": [
+                "pt": "msg",
+                "to": "z1",
+                "tot": "msg"
+            },
             {
                 "t": "set",
                 "p": "gateway_data.data.rm9000.z2_axis",
-                "pt": "global",
-                "to": "10",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 600,
-        "y": 780,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "88469f597d73d935",
-        "type": "change",
-        "z": "42897ad46e77c19c",
-        "name": "",
-        "rules": [
+                "pt": "msg",
+                "to": "z2",
+                "tot": "msg"
+            },
             {
                 "t": "set",
                 "p": "gateway_data.data.load_cell.load1",
-                "pt": "global",
-                "to": "1100",
-                "tot": "num"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 590,
-        "y": 840,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "1d30c943b0ac3343",
-        "type": "change",
-        "z": "42897ad46e77c19c",
-        "name": "",
-        "rules": [
+                "pt": "msg",
+                "to": "l1",
+                "tot": "msg"
+            },
             {
                 "t": "set",
                 "p": "gateway_data.data.load_cell.load2",
-                "pt": "global",
-                "to": "1100",
-                "tot": "num"
+                "pt": "msg",
+                "to": "l2",
+                "tot": "msg"
             }
         ],
         "action": "",
@@ -785,8 +695,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 590,
-        "y": 900,
+        "x": 660,
+        "y": 700,
         "wires": [
             []
         ]
@@ -801,8 +711,34 @@
                 "p": "payload"
             },
             {
-                "p": "topic",
-                "vt": "str"
+                "p": "x",
+                "v": "11",
+                "vt": "num"
+            },
+            {
+                "p": "y",
+                "v": "11",
+                "vt": "num"
+            },
+            {
+                "p": "z1",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "p": "z2",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "p": "l1",
+                "v": "1100",
+                "vt": "num"
+            },
+            {
+                "p": "l2",
+                "v": "1100",
+                "vt": "num"
             }
         ],
         "repeat": "",
@@ -812,16 +748,231 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 280,
-        "y": 760,
+        "x": 440,
+        "y": 740,
         "wires": [
             [
-                "10c65af94a05d4b8",
-                "41d535094224f403",
-                "44677bc6f2290a51",
-                "c65c162b1660a399",
-                "88469f597d73d935",
-                "1d30c943b0ac3343"
+                "10c65af94a05d4b8"
+            ]
+        ]
+    },
+    {
+        "id": "73e79512fb0abd4e",
+        "type": "inject",
+        "z": "42897ad46e77c19c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "x",
+                "v": "11",
+                "vt": "num"
+            },
+            {
+                "p": "y",
+                "v": "11",
+                "vt": "num"
+            },
+            {
+                "p": "z1",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "p": "z2",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "p": "l1",
+                "v": "1100",
+                "vt": "num"
+            },
+            {
+                "p": "l2",
+                "v": "1100",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 440,
+        "y": 780,
+        "wires": [
+            [
+                "10c65af94a05d4b8"
+            ]
+        ]
+    },
+    {
+        "id": "c62b959ed0ded5a3",
+        "type": "inject",
+        "z": "42897ad46e77c19c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "x",
+                "v": "11",
+                "vt": "num"
+            },
+            {
+                "p": "y",
+                "v": "11",
+                "vt": "num"
+            },
+            {
+                "p": "z1",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "p": "z2",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "p": "l1",
+                "v": "1100",
+                "vt": "num"
+            },
+            {
+                "p": "l2",
+                "v": "1100",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 440,
+        "y": 820,
+        "wires": [
+            [
+                "10c65af94a05d4b8"
+            ]
+        ]
+    },
+    {
+        "id": "92cf13a611ecb436",
+        "type": "inject",
+        "z": "42897ad46e77c19c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "x",
+                "v": "11",
+                "vt": "num"
+            },
+            {
+                "p": "y",
+                "v": "11",
+                "vt": "num"
+            },
+            {
+                "p": "z1",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "p": "z2",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "p": "l1",
+                "v": "1100",
+                "vt": "num"
+            },
+            {
+                "p": "l2",
+                "v": "1100",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 440,
+        "y": 860,
+        "wires": [
+            [
+                "10c65af94a05d4b8"
+            ]
+        ]
+    },
+    {
+        "id": "68e1413040ace5ab",
+        "type": "inject",
+        "z": "42897ad46e77c19c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "x",
+                "v": "11",
+                "vt": "num"
+            },
+            {
+                "p": "y",
+                "v": "11",
+                "vt": "num"
+            },
+            {
+                "p": "z1",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "p": "z2",
+                "v": "10",
+                "vt": "num"
+            },
+            {
+                "p": "l1",
+                "v": "900",
+                "vt": "num"
+            },
+            {
+                "p": "l2",
+                "v": "900",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 440,
+        "y": 700,
+        "wires": [
+            [
+                "10c65af94a05d4b8"
             ]
         ]
     },
