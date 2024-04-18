@@ -726,7 +726,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1150,
+        "x": 910,
         "y": 140,
         "wires": [
             []
@@ -953,14 +953,14 @@
         "type": "function",
         "z": "48d20ef5a22489eb",
         "name": "get state",
-        "func": "const current_data = global.get(\"gateway_data\");\nconst previous_data = global.get(\"sample_data\");\n\nconst x = (current_data.data.rm9000.x_axis - previous_data.data.rm9000.x_axis)!==0;\nconst y = (current_data.data.rm9000.y_axis - previous_data.data.rm9000.y_axis)!==0;\nconst z1 = (current_data.data.rm9000.z1_axis - previous_data.data.rm9000.z1_axis)!==0;\nconst z2 = (current_data.data.rm9000.z2_axis - previous_data.data.rm9000.z2_axis)!==0;\nconst l1 = (current_data.data.load_cell.load1)>1000;\nconst l2 = (current_data.data.load_cell.load2)>1000;\n\nvar state = 0;\nvar substate = 0;\n\n// x:  movimiento en el eje x\n// y:  movimiento en el eje y\n// z1: movimiento en el eje z1\n// z2: movimiento en el eje z2\n\n// SUB ESTADOS\n// Espera sin carga:    0\n// Traslado sin carga:  1\n// Subida o bajada:     2\n// Espera con carga:    3\n// Traslado con carga:  4\n// Efectivo:            5\n\n// ESTADOS\n// No uso:          0\n// Suplementario:   1\n// Complementario:  2\n// Efectivo:        3\n\nconsole.log(x, y,z1, z2, l1, l2)\n\nif(!x && !y && !z1 && !z2 && !l1 && !l2){\n    substate = 0;\n    state = 0;\n}\nelse if ((x || y) && (!z1 && !z2) && (!l1 && !l2)){\n    substate = 1;\n    state = 1;\n}\nelse if ((!z1 || !z2) && (!l1 && !l2)){\n    substate = 2;\n    state = 1;\n}\nelse if ((!x && !y) && (!z1 && !z2) && (l1 || l2)){\n    substate = 3;\n    state =  2;\n}\nelse if ((x || y) && (!z1 && !z2) && (l1 || l2)){\n    substate = 4;\n    state = 2;\n}\nelse if ((z1 || z2) && (l1 || l2)){\n    substate = 5;\n    state = 3;\n}\nelse {\n    substate = -1;\n    state = -1;\n}\n\n\ncurrent_data.data.state = state;\ncurrent_data.data.substate = substate;\n\nmsg.payload = current_data;\n\nreturn msg;",
+        "func": "const current_data = global.get(\"gateway_data\");\nconst previous_data = global.get(\"sample_data\");\n\nconst x = (current_data.data.rm9000.x_axis - previous_data.data.rm9000.x_axis)!==0;\nconst y = (current_data.data.rm9000.y_axis - previous_data.data.rm9000.y_axis)!==0;\nconst z1 = (current_data.data.rm9000.z1_axis - previous_data.data.rm9000.z1_axis)!==0;\nconst z2 = (current_data.data.rm9000.z2_axis - previous_data.data.rm9000.z2_axis)!==0;\nconst l1 = (current_data.data.load_cell.load1)>1000;\nconst l2 = (current_data.data.load_cell.load2)>1000;\n\nvar state = 0;\nvar substate = 0;\n\n// x:  movimiento en el eje x\n// y:  movimiento en el eje y\n// z1: movimiento en el eje z1\n// z2: movimiento en el eje z2\n\n// SUB ESTADOS\n// Espera sin carga:    0\n// Traslado sin carga:  1\n// Subida o bajada:     2\n// Espera con carga:    3\n// Traslado con carga:  4\n// Efectivo:            5\n\n// ESTADOS\n// No uso:          0\n// Suplementario:   1\n// Complementario:  2\n// Efectivo:        3\n\nconsole.log(x, y,z1, z2, l1, l2);\n\nif(!x && !y && !z1 && !z2 && !l1 && !l2){\n    substate = 0;\n    state = 0;\n}\nelse if ((x || y) && (!z1 && !z2) && (!l1 && !l2)){\n    substate = 1;\n    state = 1;\n}\nelse if ((!z1 || !z2) && (!l1 && !l2)){\n    substate = 2;\n    state = 1;\n}\nelse if ((!x && !y) && (!z1 && !z2) && (l1 || l2)){\n    substate = 3;\n    state =  2;\n}\nelse if ((x || y) && (!z1 && !z2) && (l1 || l2)){\n    substate = 4;\n    state = 2;\n}\nelse if ((z1 || z2) && (l1 || l2)){\n    substate = 5;\n    state = 3;\n}\nelse {\n    substate = -1;\n    state = -1;\n}\n\n\ncurrent_data.data.state = state;\ncurrent_data.data.substate = substate;\n\nmsg.payload = current_data;\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 800,
+        "x": 660,
         "y": 140,
         "wires": [
             [
@@ -1004,7 +1004,7 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1090,
+        "x": 870,
         "y": 200,
         "wires": []
     },
