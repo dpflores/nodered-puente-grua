@@ -718,7 +718,8 @@
                 "p": "sample_data",
                 "pt": "global",
                 "to": "payload",
-                "tot": "msg"
+                "tot": "msg",
+                "dc": true
             }
         ],
         "action": "",
