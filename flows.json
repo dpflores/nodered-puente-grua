@@ -695,8 +695,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 660,
-        "y": 700,
+        "x": 780,
+        "y": 720,
         "wires": [
             []
         ]
@@ -705,7 +705,7 @@
         "id": "f8e1b8bdf6f02ba0",
         "type": "inject",
         "z": "42897ad46e77c19c",
-        "name": "",
+        "name": "cambio en y, sin carga",
         "props": [
             {
                 "p": "payload"
@@ -748,7 +748,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 440,
+        "x": 480,
         "y": 740,
         "wires": [
             [
@@ -760,7 +760,7 @@
         "id": "73e79512fb0abd4e",
         "type": "inject",
         "z": "42897ad46e77c19c",
-        "name": "",
+        "name": "cambio en x e y, con carga",
         "props": [
             {
                 "p": "payload"
@@ -803,7 +803,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 440,
+        "x": 490,
         "y": 860,
         "wires": [
             [
@@ -815,7 +815,7 @@
         "id": "c62b959ed0ded5a3",
         "type": "inject",
         "z": "42897ad46e77c19c",
-        "name": "",
+        "name": "cambio en z1 y z2, con carga",
         "props": [
             {
                 "p": "payload"
@@ -858,7 +858,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 440,
+        "x": 500,
         "y": 900,
         "wires": [
             [
@@ -870,7 +870,7 @@
         "id": "68e1413040ace5ab",
         "type": "inject",
         "z": "42897ad46e77c19c",
-        "name": "",
+        "name": "sin carga",
         "props": [
             {
                 "p": "payload"
@@ -925,7 +925,7 @@
         "id": "153badb2a11c9be4",
         "type": "inject",
         "z": "42897ad46e77c19c",
-        "name": "",
+        "name": "sin cambio, con carga",
         "props": [
             {
                 "p": "payload"
@@ -968,7 +968,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 440,
+        "x": 480,
         "y": 820,
         "wires": [
             [
@@ -980,7 +980,7 @@
         "id": "1f3310537941b9e4",
         "type": "inject",
         "z": "42897ad46e77c19c",
-        "name": "",
+        "name": "cambio en z, sin carga",
         "props": [
             {
                 "p": "payload"
@@ -1023,7 +1023,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 440,
+        "x": 480,
         "y": 780,
         "wires": [
             [
