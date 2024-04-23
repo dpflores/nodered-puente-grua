@@ -657,7 +657,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "live_data.data.general_status",
+                "to": "gateway_data.data.gstate",
                 "tot": "global"
             }
         ],
