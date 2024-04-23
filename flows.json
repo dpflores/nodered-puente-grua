@@ -533,7 +533,7 @@
         "type": "function",
         "z": "694cd37a1199a841",
         "name": "coordinates",
-        "func": "var data_json = global.get(\"live_data\");\n\nmsg.payload = [data_json.data.gps.latitude, data_json.data.gps.longitude];\nreturn msg;",
+        "func": "var data_json = global.get(\"gateway_data\");\n\nmsg.payload = data_json;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
