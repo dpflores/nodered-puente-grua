@@ -8,6 +8,14 @@
         "env": []
     },
     {
+        "id": "694cd37a1199a841",
+        "type": "tab",
+        "label": "HTTP",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "42897ad46e77c19c",
         "type": "tab",
         "label": "TEST DATA",
