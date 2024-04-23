@@ -48,6 +48,28 @@
         "env": []
     },
     {
+        "id": "82ed6e2e08d3f801",
+        "type": "group",
+        "z": "48d20ef5a22489eb",
+        "name": "Guardado de data local",
+        "style": {
+            "label": true,
+            "color": "#000000"
+        },
+        "nodes": [
+            "2c469d6f9269ab29",
+            "54ebed29b752d020",
+            "2a0d95fde2a802e2",
+            "66f721964a9c8417",
+            "54adda594cc45455",
+            "4974f48dba9ad712"
+        ],
+        "x": 174,
+        "y": 359,
+        "w": 862,
+        "h": 142
+    },
+    {
         "id": "8d53d2f17df7fbc4",
         "type": "mqtt-broker",
         "name": "ACME_broker",
@@ -1601,7 +1623,8 @@
         "wires": [
             [
                 "3bc0260eb444a18b",
-                "a43fbc664f8355b8"
+                "a43fbc664f8355b8",
+                "7650f6b1cc3b5d70"
             ]
         ]
     },
@@ -1619,6 +1642,130 @@
         "statusType": "auto",
         "x": 870,
         "y": 200,
+        "wires": []
+    },
+    {
+        "id": "2c469d6f9269ab29",
+        "type": "function",
+        "z": "48d20ef5a22489eb",
+        "g": "82ed6e2e08d3f801",
+        "name": "function 1",
+        "func": "\nmsg.topic = \"INSERT INTO `local_data` (`date`, `data`) VALUES (FROM_UNIXTIME(\" + msg.timestamp/1000 + \"),'\"+ msg.payload + \"');\";\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 460,
+        "wires": [
+            [
+                "66f721964a9c8417",
+                "54ebed29b752d020"
+            ]
+        ]
+    },
+    {
+        "id": "54ebed29b752d020",
+        "type": "mysql",
+        "z": "48d20ef5a22489eb",
+        "g": "82ed6e2e08d3f801",
+        "mydb": "20aa6fa811d70d43",
+        "name": "",
+        "x": 950,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2a0d95fde2a802e2",
+        "type": "json",
+        "z": "48d20ef5a22489eb",
+        "g": "82ed6e2e08d3f801",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 430,
+        "y": 460,
+        "wires": [
+            [
+                "2c469d6f9269ab29",
+                "54adda594cc45455"
+            ]
+        ]
+    },
+    {
+        "id": "66f721964a9c8417",
+        "type": "debug",
+        "z": "48d20ef5a22489eb",
+        "g": "82ed6e2e08d3f801",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "54adda594cc45455",
+        "type": "debug",
+        "z": "48d20ef5a22489eb",
+        "g": "82ed6e2e08d3f801",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "4974f48dba9ad712",
+        "type": "link in",
+        "z": "48d20ef5a22489eb",
+        "g": "82ed6e2e08d3f801",
+        "name": "save_database",
+        "links": [
+            "0dbd5db4020576db",
+            "5bef7810bb446303",
+            "c8d60c4ef86f2d66",
+            "b840f2b36dafec2c",
+            "d886d36ba3d3f976",
+            "7650f6b1cc3b5d70"
+        ],
+        "x": 215,
+        "y": 460,
+        "wires": [
+            [
+                "2a0d95fde2a802e2"
+            ]
+        ]
+    },
+    {
+        "id": "7650f6b1cc3b5d70",
+        "type": "link out",
+        "z": "48d20ef5a22489eb",
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "4974f48dba9ad712"
+        ],
+        "x": 825,
+        "y": 80,
         "wires": []
     },
     {
