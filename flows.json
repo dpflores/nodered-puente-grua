@@ -65,7 +65,9 @@
             "4974f48dba9ad712"
         ],
         "x": 174,
-        "y": 359
+        "y": 359,
+        "w": 862,
+        "h": 142
     },
     {
         "id": "8d53d2f17df7fbc4",
@@ -868,14 +870,14 @@
                 "vt": "str"
             }
         ],
-        "repeat": "",
+        "repeat": "1",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 120,
+        "x": 130,
         "y": 220,
         "wires": [
             [
