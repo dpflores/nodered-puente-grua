@@ -3539,60 +3539,6 @@
         ]
     },
     {
-        "id": "ef8ee81bd6df54bc",
-        "type": "function",
-        "z": "dbf05bea3e903c5e",
-        "name": "function 75",
-        "func": "msg.topic = `SELECT * FROM alerts \nWHERE YEAR(date) = ${msg.target_year}\nAND MONTH(date) = ${msg.target_month+1}\nORDER BY date DESC\n`;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 670,
-        "y": 560,
-        "wires": [
-            [
-                "d8642d0fceeb5050"
-            ]
-        ]
-    },
-    {
-        "id": "d8642d0fceeb5050",
-        "type": "mysql",
-        "z": "dbf05bea3e903c5e",
-        "mydb": "20aa6fa811d70d43",
-        "name": "",
-        "x": 840,
-        "y": 560,
-        "wires": [
-            [
-                "fbdfc772aadc327c"
-            ]
-        ]
-    },
-    {
-        "id": "fbdfc772aadc327c",
-        "type": "function",
-        "z": "dbf05bea3e903c5e",
-        "name": "function 76",
-        "func": "const data_in = msg.payload;\nvar data_out = [];\n\nconst alertTypes = [\n  \"Batería baja\",\n  \"Mantenimiento - Inicio\",\n  \"Mantenimiento - Fin\",\n  \"Mantenimiento preventivo 1\",\n  \"Mantenimiento preventivo 2\",\n  \"Mantenimiento preventivo 3\",\n];\n\nfor (var i = 0; i < data_in.length; i ++){\n  data_out[i]= {\n    \"fecha\": convertISOToReadableDate(data_in[i].date),\n    \"hora\": convertISOToReadableHour(data_in[i].date),\n    \"tipo\": alertTypes[data_in[i].alert_type],\n    \"comentarios\": data_in[i].comments\n  }\n}\n\nmsg.alerts = data_out;\n\nreturn msg;\n\n\nfunction convertISOToReadableDate(timestamp) {\n  const date = new Date(timestamp);\n  const year = date.getFullYear();\n  let month = date.getMonth() + 1;\n  let day = date.getDate();\n\n  if (month < 10) {\n    month = \"0\" + month;\n  }\n\n  if (day < 10) {\n    day = \"0\" + day;\n  }\n  const dateStr = `${day}/${month}/${year}`;\n\n  return `${dateStr}`;\n}\nfunction convertISOToReadableHour(timestamp) {\n  const date = new Date(timestamp);\n\n  let hour = date.getHours();\n  let minutes = date.getMinutes();\n\n  if (hour < 10) {\n    hour = \"0\" + hour;\n  }\n\n  if (minutes < 10) {\n    minutes = \"0\" + minutes;\n  }\n  const timeStr = `${hour}:${minutes}`;\n\n  return `${timeStr}`;\n}",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1010,
-        "y": 560,
-        "wires": [
-            [
-                "b3c4964474f77c64"
-            ]
-        ]
-    },
-    {
         "id": "376cf43df3b01471",
         "type": "function",
         "z": "dbf05bea3e903c5e",
@@ -3786,8 +3732,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1180,
-        "y": 560,
+        "x": 1220,
+        "y": 460,
         "wires": [
             [
                 "f9d84e0cc99747e3"
@@ -4002,7 +3948,7 @@
         "y": 460,
         "wires": [
             [
-                "ef8ee81bd6df54bc"
+                "b3c4964474f77c64"
             ]
         ]
     },
