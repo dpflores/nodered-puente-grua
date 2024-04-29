@@ -1029,11 +1029,11 @@
         "wires": [
             [
                 "1413e12e5d9080b4",
-                "0e56da427826ac01",
                 "53b8d96c72cd1df7",
                 "e707f89f375f0cb9",
                 "a70b679d8c449d78",
-                "a27a3351d6d908b3"
+                "a27a3351d6d908b3",
+                "5f2c81066dbf49ef"
             ]
         ]
     },
@@ -1143,7 +1143,7 @@
         "z": "42897ad46e77c19c",
         "name": "",
         "low": "0",
-        "high": "80",
+        "high": "4096000",
         "inte": "true",
         "property": "payload",
         "x": 300,
@@ -1155,29 +1155,12 @@
         ]
     },
     {
-        "id": "0e56da427826ac01",
-        "type": "random",
-        "z": "42897ad46e77c19c",
-        "name": "",
-        "low": "0",
-        "high": "40",
-        "inte": "true",
-        "property": "payload",
-        "x": 300,
-        "y": 220,
-        "wires": [
-            [
-                "0f83dec6719ccaf9"
-            ]
-        ]
-    },
-    {
         "id": "53b8d96c72cd1df7",
         "type": "random",
         "z": "42897ad46e77c19c",
         "name": "",
         "low": 1,
-        "high": 10,
+        "high": "10000",
         "inte": "true",
         "property": "payload",
         "x": 300,
@@ -1194,7 +1177,7 @@
         "z": "42897ad46e77c19c",
         "name": "",
         "low": 1,
-        "high": 10,
+        "high": "10000",
         "inte": "true",
         "property": "payload",
         "x": 300,
@@ -1211,7 +1194,7 @@
         "z": "42897ad46e77c19c",
         "name": "",
         "low": "900",
-        "high": "1200",
+        "high": "25000",
         "inte": "true",
         "property": "payload",
         "x": 300,
@@ -1228,7 +1211,7 @@
         "z": "42897ad46e77c19c",
         "name": "",
         "low": "900",
-        "high": "1000",
+        "high": "5000",
         "inte": "true",
         "property": "payload",
         "x": 300,
@@ -1676,6 +1659,23 @@
         "wires": [
             [
                 "10c65af94a05d4b8"
+            ]
+        ]
+    },
+    {
+        "id": "5f2c81066dbf49ef",
+        "type": "random",
+        "z": "42897ad46e77c19c",
+        "name": "",
+        "low": "0",
+        "high": "2096000",
+        "inte": "true",
+        "property": "payload",
+        "x": 300,
+        "y": 220,
+        "wires": [
+            [
+                "0f83dec6719ccaf9"
             ]
         ]
     },
