@@ -3264,7 +3264,7 @@
         "width": 0,
         "height": 0,
         "name": "",
-        "label": "Encoder 4 (Eje z2, gancho 5 Tn)):",
+        "label": "Encoder 4 (Eje z2, gancho 5 Tn):",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "className": "",
