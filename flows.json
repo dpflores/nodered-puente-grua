@@ -580,7 +580,7 @@
         "finalize": "",
         "libs": [],
         "x": 690,
-        "y": 260,
+        "y": 200,
         "wires": [
             [
                 "f51845378a52cc5e"
@@ -599,8 +599,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 870,
-        "y": 260,
+        "x": 850,
+        "y": 200,
         "wires": []
     },
     {
