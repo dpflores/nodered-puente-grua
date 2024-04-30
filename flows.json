@@ -1223,7 +1223,7 @@
         "z": "42897ad46e77c19c",
         "name": "",
         "low": "4194304",
-        "high": "16777216",
+        "high": "16777215",
         "inte": "true",
         "property": "payload",
         "x": 300,
