@@ -548,8 +548,40 @@
         "x": 370,
         "y": 200,
         "wires": [
-            []
+            [
+                "98bb7174c57c462f"
+            ]
         ]
+    },
+    {
+        "id": "98bb7174c57c462f",
+        "type": "mysql",
+        "z": "7e745af8071944c2",
+        "mydb": "20aa6fa811d70d43",
+        "name": "",
+        "x": 540,
+        "y": 200,
+        "wires": [
+            [
+                "f51845378a52cc5e"
+            ]
+        ]
+    },
+    {
+        "id": "f51845378a52cc5e",
+        "type": "debug",
+        "z": "7e745af8071944c2",
+        "name": "debug 181",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 200,
+        "wires": []
     },
     {
         "id": "5778748aaab07c8a",
