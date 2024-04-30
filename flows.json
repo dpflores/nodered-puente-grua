@@ -1764,7 +1764,7 @@
         "type": "function",
         "z": "42897ad46e77c19c",
         "name": "scale",
-        "func": "const {x, y, z1, z2, xm, ym, z1m, z2m} = global.get(\"axis_limits\");\nmsg.payload = xm*msg.payload/x;\n\nreturn msg;",
+        "func": "const axis_limits = global.get(\"axis_limits\");\n\nconst factor = axis_limits.x_axis_m;\nconst divisor = axis_limits.x_axis_steps;\n\nmsg.payload = factor * msg.payload / divisor;\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
