@@ -453,7 +453,7 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 190,
+        "x": 90,
         "y": 80,
         "wires": [
             [
@@ -482,7 +482,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 410,
+        "x": 310,
         "y": 80,
         "wires": [
             []
@@ -507,7 +507,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 410,
+        "x": 310,
         "y": 140,
         "wires": [
             []
@@ -519,7 +519,7 @@
         "z": "7e745af8071944c2",
         "name": "data en tiempo real",
         "info": "",
-        "x": 650,
+        "x": 550,
         "y": 80,
         "wires": []
     },
@@ -529,7 +529,7 @@
         "z": "7e745af8071944c2",
         "name": "muestreo de la data en tiempo real",
         "info": "",
-        "x": 700,
+        "x": 600,
         "y": 140,
         "wires": []
     },
@@ -545,7 +545,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 370,
+        "x": 270,
         "y": 200,
         "wires": [
             [
@@ -559,7 +559,7 @@
         "z": "7e745af8071944c2",
         "mydb": "20aa6fa811d70d43",
         "name": "",
-        "x": 540,
+        "x": 440,
         "y": 200,
         "wires": [
             [
@@ -579,29 +579,38 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 690,
+        "x": 590,
         "y": 200,
         "wires": [
             [
-                "f51845378a52cc5e"
+                "483833160d286691"
             ]
         ]
     },
     {
-        "id": "f51845378a52cc5e",
-        "type": "debug",
+        "id": "483833160d286691",
+        "type": "change",
         "z": "7e745af8071944c2",
-        "name": "debug 181",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 850,
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "axis_limits",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 800,
         "y": 200,
-        "wires": []
+        "wires": [
+            []
+        ]
     },
     {
         "id": "5778748aaab07c8a",
