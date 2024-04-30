@@ -1854,7 +1854,7 @@
                 "vt": "date"
             }
         ],
-        "repeat": "1",
+        "repeat": "5",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
