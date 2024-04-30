@@ -563,6 +563,26 @@
         "y": 200,
         "wires": [
             [
+                "f03aa8974a8df3d5"
+            ]
+        ]
+    },
+    {
+        "id": "f03aa8974a8df3d5",
+        "type": "function",
+        "z": "7e745af8071944c2",
+        "name": "function 89",
+        "func": "const transformedData = msg.payload.reduce((acc, item) => {\n    acc[item.tag] = item.json;\n    return acc;\n}, {});\n\nmsg.payload = transformedData;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 260,
+        "wires": [
+            [
                 "f51845378a52cc5e"
             ]
         ]
@@ -579,8 +599,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 710,
-        "y": 200,
+        "x": 870,
+        "y": 260,
         "wires": []
     },
     {
