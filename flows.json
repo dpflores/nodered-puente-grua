@@ -1844,7 +1844,7 @@
         "type": "function",
         "z": "42897ad46e77c19c",
         "name": "filter_negative",
-        "func": "\nreturn msg;",
+        "func": "const data_in = msg.payload;\nvar data_out = 0;\n\nif (data_in>=0 && data_in <100000){\n    data_out = 0;\n}\nelse{\n    data_out = 16777216 - data_in;\n}\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
