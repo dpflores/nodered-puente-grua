@@ -458,7 +458,8 @@
         "wires": [
             [
                 "ddbb5677344f19e5",
-                "b4c473895a61af66"
+                "b4c473895a61af66",
+                "d0b7194f8001f218"
             ]
         ]
     },
@@ -531,6 +532,24 @@
         "x": 700,
         "y": 140,
         "wires": []
+    },
+    {
+        "id": "d0b7194f8001f218",
+        "type": "function",
+        "z": "7e745af8071944c2",
+        "name": "function 88",
+        "func": "msg.topic = `SELECT * FROM persistent_data WHERE type = 'limits'`;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 200,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "5778748aaab07c8a",
