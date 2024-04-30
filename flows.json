@@ -1247,7 +1247,7 @@
         "y": 280,
         "wires": [
             [
-                "1ce259bba990de95"
+                "597985ac516e6595"
             ]
         ]
     },
@@ -1264,7 +1264,7 @@
         "y": 340,
         "wires": [
             [
-                "d16f5d311146fef2"
+                "6ea77dbf07a2bd53"
             ]
         ]
     },
@@ -1755,7 +1755,7 @@
         "y": 220,
         "wires": [
             [
-                "0f83dec6719ccaf9"
+                "77e3658efa6ebfd4"
             ]
         ]
     },
@@ -1776,6 +1776,66 @@
         "wires": [
             [
                 "6e0649b87bd9c7fc"
+            ]
+        ]
+    },
+    {
+        "id": "77e3658efa6ebfd4",
+        "type": "function",
+        "z": "42897ad46e77c19c",
+        "name": "scale",
+        "func": "const axis_limits = global.get(\"axis_limits\");\n\nconst factor = axis_limits.y_axis_m;\nconst divisor = axis_limits.y_axis_steps;\n\nmsg.payload = factor * msg.payload / divisor;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 220,
+        "wires": [
+            [
+                "0f83dec6719ccaf9"
+            ]
+        ]
+    },
+    {
+        "id": "597985ac516e6595",
+        "type": "function",
+        "z": "42897ad46e77c19c",
+        "name": "scale",
+        "func": "const axis_limits = global.get(\"axis_limits\");\n\nconst factor = axis_limits.z1_axis_m;\nconst divisor = axis_limits.z1_axis_steps;\n\nmsg.payload = factor * msg.payload / divisor;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 280,
+        "wires": [
+            [
+                "1ce259bba990de95"
+            ]
+        ]
+    },
+    {
+        "id": "6ea77dbf07a2bd53",
+        "type": "function",
+        "z": "42897ad46e77c19c",
+        "name": "scale",
+        "func": "const axis_limits = global.get(\"axis_limits\");\n\nconst factor = axis_limits.z2_axis_m;\nconst divisor = axis_limits.z2_axis_steps;\n\nmsg.payload = factor * msg.payload / divisor;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 340,
+        "wires": [
+            [
+                "d16f5d311146fef2"
             ]
         ]
     },
