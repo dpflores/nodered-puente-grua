@@ -1230,7 +1230,6 @@
         "y": 160,
         "wires": [
             [
-                "16ed7e71fe766008",
                 "b0b4db173820eae0"
             ]
         ]
@@ -1841,26 +1840,6 @@
         ]
     },
     {
-        "id": "16ed7e71fe766008",
-        "type": "function",
-        "z": "42897ad46e77c19c",
-        "name": "filter_negative",
-        "func": "const data_in = msg.payload;\nvar data_out = 0;\n\nif (data_in>=0 && data_in <100000){\n    data_out = 0;\n}\nelse{\n    data_out = 16777216 - data_in;\n}\nmsg.payload = data_out;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 500,
-        "y": 160,
-        "wires": [
-            [
-                "41979b8c320760c0"
-            ]
-        ]
-    },
-    {
         "id": "b0b4db173820eae0",
         "type": "function",
         "z": "42897ad46e77c19c",
@@ -1874,6 +1853,26 @@
         "libs": [],
         "x": 490,
         "y": 120,
+        "wires": [
+            [
+                "41979b8c320760c0"
+            ]
+        ]
+    },
+    {
+        "id": "16ed7e71fe766008",
+        "type": "function",
+        "z": "42897ad46e77c19c",
+        "name": "filter_negative",
+        "func": "const data_in = msg.payload;\nvar data_out = 0;\n\nif (data_in>=0 && data_in <100000){\n    data_out = 0;\n}\nelse{\n    data_out = 16777216 - data_in;\n}\nmsg.payload = data_out;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 160,
         "wires": [
             [
                 "41979b8c320760c0"
