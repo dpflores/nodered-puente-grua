@@ -1222,7 +1222,7 @@
         "type": "random",
         "z": "42897ad46e77c19c",
         "name": "",
-        "low": "16776216",
+        "low": "12776216",
         "high": "16777216",
         "inte": "true",
         "property": "payload",
