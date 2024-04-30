@@ -782,7 +782,7 @@
         "type": "function",
         "z": "694cd37a1199a841",
         "name": "coordinates",
-        "func": "var data_json = global.get(\"gateway_data\");\n\nmsg.payload = data_json;\nreturn msg;",
+        "func": "var data_json = global.get(\"gateway_data\");\nvar limits = global.get(\"axis_limits\");\nvar position = {\"x_axis\":data_json.data.rm9000.x_axis/limits.x_axis_steps,\n                \"y_axis\": data_json.data.rm9000.y_axis/limits.y_axis_steps};\n\nmsg.payload = data_json;\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
