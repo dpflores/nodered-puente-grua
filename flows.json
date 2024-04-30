@@ -1136,7 +1136,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 590,
+        "x": 730,
         "y": 160,
         "wires": [
             []
@@ -1161,7 +1161,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 590,
+        "x": 730,
         "y": 220,
         "wires": [
             []
@@ -1186,7 +1186,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 600,
+        "x": 740,
         "y": 280,
         "wires": [
             []
@@ -1211,7 +1211,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 600,
+        "x": 740,
         "y": 340,
         "wires": [
             []
@@ -1230,7 +1230,7 @@
         "y": 160,
         "wires": [
             [
-                "6e0649b87bd9c7fc"
+                "41979b8c320760c0"
             ]
         ]
     },
@@ -1321,7 +1321,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 590,
+        "x": 730,
         "y": 400,
         "wires": [
             []
@@ -1346,7 +1346,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 590,
+        "x": 730,
         "y": 460,
         "wires": [
             []
@@ -1756,6 +1756,26 @@
         "wires": [
             [
                 "0f83dec6719ccaf9"
+            ]
+        ]
+    },
+    {
+        "id": "41979b8c320760c0",
+        "type": "function",
+        "z": "42897ad46e77c19c",
+        "name": "scale",
+        "func": "const {x, y, z1, z2, xm, ym, z1m, z2m} = global.get(\"axis_limits\");\nmsg.payload = xm*msg.payload/x;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 160,
+        "wires": [
+            [
+                "6e0649b87bd9c7fc"
             ]
         ]
     },
