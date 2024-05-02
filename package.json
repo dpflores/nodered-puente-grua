@@ -6,7 +6,6 @@
         "node-red-contrib-nmea": "0.0.4",
         "node-red-contrib-usb-watch": "1.0.9",
         "node-red-node-mysql": "1.0.3",
-        "node-red-node-ping": "0.3.3",
         "node-red-node-random": "0.4.1",
         "node-red-node-serialport": "1.0.3",
         "red-contrib-socketcan": "1.0.0",
