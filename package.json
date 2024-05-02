@@ -9,7 +9,8 @@
         "node-red-node-ping": "0.3.3",
         "node-red-node-random": "0.4.1",
         "node-red-node-serialport": "1.0.3",
-        "red-contrib-socketcan": "1.0.0"
+        "red-contrib-socketcan": "1.0.0",
+        "node-red-dashboard": "3.5.0"
     },
     "node-red": {
         "settings": {
