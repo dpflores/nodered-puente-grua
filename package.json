@@ -10,7 +10,8 @@
         "node-red-node-random": "0.4.1",
         "node-red-node-serialport": "1.0.3",
         "red-contrib-socketcan": "1.0.0",
-        "node-red-dashboard": "3.5.0"
+        "node-red-dashboard": "3.5.0",
+        "node-red-contrib-socketcan": "1.2.9"
     },
     "node-red": {
         "settings": {
