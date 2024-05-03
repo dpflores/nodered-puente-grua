@@ -32,17 +32,17 @@
         "env": []
     },
     {
-        "id": "0e59410b16d8c0d1",
+        "id": "f24bebacdb4e3198",
         "type": "tab",
-        "label": "CONNECTIVITY & MONITORING",
+        "label": "CAN",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
-        "id": "f24bebacdb4e3198",
+        "id": "0e59410b16d8c0d1",
         "type": "tab",
-        "label": "CAN",
+        "label": "CONNECTIVITY & MONITORING",
         "disabled": false,
         "info": "",
         "env": []
@@ -2168,301 +2168,6 @@
         "wires": []
     },
     {
-        "id": "873bfdb3ebe73b42",
-        "type": "inject",
-        "z": "0e59410b16d8c0d1",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "15",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 100,
-        "wires": [
-            [
-                "e9f8f0e46f741dc5",
-                "eecca71b01f41459",
-                "0d573abdbf175f32",
-                "274b0f20ca232ce3",
-                "f13ab55dbff28ada"
-            ]
-        ]
-    },
-    {
-        "id": "e9f8f0e46f741dc5",
-        "type": "exec",
-        "z": "0e59410b16d8c0d1",
-        "command": "echo -n $(echo -n $(ip addr show eth0 | grep -oP 'inet \\K\\S+'))",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "",
-        "x": 460,
-        "y": 80,
-        "wires": [
-            [
-                "2270b96b9047a64f"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "2270b96b9047a64f",
-        "type": "change",
-        "z": "0e59410b16d8c0d1",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "gateway_data.data.gateway_info.eth_ip",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 950,
-        "y": 80,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "eecca71b01f41459",
-        "type": "exec",
-        "z": "0e59410b16d8c0d1",
-        "command": "echo -n $(df -h --total | grep /dev/root | awk '{print$2}')",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "",
-        "x": 440,
-        "y": 200,
-        "wires": [
-            [
-                "f1698c9c40482245"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "0d573abdbf175f32",
-        "type": "exec",
-        "z": "0e59410b16d8c0d1",
-        "command": "echo -n $(df -h --total | grep /dev/root | awk '{print$4}')",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "",
-        "x": 440,
-        "y": 280,
-        "wires": [
-            [
-                "ec02d292455c948e"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "f1698c9c40482245",
-        "type": "change",
-        "z": "0e59410b16d8c0d1",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "gateway_data.data.gateway_info.total_space",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 970,
-        "y": 200,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "ec02d292455c948e",
-        "type": "change",
-        "z": "0e59410b16d8c0d1",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "gateway_data.data.gateway_info.free_space",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 960,
-        "y": 280,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "274b0f20ca232ce3",
-        "type": "exec",
-        "z": "0e59410b16d8c0d1",
-        "command": "echo -n $(vcgencmd measure_temp)",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "",
-        "x": 390,
-        "y": 360,
-        "wires": [
-            [
-                "1fd8a22d7826807e"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "87389f7bcf1de2ef",
-        "type": "change",
-        "z": "0e59410b16d8c0d1",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "gateway_data.data.gateway_info.temperature",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 970,
-        "y": 360,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "1fd8a22d7826807e",
-        "type": "change",
-        "z": "0e59410b16d8c0d1",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "$substring(payload,5,4)",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 640,
-        "y": 360,
-        "wires": [
-            [
-                "87389f7bcf1de2ef"
-            ]
-        ]
-    },
-    {
-        "id": "f13ab55dbff28ada",
-        "type": "exec",
-        "z": "0e59410b16d8c0d1",
-        "command": "echo -n $(echo -n $(ip addr show ztly5urarz | grep -oP 'inet \\K\\S+'))",
-        "addpay": "",
-        "append": "",
-        "useSpawn": "false",
-        "timer": "",
-        "winHide": false,
-        "oldrc": false,
-        "name": "",
-        "x": 480,
-        "y": 140,
-        "wires": [
-            [
-                "203b2aa8c3101509"
-            ],
-            [],
-            []
-        ]
-    },
-    {
-        "id": "203b2aa8c3101509",
-        "type": "change",
-        "z": "0e59410b16d8c0d1",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "gateway_data.data.gateway_info.vpn_ip",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 950,
-        "y": 140,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "8d590f6524b37452",
         "type": "switch",
         "z": "f24bebacdb4e3198",
@@ -3821,6 +3526,301 @@
         "libs": [],
         "x": 1270,
         "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "873bfdb3ebe73b42",
+        "type": "inject",
+        "z": "0e59410b16d8c0d1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "15",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "e9f8f0e46f741dc5",
+                "eecca71b01f41459",
+                "0d573abdbf175f32",
+                "274b0f20ca232ce3",
+                "f13ab55dbff28ada"
+            ]
+        ]
+    },
+    {
+        "id": "e9f8f0e46f741dc5",
+        "type": "exec",
+        "z": "0e59410b16d8c0d1",
+        "command": "echo -n $(echo -n $(ip addr show eth0 | grep -oP 'inet \\K\\S+'))",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 460,
+        "y": 80,
+        "wires": [
+            [
+                "2270b96b9047a64f"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "2270b96b9047a64f",
+        "type": "change",
+        "z": "0e59410b16d8c0d1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gateway_data.data.gateway_info.eth_ip",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 950,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eecca71b01f41459",
+        "type": "exec",
+        "z": "0e59410b16d8c0d1",
+        "command": "echo -n $(df -h --total | grep /dev/root | awk '{print$2}')",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 440,
+        "y": 200,
+        "wires": [
+            [
+                "f1698c9c40482245"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "0d573abdbf175f32",
+        "type": "exec",
+        "z": "0e59410b16d8c0d1",
+        "command": "echo -n $(df -h --total | grep /dev/root | awk '{print$4}')",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 440,
+        "y": 280,
+        "wires": [
+            [
+                "ec02d292455c948e"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f1698c9c40482245",
+        "type": "change",
+        "z": "0e59410b16d8c0d1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gateway_data.data.gateway_info.total_space",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 970,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ec02d292455c948e",
+        "type": "change",
+        "z": "0e59410b16d8c0d1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gateway_data.data.gateway_info.free_space",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 960,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "274b0f20ca232ce3",
+        "type": "exec",
+        "z": "0e59410b16d8c0d1",
+        "command": "echo -n $(vcgencmd measure_temp)",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 390,
+        "y": 360,
+        "wires": [
+            [
+                "1fd8a22d7826807e"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "87389f7bcf1de2ef",
+        "type": "change",
+        "z": "0e59410b16d8c0d1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gateway_data.data.gateway_info.temperature",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 970,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1fd8a22d7826807e",
+        "type": "change",
+        "z": "0e59410b16d8c0d1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$substring(payload,5,4)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 640,
+        "y": 360,
+        "wires": [
+            [
+                "87389f7bcf1de2ef"
+            ]
+        ]
+    },
+    {
+        "id": "f13ab55dbff28ada",
+        "type": "exec",
+        "z": "0e59410b16d8c0d1",
+        "command": "echo -n $(echo -n $(ip addr show ztly5urarz | grep -oP 'inet \\K\\S+'))",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 480,
+        "y": 140,
+        "wires": [
+            [
+                "203b2aa8c3101509"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "203b2aa8c3101509",
+        "type": "change",
+        "z": "0e59410b16d8c0d1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "gateway_data.data.gateway_info.vpn_ip",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 950,
+        "y": 140,
         "wires": [
             []
         ]
