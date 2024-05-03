@@ -157,34 +157,14 @@
         "responsetimeout": "10000"
     },
     {
-        "id": "fe44fd7d63e74a2d",
-        "type": "canconfig",
-        "channel": "can1",
-        "bitrate": "125000"
-    },
-    {
-        "id": "d9499f45a78ec16d",
-        "type": "canconfig",
-        "channel": "can0",
-        "bitrate": "125000"
-    },
-    {
-        "id": "d7031f3f43f31a77",
-        "type": "socketcan-config",
-        "interface": "can1"
-    },
-    {
-        "id": "9d8fe396d6dcfcdd",
-        "type": "socketcan-config",
-        "interface": "can0"
-    },
-    {
-        "id": "af698781cfdced6a",
-        "type": "ui_tab",
-        "name": "Pruebas",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
+        "id": "20aa6fa811d70d43",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "acme_db",
+        "tz": "",
+        "charset": "UTF8"
     },
     {
         "id": "a5db0d647510a054",
@@ -284,6 +264,14 @@
         }
     },
     {
+        "id": "af698781cfdced6a",
+        "type": "ui_tab",
+        "name": "Pruebas",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
         "id": "70ee9b44755ba42e",
         "type": "ui_group",
         "name": "Encoders",
@@ -317,14 +305,14 @@
         "className": ""
     },
     {
-        "id": "20aa6fa811d70d43",
-        "type": "MySQLdatabase",
-        "name": "",
-        "host": "127.0.0.1",
-        "port": "3306",
-        "db": "acme_db",
-        "tz": "",
-        "charset": "UTF8"
+        "id": "9798910cdd505d7e",
+        "type": "socketcan-config",
+        "interface": "can1"
+    },
+    {
+        "id": "ee639914ade9fb0a",
+        "type": "socketcan-config",
+        "interface": "can0"
     },
     {
         "id": "30c484a16d5cf253",
@@ -449,11 +437,11 @@
         "repeat": "",
         "crontab": "",
         "once": true,
-        "onceDelay": 0.1,
+        "onceDelay": "2",
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 90,
+        "x": 110,
         "y": 80,
         "wires": [
             [
@@ -563,7 +551,8 @@
         "y": 200,
         "wires": [
             [
-                "f03aa8974a8df3d5"
+                "f03aa8974a8df3d5",
+                "48b0d1d534bb3d1c"
             ]
         ]
     },
@@ -606,11 +595,56 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 800,
+        "x": 820,
         "y": 200,
         "wires": [
             []
         ]
+    },
+    {
+        "id": "04ab3ccc1c0836b6",
+        "type": "inject",
+        "z": "7e745af8071944c2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "d0b7194f8001f218"
+            ]
+        ]
+    },
+    {
+        "id": "48b0d1d534bb3d1c",
+        "type": "debug",
+        "z": "7e745af8071944c2",
+        "name": "debug 181",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 280,
+        "wires": []
     },
     {
         "id": "5778748aaab07c8a",
@@ -1097,14 +1131,14 @@
                 "vt": "str"
             }
         ],
-        "repeat": "1",
+        "repeat": "",
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 110,
+        "x": 100,
         "y": 220,
         "wires": [
             [
@@ -1215,91 +1249,6 @@
         "y": 340,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "1413e12e5d9080b4",
-        "type": "random",
-        "z": "42897ad46e77c19c",
-        "name": "",
-        "low": "12776216",
-        "high": "16777216",
-        "inte": "true",
-        "property": "payload",
-        "x": 300,
-        "y": 160,
-        "wires": [
-            [
-                "16ed7e71fe766008"
-            ]
-        ]
-    },
-    {
-        "id": "53b8d96c72cd1df7",
-        "type": "random",
-        "z": "42897ad46e77c19c",
-        "name": "",
-        "low": 1,
-        "high": "10000",
-        "inte": "true",
-        "property": "payload",
-        "x": 300,
-        "y": 280,
-        "wires": [
-            [
-                "597985ac516e6595"
-            ]
-        ]
-    },
-    {
-        "id": "e707f89f375f0cb9",
-        "type": "random",
-        "z": "42897ad46e77c19c",
-        "name": "",
-        "low": 1,
-        "high": "10000",
-        "inte": "true",
-        "property": "payload",
-        "x": 300,
-        "y": 340,
-        "wires": [
-            [
-                "6ea77dbf07a2bd53"
-            ]
-        ]
-    },
-    {
-        "id": "a27a3351d6d908b3",
-        "type": "random",
-        "z": "42897ad46e77c19c",
-        "name": "",
-        "low": "900",
-        "high": "25000",
-        "inte": "true",
-        "property": "payload",
-        "x": 300,
-        "y": 400,
-        "wires": [
-            [
-                "ef1d21386f04a4cf"
-            ]
-        ]
-    },
-    {
-        "id": "a70b679d8c449d78",
-        "type": "random",
-        "z": "42897ad46e77c19c",
-        "name": "",
-        "low": "900",
-        "high": "5000",
-        "inte": "true",
-        "property": "payload",
-        "x": 300,
-        "y": 460,
-        "wires": [
-            [
-                "e22188b9c2dae426"
-            ]
         ]
     },
     {
@@ -1743,23 +1692,6 @@
         ]
     },
     {
-        "id": "5f2c81066dbf49ef",
-        "type": "random",
-        "z": "42897ad46e77c19c",
-        "name": "",
-        "low": "0",
-        "high": "2096000",
-        "inte": "true",
-        "property": "payload",
-        "x": 300,
-        "y": 220,
-        "wires": [
-            [
-                "77e3658efa6ebfd4"
-            ]
-        ]
-    },
-    {
         "id": "41979b8c320760c0",
         "type": "function",
         "z": "42897ad46e77c19c",
@@ -1876,6 +1808,108 @@
         "wires": [
             [
                 "41979b8c320760c0"
+            ]
+        ]
+    },
+    {
+        "id": "1413e12e5d9080b4",
+        "type": "random",
+        "z": "42897ad46e77c19c",
+        "name": "",
+        "low": "12776216",
+        "high": "16777216",
+        "inte": "true",
+        "property": "payload",
+        "x": 300,
+        "y": 160,
+        "wires": [
+            [
+                "16ed7e71fe766008"
+            ]
+        ]
+    },
+    {
+        "id": "53b8d96c72cd1df7",
+        "type": "random",
+        "z": "42897ad46e77c19c",
+        "name": "",
+        "low": 1,
+        "high": "10000",
+        "inte": "true",
+        "property": "payload",
+        "x": 300,
+        "y": 280,
+        "wires": [
+            [
+                "597985ac516e6595"
+            ]
+        ]
+    },
+    {
+        "id": "e707f89f375f0cb9",
+        "type": "random",
+        "z": "42897ad46e77c19c",
+        "name": "",
+        "low": 1,
+        "high": "10000",
+        "inte": "true",
+        "property": "payload",
+        "x": 300,
+        "y": 340,
+        "wires": [
+            [
+                "6ea77dbf07a2bd53"
+            ]
+        ]
+    },
+    {
+        "id": "a27a3351d6d908b3",
+        "type": "random",
+        "z": "42897ad46e77c19c",
+        "name": "",
+        "low": "900",
+        "high": "25000",
+        "inte": "true",
+        "property": "payload",
+        "x": 300,
+        "y": 400,
+        "wires": [
+            [
+                "ef1d21386f04a4cf"
+            ]
+        ]
+    },
+    {
+        "id": "a70b679d8c449d78",
+        "type": "random",
+        "z": "42897ad46e77c19c",
+        "name": "",
+        "low": "900",
+        "high": "5000",
+        "inte": "true",
+        "property": "payload",
+        "x": 300,
+        "y": 460,
+        "wires": [
+            [
+                "e22188b9c2dae426"
+            ]
+        ]
+    },
+    {
+        "id": "5f2c81066dbf49ef",
+        "type": "random",
+        "z": "42897ad46e77c19c",
+        "name": "",
+        "low": "0",
+        "high": "2096000",
+        "inte": "true",
+        "property": "payload",
+        "x": 300,
+        "y": 220,
+        "wires": [
+            [
+                "77e3658efa6ebfd4"
             ]
         ]
     },
@@ -2514,95 +2548,42 @@
         "type": "function",
         "z": "f24bebacdb4e3198",
         "name": "encoder 2",
-        "func": "var data = msg.payload.data;\n\nlet out = data[6]*1000000 + data[4]*10000 + data[2]*100 + data[0];\n\nmsg.fdata = Math.round(out / 1000);\nmsg.payload = out;\n\nreturn msg;",
+        "func": "var data = msg.payload.data;\n\nlet out = data[6]*1000000 + data[4]*10000 + data[2]*100 + data[0];\n\nmsg.payload = out;\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 800,
+        "x": 680,
         "y": 220,
         "wires": [
             [
-                "010a90cd4a2dc78b",
                 "80381cdf57f71d6b",
-                "4abc6a941da5215e"
+                "f3df5d818448409d"
             ]
         ]
-    },
-    {
-        "id": "010a90cd4a2dc78b",
-        "type": "debug",
-        "z": "f24bebacdb4e3198",
-        "name": "debug 132",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "fdata",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1030,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "4abc6a941da5215e",
-        "type": "debug",
-        "z": "f24bebacdb4e3198",
-        "name": "debug 137",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 550,
-        "y": 140,
-        "wires": []
     },
     {
         "id": "757d891ad7dd67f5",
         "type": "function",
         "z": "f24bebacdb4e3198",
         "name": "encoder 1",
-        "func": "var data = msg.payload.data;\n\nlet out = data[6]*1000000 + data[4]*10000 + data[2]*100 + data[0];\n\nmsg.fdata = Math.round(out/1000);\n\nmsg.payload = out;\n\nreturn msg;",
+        "func": "var data = msg.payload.data;\n\nlet out = data[6]*1000000 + data[4]*10000 + data[2]*100 + data[0];\n\n\nmsg.payload = out;\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 800,
+        "x": 680,
         "y": 160,
         "wires": [
             [
-                "b38509e2b064ae94",
                 "c2745923679ccd3e",
-                "7939d68622a970d1"
+                "6ea2ce0c0c66abb5"
             ]
         ]
-    },
-    {
-        "id": "b38509e2b064ae94",
-        "type": "debug",
-        "z": "f24bebacdb4e3198",
-        "name": "debug 138",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "fdata",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1030,
-        "y": 160,
-        "wires": []
     },
     {
         "id": "aa47093f4cd9041f",
@@ -2827,20 +2808,19 @@
         "type": "function",
         "z": "f24bebacdb4e3198",
         "name": "encoder 4",
-        "func": "var data = msg.payload.data;\n\nlet out = data[6]*1000000 + data[4]*10000 + data[2]*100 + data[0];\n\nmsg.fdata = Math.round(out / 1000);\n\nmsg.payload = out;\n\nreturn msg;",
+        "func": "var data = msg.payload.data;\n\nlet out = data[6]*1000000 + data[4]*10000 + data[2]*100 + data[0];\n\nmsg.payload = out;\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 800,
-        "y": 360,
+        "x": 680,
+        "y": 340,
         "wires": [
             [
-                "85cd1e26a5840d27",
-                "c0df164212d36d3a",
-                "b24b125b3391287c"
+                "b24b125b3391287c",
+                "c3e15dd3eb8aaa9a"
             ]
         ]
     },
@@ -2849,56 +2829,21 @@
         "type": "function",
         "z": "f24bebacdb4e3198",
         "name": "encoder 3",
-        "func": "var data = msg.payload.data;\n\nlet out = data[6]*1000000 + data[4]*10000 + data[2]*100 + data[0];\n\nmsg.fdata = Math.round(out/1000);\n\nmsg.payload = out;\n\nreturn msg;",
+        "func": "var data = msg.payload.data;\n\nlet out = data[6]*1000000 + data[4]*10000 + data[2]*100 + data[0];\n\nmsg.payload = out;\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 800,
-        "y": 300,
+        "x": 680,
+        "y": 280,
         "wires": [
             [
-                "ae111ec0a8840cd3",
-                "b2a057664a47de22",
-                "a25d095b0dc5e10c"
+                "a25d095b0dc5e10c",
+                "8668c746d0106017"
             ]
         ]
-    },
-    {
-        "id": "ae111ec0a8840cd3",
-        "type": "debug",
-        "z": "f24bebacdb4e3198",
-        "name": "debug 140",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "fdata",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1030,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "85cd1e26a5840d27",
-        "type": "debug",
-        "z": "f24bebacdb4e3198",
-        "name": "debug 141",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "fdata",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1030,
-        "y": 360,
-        "wires": []
     },
     {
         "id": "a8ebf0ce8732517a",
@@ -3084,8 +3029,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1070,
-        "y": 80,
+        "x": 1290,
+        "y": 160,
         "wires": [
             []
         ]
@@ -3109,8 +3054,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1090,
-        "y": 240,
+        "x": 1290,
+        "y": 220,
         "wires": [
             []
         ]
@@ -3134,8 +3079,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1100,
-        "y": 320,
+        "x": 1300,
+        "y": 280,
         "wires": [
             []
         ]
@@ -3159,39 +3104,10 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1100,
-        "y": 400,
+        "x": 1300,
+        "y": 340,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "27549fae4fa58913",
-        "type": "socketcan-out",
-        "z": "f24bebacdb4e3198",
-        "name": "socketcan-out",
-        "config": "d7031f3f43f31a77",
-        "x": 190,
-        "y": 300,
-        "wires": [
-            [
-                "aa47093f4cd9041f",
-                "8d590f6524b37452"
-            ]
-        ]
-    },
-    {
-        "id": "f3bb113676d43533",
-        "type": "socketcan-out",
-        "z": "f24bebacdb4e3198",
-        "name": "socketcan-out",
-        "config": "9d8fe396d6dcfcdd",
-        "x": 330,
-        "y": 720,
-        "wires": [
-            [
-                "4933be1217db6718"
-            ]
         ]
     },
     {
@@ -3319,10 +3235,7 @@
         "x": 710,
         "y": 60,
         "wires": [
-            [
-                "7939d68622a970d1",
-                "46d80b4433962232"
-            ]
+            []
         ]
     },
     {
@@ -3393,90 +3306,6 @@
         "wires": []
     },
     {
-        "id": "c2745923679ccd3e",
-        "type": "ui_text",
-        "z": "f24bebacdb4e3198",
-        "group": "70ee9b44755ba42e",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Encoder 1 (Eje x):",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": "",
-        "color": "#000000",
-        "x": 1050,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "80381cdf57f71d6b",
-        "type": "ui_text",
-        "z": "f24bebacdb4e3198",
-        "group": "70ee9b44755ba42e",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Encoder 2 (Eje y):",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": "",
-        "color": "#000000",
-        "x": 1030,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "a25d095b0dc5e10c",
-        "type": "ui_text",
-        "z": "f24bebacdb4e3198",
-        "group": "70ee9b44755ba42e",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Encoder 3 (Eje z1, gancho 25 Tn):",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": "",
-        "color": "#000000",
-        "x": 1060,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "b24b125b3391287c",
-        "type": "ui_text",
-        "z": "f24bebacdb4e3198",
-        "group": "70ee9b44755ba42e",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "Encoder 4 (Eje z2, gancho 5 Tn):",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": "",
-        "color": "#000000",
-        "x": 1060,
-        "y": 440,
-        "wires": []
-    },
-    {
         "id": "57a90ac1cce01c30",
         "type": "function",
         "z": "f24bebacdb4e3198",
@@ -3498,46 +3327,80 @@
         ]
     },
     {
-        "id": "9722d4f978bc4289",
-        "type": "ui_text",
+        "id": "abba56ec1ad967a1",
+        "type": "change",
         "z": "f24bebacdb4e3198",
-        "group": "edfb2eacc3a17b91",
-        "order": 1,
-        "width": 0,
-        "height": 0,
         "name": "",
-        "label": "CAN ID 187 (Gancho 2, 5 Tn):",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": "",
-        "color": "#000000",
-        "x": 910,
-        "y": 620,
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"canid\":2005,\"dlc\":8,\"data\":[0,0,0,0,0,0,0,0]}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 760,
+        "y": 1400,
+        "wires": [
+            [
+                "414ae3071624c335"
+            ]
+        ]
+    },
+    {
+        "id": "67055db560fbdef8",
+        "type": "comment",
+        "z": "f24bebacdb4e3198",
+        "name": "gancho1 (25 Ton); gancho 2 (5 Ton)",
+        "info": "",
+        "x": 1260,
+        "y": 600,
         "wires": []
     },
     {
-        "id": "6c93f9cb6606d7fc",
-        "type": "ui_text",
+        "id": "414ae3071624c335",
+        "type": "socketcan-in",
         "z": "f24bebacdb4e3198",
-        "group": "edfb2eacc3a17b91",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "name": "",
-        "label": "CAN ID 287 (Gancho 1, 25 Tn):",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "className": "",
-        "style": false,
-        "font": "",
-        "fontSize": "",
-        "color": "#000000",
-        "x": 970,
-        "y": 740,
+        "name": "socketcan-in",
+        "config": "ee639914ade9fb0a",
+        "x": 1130,
+        "y": 1300,
         "wires": []
+    },
+    {
+        "id": "27549fae4fa58913",
+        "type": "socketcan-out",
+        "z": "f24bebacdb4e3198",
+        "name": "socketcan-out",
+        "config": "9798910cdd505d7e",
+        "x": 190,
+        "y": 300,
+        "wires": [
+            [
+                "aa47093f4cd9041f",
+                "8d590f6524b37452"
+            ]
+        ]
+    },
+    {
+        "id": "f3bb113676d43533",
+        "type": "socketcan-out",
+        "z": "f24bebacdb4e3198",
+        "name": "socketcan-out",
+        "config": "ee639914ade9fb0a",
+        "x": 330,
+        "y": 720,
+        "wires": [
+            [
+                "4933be1217db6718"
+            ]
+        ]
     },
     {
         "id": "10f08bc05befffe4",
@@ -3660,51 +3523,308 @@
         ]
     },
     {
-        "id": "414ae3071624c335",
-        "type": "socketcan-in",
+        "id": "c2745923679ccd3e",
+        "type": "ui_text",
         "z": "f24bebacdb4e3198",
-        "name": "socketcan-in",
-        "config": "d7031f3f43f31a77",
-        "x": 1130,
-        "y": 1300,
+        "group": "70ee9b44755ba42e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Encoder 1 (Eje x):",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 990,
+        "y": 60,
         "wires": []
     },
     {
-        "id": "abba56ec1ad967a1",
-        "type": "change",
+        "id": "80381cdf57f71d6b",
+        "type": "ui_text",
         "z": "f24bebacdb4e3198",
+        "group": "70ee9b44755ba42e",
+        "order": 2,
+        "width": 0,
+        "height": 0,
         "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "{\"canid\":2005,\"dlc\":8,\"data\":[0,0,0,0,0,0,0,0]}",
-                "tot": "json"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 760,
-        "y": 1400,
+        "label": "Encoder 2 (Eje y):",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 1010,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "a25d095b0dc5e10c",
+        "type": "ui_text",
+        "z": "f24bebacdb4e3198",
+        "group": "70ee9b44755ba42e",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Encoder 3 (Eje z1, gancho 25 Tn):",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 1040,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "b24b125b3391287c",
+        "type": "ui_text",
+        "z": "f24bebacdb4e3198",
+        "group": "70ee9b44755ba42e",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Encoder 4 (Eje z2, gancho 5 Tn):",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 1040,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "9722d4f978bc4289",
+        "type": "ui_text",
+        "z": "f24bebacdb4e3198",
+        "group": "edfb2eacc3a17b91",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "CAN ID 187 (Gancho 2, 5 Tn):",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 910,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "6c93f9cb6606d7fc",
+        "type": "ui_text",
+        "z": "f24bebacdb4e3198",
+        "group": "edfb2eacc3a17b91",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "CAN ID 287 (Gancho 1, 25 Tn):",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 970,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "6ea2ce0c0c66abb5",
+        "type": "function",
+        "z": "f24bebacdb4e3198",
+        "name": "filter_negative",
+        "func": "// Esto se utiliza cuando el encoder aumenta en el eje negativo\n// 0, 16777215, 16777214, 16777213, ....\nconst data_in = msg.payload;\nvar data_out = 0;\n\n// Número de vueltas negativas aceptadas\nconst vueltas_negativas = 10;\n\n// Formula para evitar los pasos despues del cero\nconst negative_steps_window = vueltas_negativas*4096;\n\nif (data_in>=0 && data_in <negative_steps_window){\n    data_out = 0;\n}\nelse{\n    data_out = 16777216 - data_in;\n}\nmsg.payload = data_out;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 160,
         "wires": [
             [
-                "414ae3071624c335"
+                "29affb5bbfd57fa3"
             ]
         ]
     },
     {
-        "id": "67055db560fbdef8",
-        "type": "comment",
+        "id": "29affb5bbfd57fa3",
+        "type": "function",
         "z": "f24bebacdb4e3198",
-        "name": "gancho1 (25 Ton); gancho 2 (5 Ton)",
-        "info": "",
-        "x": 1260,
-        "y": 600,
-        "wires": []
+        "name": "scale",
+        "func": "const axis_limits = global.get(\"axis_limits\");\n\nconst factor = axis_limits.x_axis_m;\nconst divisor = axis_limits.x_axis_steps;\n\nmsg.payload = factor * msg.payload / divisor;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 160,
+        "wires": [
+            [
+                "7939d68622a970d1"
+            ]
+        ]
+    },
+    {
+        "id": "f3df5d818448409d",
+        "type": "function",
+        "z": "f24bebacdb4e3198",
+        "name": "filter_negative",
+        "func": "// Esto se utiliza cuando el encoder aumenta en el eje negativo\n// 0, 16777215, 16777214, 16777213, ....\nconst data_in = msg.payload;\nvar data_out = 0;\n\n// Número de vueltas negativas aceptadas\nconst vueltas_negativas = 10;\n\n// Formula para evitar los pasos despues del cero\nconst negative_steps_window = vueltas_negativas*4096;\n\nif (data_in>=0 && data_in <negative_steps_window){\n    data_out = 0;\n}\nelse{\n    data_out = 16777216 - data_in;\n}\nmsg.payload = data_out;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 220,
+        "wires": [
+            [
+                "2f6993061f683df6"
+            ]
+        ]
+    },
+    {
+        "id": "2f6993061f683df6",
+        "type": "function",
+        "z": "f24bebacdb4e3198",
+        "name": "scale",
+        "func": "const axis_limits = global.get(\"axis_limits\");\n\nconst factor = axis_limits.x_axis_m;\nconst divisor = axis_limits.x_axis_steps;\n\nmsg.payload = factor * msg.payload / divisor;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 220,
+        "wires": [
+            [
+                "46d80b4433962232"
+            ]
+        ]
+    },
+    {
+        "id": "8668c746d0106017",
+        "type": "function",
+        "z": "f24bebacdb4e3198",
+        "name": "filter_negative",
+        "func": "// Esto se utiliza cuando el encoder aumenta en el eje negativo\n// 0, 16777215, 16777214, 16777213, ....\nconst data_in = msg.payload;\nvar data_out = 0;\n\n// Número de vueltas negativas aceptadas\nconst vueltas_negativas = 10;\n\n// Formula para evitar los pasos despues del cero\nconst negative_steps_window = vueltas_negativas*4096;\n\nif (data_in>=0 && data_in <negative_steps_window){\n    data_out = 0;\n}\nelse{\n    data_out = 16777216 - data_in;\n}\nmsg.payload = data_out;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 280,
+        "wires": [
+            [
+                "5d8f9b8769b34075"
+            ]
+        ]
+    },
+    {
+        "id": "5d8f9b8769b34075",
+        "type": "function",
+        "z": "f24bebacdb4e3198",
+        "name": "scale",
+        "func": "const axis_limits = global.get(\"axis_limits\");\n\nconst factor = axis_limits.x_axis_m;\nconst divisor = axis_limits.x_axis_steps;\n\nmsg.payload = factor * msg.payload / divisor;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 280,
+        "wires": [
+            [
+                "b2a057664a47de22"
+            ]
+        ]
+    },
+    {
+        "id": "c3e15dd3eb8aaa9a",
+        "type": "function",
+        "z": "f24bebacdb4e3198",
+        "name": "filter_negative",
+        "func": "// Esto se utiliza cuando el encoder aumenta en el eje negativo\n// 0, 16777215, 16777214, 16777213, ....\nconst data_in = msg.payload;\nvar data_out = 0;\n\n// Número de vueltas negativas aceptadas\nconst vueltas_negativas = 10;\n\n// Formula para evitar los pasos despues del cero\nconst negative_steps_window = vueltas_negativas*4096;\n\nif (data_in>=0 && data_in <negative_steps_window){\n    data_out = 0;\n}\nelse{\n    data_out = 16777216 - data_in;\n}\nmsg.payload = data_out;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 860,
+        "y": 340,
+        "wires": [
+            [
+                "a9423c30b683ac28"
+            ]
+        ]
+    },
+    {
+        "id": "a9423c30b683ac28",
+        "type": "function",
+        "z": "f24bebacdb4e3198",
+        "name": "scale",
+        "func": "const axis_limits = global.get(\"axis_limits\");\n\nconst factor = axis_limits.x_axis_m;\nconst divisor = axis_limits.x_axis_steps;\n\nmsg.payload = factor * msg.payload / divisor;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 340,
+        "wires": [
+            [
+                "c0df164212d36d3a"
+            ]
+        ]
+    },
+    {
+        "id": "20ca2df4d84a0a29",
+        "type": "function",
+        "z": "f24bebacdb4e3198",
+        "name": "filter_positive",
+        "func": "// Esto se utiliza cuando el encoder aumenta en el eje deseado\n// 0, 1, 2, 3, 4, 5, 6 ....\nconst data_in = msg.payload;\nvar data_out = 0;\n\n// Número de vueltas negativas aceptadas\nconst vueltas_negativas = 10;\n\n// Formula para evitar los pasos antes del cero\nconst negative_steps_window =16777216 - vueltas_negativas*4096;\n\n\nif (data_in>negative_steps_window){\n    data_out = 0;\n}\nelse{\n    data_out = data_in;\n}\nmsg.payload = data_out;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1270,
+        "y": 80,
+        "wires": [
+            []
+        ]
     },
     {
         "id": "69795f977d8350fe",
